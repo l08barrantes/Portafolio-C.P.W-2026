@@ -1,0 +1,6 @@
+# .gitignore del curso
+#sistema operativo
+thumbs.db
+#temprorales y comprimidos de trabajo
+*.tmp
+*.zip
