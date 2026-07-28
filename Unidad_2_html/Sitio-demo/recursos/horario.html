@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Horario de clases del sitio-demo" />
+    <meta name="keywords" content="horario, clases, sitio-demo" />
+    <meta name="author" content="Liam Barrantes" />
+    <title>Horario de clases</title>
+  </head>
+  <body>
+    <h1>Horario y guía del curso</h1>
+
+    <!--Lista Desordenada-->
+    <h2>Materiales del curso</h2>
+    <ul type="square">
+        <!--type de los ul -->
+      <li>Computadora</li>
+      <li>Visual Studio Code</li>
+      <li>Cuenta de GitHub</li>
+      <li>Cuaderno de bitácora</li>
+    </ul>
+
+    <!--Emmet: ul>li*3-->
+
+    <hr />
+    <br />
+    <!--Lista Ordenada-->
+    <h2>Cómo entregar una práctica</h2>
+    <!--Emmet:ol>li*8-->
+    <ol type="I">
+      <li>Traer los cambios con git pull</li>
+      <li>Crear la rama para la práctica con git switch -c</li>
+      <li>Trabajar y hacer commits atómicos</li>
+      <li>Subir la rama con git push</li>
+      <li>Abrir un pull request en GitHub</li>
+      <li>Revisar y fusionar el pull request</li>
+      <li>olver a la rama principal (main)</li>
+      <li>Eliminar la rama de la práctica con git branch -d</li>
+    </ol>
+    <br />
+    <hr />
+  
+
+<<!--Algunos atributos probados en vivo-->
+<!--<ol reversed, type="1", type= "A",type= "a",type= "I">-->
+
+    <!Glosario git con listas descriptivas: pares de términos y descripciones>
+    <h2>Glosario con listas descriptivas</h2>
+    <!--emmet: dl>(dt+dd)*3-->
+    <dl>
+      <dt>Commit</dt>
+      <dd>Instantanea permanente del proyecto en un momento dado.</dd>
+      <dt>Rama</dt>
+      <dd>Línea de trabajo paralela que no afecta a main o rama principal.</dd>
+      <dt>Pull</dt>
+      <dd>Solicitud de revisión para incorporar la rama</dd> (staging area).</dd>
+    </dl>
+    <hr/br>
+    <!--listaanidada, usadaen menús y submenús-->
+    </h2>Temario de la unidad: con lista anidada</h2>
+    <!--emmet: ul>li*3>ul>li*2-->
+    <ul><li>estructura de un documento
+        <ul>
+            <li>DOCTYPE Y HTML
+            <li>head y metadatos
+        </ul>
+    </li>
+</ul>
+
+<ul><li>Contenido
+        <ul>
+            <li>Textos y enlaces
+            <li>Listas y tablas
+        </ul>
+    </li>
+
+<hr><br>
+    <h2>Tabla de horarios</h2>
+    <!--emmet: table>tr*3>td*3-->
+    <table border="1">
+        <caption>Horario de clases y actividades</caption>
+        <thead>
+            <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Contenido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <r>
+                <td>Lunes</td>
+                <td>13:30 - 17:30</td>
+                <td>Listas y tablas</td>|
+            </trbody>
+            <trfooter>
+                ><tr>
+                    >td colspan="4" aling="center">Total semanal</td>
+                </tr>
+            </tr>
+        </tfoot>
+   
+ </body>
+ </html>
