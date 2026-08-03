@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Liam Barrantes" content="width=device-width, initial-scale=1.0">
+    <title>The Strawberry Tour - Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+        <a href="index.html" class="nav-brand"><i class="fa-solid fa-strawberry"></i> Strawberry Tour</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Listas.html" class="active">Servicios</a></li>
+            <li><a href="Galeria.html">Galería</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="Insignia.html">Insignias</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-container">
+        <h1 class="page-title">Reserva tu Experiencia</h1>
+        <p class="page-subtitle">Ponte en contacto con nosotros para programar tu visita</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 style="margin-bottom: 20px; color: var(--text-main);">Información de Visita</h2>
+                <ul class="custom-list">
+                    <li><i class="fa-solid fa-location-dot"></i> <strong>Ubicación:</strong> Finca Las Fresas, Valle Central.</li>
+                    <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> reservas@strawberrytour.com</li>
+                    <li><i class="fa-solid fa-phone"></i> <strong>Teléfono:</strong> +506 8000-0000</li>
+                    <li><i class="fa-solid fa-clock"></i> <strong>Atención:</strong> Martes a Domingo, 8:00 AM - 5:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="contact-form-box">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tour">Selecciona el Tour</label>
+                        <select id="tour" name="tour">
+                            <option value="estandar">Tour Guiado Estándar</option>
+                            <option value="cosecha">Taller de Cosecha</option>
+                            <option value="vip">Experiencia VIP Atardecer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje o Solicitud Especial</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Cuántas personas asistirán?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Reserva</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
