@@ -1,0 +1,38 @@
+## El sitio personal
+
+Proyecto propio construido de forma autónoma.
+**Tema del sitio:** _The Strawberry Tour_
+
+| Página | Qué contiene | Sesiones aplicadas | Ver | Validación |
+|:-------|:-------------|:------------------:|:---:|:----------:|
+| `index.html` | Estructura semántica, metadatos, texto jerarquizado, citas, enlaces y anclas | S03 · S04 · S06 | [ver](Unidad_02_html/sitio-personal/index.html) | [ver](recursos/Index.png) |
+| `lista.html` | Las tres listas, lista anidada y tabla con celdas combinadas de servicios y planes | S05 | [ver](Unidad_02_html/sitio-personal/Listas.html) | [ver](recursos/Listas.png) |
+| `contacto.html` | Formulario de reserva con campos validados en HTML5 (nombre, correo, opción de tour y mensaje) | S06 | [ver](Unidad_02_html/sitio-personal/Contacto.html) | [ver](recursos/Contacto.png) |
+| `galeria.html` | Galería fotográfica del tour, campos y cosecha con soporte multimedia | S07 · S08 | [ver](Unidad_02_html/sitio-personal/galeria.html) | [ver](recursos/Galeria.png) |
+| `insignia.html` | Tarjetas de certificación y gráficos vectoriales SVG con insignias de sostenibilidad | S07 · S08 | [ver](Unidad_02_html/sitio-personal/Insignia.html) | [ver](recursos/Insignia.png) |
+
+**Decisiones que tomé**
+
+| Decisión | Qué elegí | Por qué |
+|:---------|:----------|:--------|
+| Tema del sitio | The Strawberry Tour | Para ofrecer una experiencia educativa sobre el cultivo agroturístico, la cosecha orgánica y la cata artesanal de la fresa. |
+| Atributo de la lista ordenada | `type="1"` y `start` | Para presentar una secuencia cronológica clara de los pasos del itinerario durante la visita guiada. |
+| Formatos de imagen usados | `.png` | Exclusivos para la sección de galería, garantizando alto nivel de detalle y compresión liviana en las fotos del campo. |Formas del gráfico SVG / Insignias | Círculos, bordes vectoriales e íconos temáticos | Para diseñar los sellos de certificación de "Cultivo 100% Orgánico" y de forma escalable sin perder nitidez. |
+
+**Cómo se ve**
+
+**Cómo se ve**
+
+<p align="center">
+  <img src="recursos/imgindex.html.png" width="600" alt="Portada de The Strawberry Tour">
+</p>
+
+<div align="center" markdown="1">
+*Portada del sitio The Strawberry Tour al cerrar la Unidad 2.*
+
+</div>
+
+**Comprobado en dos navegadores:**
+[Chrome](/Unidad_2_html/Sitio-Personal/recursos-html//sp-navegador-chrome.png) 
+
+[Edge](/Unidad_2_html/Sitio-Personal/recursos-html//sp-navegador-firefox.png)

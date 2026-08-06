@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Liam Barrantes" content="width=device-width, initial-scale=1.0">
+    <title>The Strawberry Tour - Galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+ <nav class="main-nav">
+        <a href="index.html" class= "nav-brand"><i class="fa-solid fa-strawberry"></i> Strawberry Tour</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Listas.html" class="active">Servicios</a></li>
+            <li><a href="Galeria.html">Galería</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="Insignia.html">Insignias</a></li>
+        </ul>
+    </nav>
+
+   <main id="contenido-principal">
+    <h2>Evidencias Multimedia del Proyecto</h2>
+
+    <!-- HORA 5: Imágenes -->
+    <section id="galeria-fotografica">
+      <h3>Fotografías del Huerto</h3>
+
+      <!-- Imagen simple -->
+      <p>
+        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas1.png" alt="" width="400" height="260">
+         <figcaption>Cultivos al aire libre.</figcaption>
+      </p>
+
+      <!-- Imagen agrupada con pie -->
+      <figure>
+        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas2.png" alt="" width="400" height="260">
+        <figcaption></figcaption>
+      </figure>
+
+      <!-- Imagen adaptativa con varios formatos -->
+      <picture>
+        <source srcset="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas3.png" type="image/webp">
+        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas2.png" alt="" width="400" height="260">
+      </picture>
+    </section>
+
+<!-- HORA 5: Video -->
+    <section id="video-tutorial">
+      <h3>Taller en Video: The Strawberry Tour</h3>
+      <video controls width="480" poster="/Unidad_2_html/Sitio-Personal/recursos-html/portada-video.jpg" preload="auto">
+        <source src="/Unidad_2_html/Sitio-Personal/recursos-html/video.mp4" type="video/mp4">
+        <source src="/Unidad_2_html/Sitio-Personal/recursos-html/nombre delvideo.webm" type="video/webm">
+        <track src="/Unidad_2_html/Sitio-Personal/recursos-html/subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
+        Su navegador no admite la reproducción de video HTML5. Puede <a href="/Unidad_2_html/Sitio-Personal/recursos-html/10 consejos.mp4">descargar el tutorial aquí</a>.
+      </video>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
