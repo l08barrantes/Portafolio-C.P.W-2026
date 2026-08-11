@@ -94,7 +94,7 @@ header nav a {
 
 /*Aplicar estilos a identificadores  o IDs*/
 #inicio{
-    background-image: url(../Recursos/fondo1.jpg);
+    background-image: url(../recursos/fondo.1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -149,7 +149,18 @@ aside{
     padding-left: 10px aplica izquierda*/
 
     /* aplicamos a la tabla horatio.html*/
-    th,td{
+    th, td{
         padding: 10px;
     }
+}
+fieldset{
+    margin:32px; 
+}
+/*listas de horario*/
+main, ul, main ol{
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+main li{
+    margin-bottom: 6px;
 }
