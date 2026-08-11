@@ -17,8 +17,16 @@ body {
     line-height: 1.6;
     font-family: Arial, sans-serif;
     color: #333;
-    background-color: #fcfcfc;
+    background-color: #b4cedc;
 } /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
+ .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+}
 h1{
     color:#aad6fe;
     text-align: center;
@@ -27,13 +35,9 @@ h1{
     font-size: 2.5rem;
     font-weight: 700;
 }
-h2{
+h2, h3{
     font-size: 2rem;
     font-weight: 700;
-}
-h3{
-    font-size: 1.5em;
-    font-weight: 600;
 }
 p{
     font-size: 1rem;
@@ -55,7 +59,8 @@ footer{
 }
 
 h2, h3{
-    color: #1f4e79;
+    color: #436a8f;
+    margin-bottom: 12px;
 }
 
 main p{
@@ -129,4 +134,21 @@ article p::first-letter{
 body{
     font-family: "Poppins",Arial, Helvetica, sans-serif;
     line-height: 1.6;
+}
+aside{
+    padding: 20px;
+    border: 2px solid #1f4e79;
+    border-radius: 20px;
+    /*en este caso el paddig se alplica a llos 4 lados a la vez, paddig:10px20px aplica vertical y horizontal, padding:10px 20px 15pxaplica  a los 4 lados valores distinyod  en sentido a las manillas del reloj*/
+
+    /*aplicar lado por lado
+    padding-top: 10px aplica arriba
+    padding-right: 10px aplica derecha
+    padding-bottom: 10px aplica abajo
+    padding-left: 10px aplica izquierda*/
+
+    /* aplicamos a la tabla horatio.html*/
+    th,td{
+        padding: 10px;
+    }
 }

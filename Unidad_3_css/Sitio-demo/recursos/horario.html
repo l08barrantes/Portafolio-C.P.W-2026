@@ -1,113 +1,207 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Horario de clases del sitio-demo" />
-    <meta name="keywords" content="horario, clases, sitio-demo" />
-    <meta name="author" content="Liam Barrantes" />
-    <title>Horario de clases</title>
-  </head>
-  <body>
-    <h1>Horario y guía del curso</h1>
+<!DOCTYPE html>
+<div lang="es">
 
-    <!--Lista Desordenada-->
-    <h2>Materiales del curso</h2>
-    <ul type="square">
-        <!--type de los ul -->
-      <li>Computadora</li>
-      <li>Visual Studio Code</li>
-      <li>Cuenta de GitHub</li>
-      <li>Cuaderno de bitácora</li>
-    </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Liam Barrantes" />
+  <meta name="description" content="Horario, materiales y calendario del módulo CSTI12002 Codificación de páginas web.">
+  <meta name="keywords" content="horario, calendario, temario, CSTI12002, INA">
 
-    <!--Emmet: ul>li*3-->
+  <title>Horario | Codificación de páginas web</title>
 
-    <hr />
-    <br />
-    <!--Lista Ordenada-->
-    <h2>Cómo entregar una práctica</h2>
-    <!--Emmet:ol>li*8-->
-    <ol type="I">
-      <li>Traer los cambios con git pull</li>
-      <li>Crear la rama para la práctica con git switch -c</li>
-      <li>Trabajar y hacer commits atómicos</li>
-      <li>Subir la rama con git push</li>
-      <li>Abrir un pull request en GitHub</li>
-      <li>Revisar y fusionar el pull request</li>
-      <li>olver a la rama principal (main)</li>
-      <li>Eliminar la rama de la práctica con git branch -d</li>
-    </ol>
-    <br />
-    <hr />
-  
+  <link rel="icon" href="recursos/Favicon.png.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+    <div class="contenedor">
+</head>
 
-    <!--Algunos atributos probados en vivo-->
-<!--<ol reversed, type="1", type= "A",type= "a",type= "I">-->
+<body>
+  <header id="inicio">
+    <h1>Codificación de páginas web</h1>
+    <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
 
-    <!--Glosario git con listas descriptivas: pares de términos y descripciones-->
-    <h2>Glosario con listas descriptivas</h2>
-    <!--emmet: dl>(dt+dd)*3-->
-    <dl>
-      <dt>Commit</dt>
-      <dd>Instantanea permanente del proyecto en un momento dado.</dd>
-      <dt>Rama</dt>
-      <dd>Línea de trabajo paralela que no afecta a main o rama principal.</dd>
-      <dt>Pull</dt>
-      <dd>Solicitud de revisión para incorporar la rama</dd> (staging area).</dd>
-    </dl>
-    <hr/br>
-    <!--listaanidada, usadaen menús y submenús-->
-    </h2>Temario de la unidad: con lista anidada</h2>
-    <!--emmet: ul>li*3>ul>li*2-->
-    <ul><li>estructura de un documento
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="articulo.html">Artículo</a></li>
+        <li><a href="horario.html">Horario</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="insignia.html">Insignia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <nav>
+      <h2>En esta página</h2>
+      <ul>
+        <li><a href="#materiales">Materiales necesarios</a></li>
+        <li><a href="#entrega">Cómo entregar una práctica</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#temario">Temario por unidad</a></li>
+        <li><a href="#calendario">Calendario semanal</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h2>Horario y guía del curso</h2>
+
+      <!-- LISTA DESORDENADA: el orden no importa (Sesión 5) -->
+      <section id="materiales">
+        <h3>Materiales necesarios</h3>
+        <p>Para trabajar en el módulo hace falta:</p>
         <ul>
-            <li>DOCTYPE Y HTML
-            <li>head y metadatos
+          <li>Computadora con acceso a internet</li>
+          <li>Visual Studio Code instalado</li>
+          <li>Cuenta de GitHub con el correo verificado</li>
+          <li>Cuaderno de bitácora</li>
         </ul>
-    </li>
-</ul>
+      </section>
 
-<ul><li>Contenido
+      <!--  LISTA ORDENADA: la secuencia sí importa  -->
+      <section id="entrega">
+        <h3>Cómo entregar una práctica</h3>
+        <p>El protocolo se repite en todas las sesiones:</p>
+        <ol>
+          <li>Traer los cambios con <code>git pull</code></li>
+          <li>Crear la rama de la práctica</li>
+          <li>Trabajar y hacer commits atómicos</li>
+          <li>Subir la rama con <code>git push</code></li>
+          <li>Abrir el Pull Request</li>
+          <li>Revisar y fusionar</li>
+          <li>Volver a la rama principal y actualizar</li>
+          <li>Eliminar la rama local</li>
+        </ol>
+        <p>
+          Los pasos <strong>no son intercambiables</strong>: no se puede hacer
+          un commit antes de crear la rama.
+        </p>
+      </section>
+
+      <!--  LISTA DESCRIPTIVA: pares de término y descripción  -->
+      <section id="glosario">
+        <h3>Glosario</h3>
+        <dl>
+          <dt>Commit</dt>
+          <dd>Instantánea permanente del proyecto en un momento dado.</dd>
+
+          <dt>Rama</dt>
+          <dd>Línea de trabajo paralela que no afecta a la rama principal.</dd>
+
+          <dt>Pull Request</dt>
+          <dd>Solicitud de revisión para incorporar una rama al proyecto.</dd>
+
+          <dt>Repositorio</dt>
+          <dd>Carpeta del proyecto con todo su historial de cambios.</dd>
+        </dl>
+      </section>
+
+      <!--  LISTA ANIDADA: la sublista va dentro del li -->
+      <section id="temario">
+        <h3>Temario por unidad</h3>
         <ul>
-            <li>Textos y enlaces
-            <li>Listas y tablas
+          <li>Unidad 2 &mdash; Etiquetas y atributos HTML
+            <ul>
+              <li>Estructura del documento</li>
+              <li>Texto, enlaces y anclas</li>
+              <li>Listas y tablas</li>
+              <li>Formularios y semántica</li>
+            </ul>
+          </li>
+          <li>Unidad 3 &mdash; Codificación de hojas de estilo
+            <ul>
+              <li>Selectores y pseudo-clases</li>
+              <li>Modelo de cajas</li>
+              <li>Flexbox y Grid</li>
+            </ul>
+          </li>
+          <li>Unidad 4 &mdash; Páginas web responsivas
+            <ul>
+              <li>Viewport y anchos fluidos</li>
+              <li>Media queries</li>
+              <li>Patrones de diseño adaptativo</li>
+            </ul>
+          </li>
         </ul>
-    </li>
+      </section>
 
-<hr><br>
-    <h2>Tabla de horarios</h2>
-    <!--emmet: table>tr*3>td*3-->
-    <table border="1">
-        <caption>Horario de clases y actividades</caption>
-        <thead>
+      <!-- TABLA CON SUS TRES ZONAS -->
+      <section id="calendario">
+        <h3>Calendario semanal</h3>
+
+        <table>
+          <caption>Horario del módulo CSTI12002, primera semana</caption>
+
+          <thead>
             <tr>
-                <th scope="col">Día</th>
-                <th scope="col">Modalidad</th>
-                <th scope="col">Horario</th>
-                <th scope="col">Contenido</th>
+              <th scope="col">Semana</th>
+              <th scope="col">Día</th>
+              <th scope="col">Modalidad</th>
+              <th scope="col">Contenido</th>
             </tr>
-        </thead>
-        <tbody>
-            <r>
-                <td>Lunes</td>
-                <td>Presencial</td> 
-                <td>13:30 - 17:30</td>
-                <td>Listas y tablas</td>
-            </trbody>
-            <trfooter>
-                ><tr>
-                    >td colspan="4" aling="center">Total semanal</td>
-                </tr>
-            </tr>
-        </tfoot>
-         </main>
-    <footer>
-      <!--Footer: Pie, créditos, contacto, derechos-->
-      <p>
-        © 2026 INA. Programa Desarrollo de Páginas Web. Todos los derechos
-        reservados
-      </p>
-    </footer>
+          </thead>
 
-    </body> 
- </html>
+          <tbody>
+            <tr>
+              <td rowspan="3">Semana 1</td>
+              <th scope="row">Lunes</th>
+              <td>Presencial</td>
+              <td>Control de versiones</td>
+            </tr>
+            <tr>
+              <th scope="row">Martes</th>
+              <td>Presencial</td>
+              <td>Git colaborativo y XML</td>
+            </tr>
+            <tr>
+              <th scope="row">Jueves</th>
+              <td>Presencial</td>
+              <td>Estructura del documento HTML5</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Semana 2</td>
+              <th scope="row">Viernes</th>
+              <td>Virtual</td>
+              <td>Texto, enlaces y anclas</td>
+            </tr>
+            <tr>
+              <th scope="row">Lunes</th>
+              <td>Presencial</td>
+              <td>Listas y tablas</td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="4">Total: 20 horas semanales, en jornadas de 4 horas.</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <p>
+          Las sesiones virtuales combinan un bloque sincrónico con trabajo
+          autónomo. Para inscribirse en una sesión de refuerzo, use el
+          <a href="registro.html">formulario de registro</a>.
+        </p>
+      </section>
+    </article>
+
+    <p><a href="#inicio">Volver al inicio de la página</a></p>
+
+  </main>
+
+  <footer>
+    <h2>Contacto</h2>
+    <address>
+      Instituto Nacional de Aprendizaje<br>
+      Correo: <a href="mailto:liambarra@ejemplo.com">liambarra@ejemplo.com</a>
+    </address>
+    <p><small>&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small></p>
+  </footer>
+
+</body>
+</div>
+</html>

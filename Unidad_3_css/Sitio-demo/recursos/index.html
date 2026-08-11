@@ -1,41 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio demo | Codificacion de páginas web</title>
-    <!--Nuestros metadatos-->
-    <meta name="description" content="Sitio demo para la unidad de codificación de páginas web">
-    <meta name="keywords" content="sitio, demo, codificación, páginas web">
-    <meta name="author" content="Liam Barrantes">
-    <link rel="icon" type="image/png" href="recursos/favicon.png">
+  <!-- METADATOS (Sesión 3) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Valery Shanay Mora Acevedo">
+  <meta name="description" content="Sitio de demostración del módulo CSTI12002 Codificación de páginas web del INA.">
+  <meta name="keywords" content="HTML, CSS, desarrollo web, INA, CSTI12002">
+
+  <title>Inicio | Codificación de páginas web</title>
+
+  <link rel="icon" href="recursos/Favicon.png.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+  <div class="contenedor">
 </head>
+
 <body>
-    <header>
-        <h1>Codificación de páginas web</h1>
-        <p> Sitio de demostración del módulo</p>
-        
-   <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="Registro.html">Registro</a></li>
-                <li><a href="horario.html">Horario</a></li>
-            </ul>
-        </nav>
+  <!-- CABECERA (Sesión 6) -->
+  <header id="inicio">
+    <h1>Codificación de páginas web</h1>
+    <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
 
-        </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="articulo.html">Artículo</a></li>
+        <li><a href="horario.html">Horario</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="insignia.html">Insignia</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <!--en el main se coloca el contenido principal del sitio web-->
-        <h2>sobre el módulo</h2>
-    </main>
-    </main>
-    <footer>
-      <!--Footer: Pie, créditos, contacto, derechos-->
+  <!-- CONTENIDO PRINCIPAL  -->
+  <main id="contenido">
+
+    <!-- Índice con anclas internas (Sesión 4) -->
+    <nav>
+      <h2>En esta página</h2>
+      <ul>
+        <li><a href="#modulo">Sobre el módulo</a></li>
+        <li><a href="#unidades">Las cinco unidades</a></li>
+        <li><a href="#evaluacion">Cómo se evalúa</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h2>Presentación del módulo</h2>
+
+      <section id="modulo">
+        <h3>Sobre el módulo</h3>
+        <p>
+          Este módulo comprende <strong>150 horas</strong> distribuidas en cinco
+          unidades de aprendizaje. Se estudia la construcción de páginas web
+          desde su estructura hasta el uso de un framework de diseño.
+        </p>
+        <p>
+          El enfoque es <em>eminentemente práctico</em>: cada sesión produce una
+          evidencia que se incorpora al portafolio personal.
+        </p>
+
+        <blockquote cite="https://www.ina.ac.cr">
+          <p>
+            Se aprende primero a construir a mano para comprender qué hace
+            un framework y poder decidir cuándo conviene usarlo.
+          </p>
+          <footer>Principio metodológico del módulo</footer>
+        </blockquote>
+      </section>
+
+      <section id="unidades">
+        <h3>Las cinco unidades</h3>
+        <p>El recorrido avanza de la estructura a la presentación:</p>
+        <ol>
+          <li>Implementación de control de versiones</li>
+          <li>Empleo de etiquetas y atributos <abbr title="HyperText Markup Language">HTML</abbr></li>
+          <li>Codificación de hojas de estilo</li>
+          <li>Elaboración de páginas web responsivas</li>
+          <li>Uso de frameworks y librerías</li>
+        </ol>
+        <p>
+          El detalle de cada sesión está en la
+          <a href="horario.html">página de horario</a>.
+        </p>
+      </section>
+
+      <section id="evaluacion">
+        <h3>Cómo se evalúa</h3>
+        <p>
+          Cada unidad cierra con una actividad de comprobación. Como dice el
+          instrumento, la evaluación es <q>por producto</q>: se valora el
+          proyecto entregado, no un examen escrito.
+        </p>
+        <p>
+          Para matricularse en una sesión de refuerzo puede usar el
+          <a href="registro.html">formulario de registro</a>.
+        </p>
+      </section>
+    </article>
+
+    <!-- Contenido relacionado pero secundario -->
+    <aside>
+      <h2>Aviso</h2>
       <p>
-        © 2026 INA. Programa Desarrollo de Páginas Web. Todos los derechos
-        reservados
+        Las actividades de comprobación se aplican en las sesiones
+        <strong>9 y 10</strong>. Consulte el
+        <a href="horario.html#calendario">calendario completo</a>.
       </p>
-    </footer>
+    </aside>
+
+    <p><a href="#inicio">Volver al inicio de la página</a></p>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <h2>Contacto</h2>
+    <address>
+      Instituto Nacional de Aprendizaje<br>
+      Núcleo Comercio y Servicios<br>
+      Correo: <a href="mailto:giocoto@ejemplo.com">giocoto@ejemplo.com</a>
+    </address>
+    <p>
+      Recurso externo:
+      <a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener">
+        Documentación MDN Web Docs
+      </a>
+    </p>
+    <p><small>&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small></p>
+  </footer>
+
 </body>
+</div>
+</html>
+

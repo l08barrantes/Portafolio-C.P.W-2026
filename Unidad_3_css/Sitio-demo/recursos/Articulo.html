@@ -1,19 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
- </main>
-    <footer>
-      <!--Footer: Pie, créditos, contacto, derechos-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Liam Barrantes" />
+    <meta
+      name="description"
+      content="Artículo sobre la evolución del HTML y el estándar vivo de la WHATWG."/>
+    <meta
+      name="keywords"
+      content="HTML5, estándar vivo, WHATWG, W3C, historia de la web"/>
+
+    <title>Artículo | Codificación de páginas web</title>
+
+    <link rel="icon" href="recursos/Favicon.png.png" type="image/png" />
+    <link rel="stylesheet" href="css/estilos.css" />
+      <div class="contenedor">
+  </head>
+
+  <body>
+    <header id="inicio">
+      <h1>Codificación de páginas web</h1>
       <p>
-        © 2026 INA. Programa Desarrollo de Páginas Web. Todos los derechos
-        reservados
+        Sitio de demostración del módulo
+        <abbr title="Código del módulo">CSTI12002</abbr>.
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="articulo.html">Artículo</a></li>
+          <li><a href="horario.html">Horario</a></li>
+          <li><a href="registro.html">Registro</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="insignia.html">Insignia</a></li
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido"> <!--Con el uso de anclas-->
+      <nav>
+        <h2>Contenido del artículo</h2>
+        <ul>
+          <li><a href="#origen">El origen</a></li>
+          <li><a href="#versiones">Las versiones numeradas</a></li>
+          <li><a href="#estandar-vivo">El estándar vivo</a></li>
+          <li><a href="#validacion">Por qué validar</a></li>
+        </ul>
+      </nav>
+
+      <article>
+        <h2>La evolución del HTML: de las versiones al estándar vivo</h2>
+
+        <p>
+          El lenguaje que estructura la web cumple más de tres décadas. Su
+          historia explica por qué hoy se escribe como se escribe.
+        </p>
+
+        <section id="origen">
+          <h3>El origen</h3>
+          <p>
+            El <abbr title="HyperText Markup Language">HTML</abbr> nació en
+            <strong>1989</strong>, cuando Tim Berners-Lee trabajaba en el
+            <abbr title="Organización Europea para la Investigación Nuclear"
+              >CERN</abbr>. Su propósito original era <em>vincular y compartir documentos científicos<em> entre investigadores.
+          </p>
+          <p>
+            Aquella primera propuesta no buscaba crear páginas atractivas:
+            buscaba que un documento pudiera enlazar a otro. De ahí viene el
+            nombre <q>hipertexto</q>.
+          </p>
+        </section>
+
+        <section id="versiones">
+          <h3>Las versiones numeradas</h3>
+          <p>
+            Durante dos décadas el lenguaje avanzó por versiones. El hito más
+            importante llegó en <strong>1999</strong> con HTML 4.01, que
+            estableció un principio vigente hasta hoy:
+            <strong>separar el contenido de la presentación</strong>. El
+            contenido queda en HTML; la apariencia, en
+            <abbr title="Cascading Style Sheets">CSS</abbr>.
+          </p>
+
+          <blockquote cite="https://www.w3.org/TR/html401/">
+            <p>
+              La separación entre estructura y presentación permite que un mismo
+              documento se muestre de formas distintas según el medio, sin
+              reescribir su contenido.
+            </p>
+            <footer>
+              Principio recogido en la especificación
+              <cite>HTML 4.01</cite> del W3C
+            </footer>
+          </blockquote>
+
+          <p>
+            En <strong>2014</strong> se publicó HTML5, que incorporó las
+            etiquetas semánticas, la reproducción nativa de audio y video, y la
+            <abbr title="Interfaz de Programación de Aplicaciones">API</abbr> de
+            dibujo en lienzo.
+          </p>
+        </section>
+
+        <section id="estandar-vivo">
+          <h3>El estándar vivo</h3>
+          <p>
+            Desde <strong>2019</strong> las versiones numeradas desaparecieron.
+            La
+            <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr>
+            &mdash;integrada por Apple, Google, Mozilla y Microsoft&mdash;
+            gestiona el <em>HTML Living Standard</em>.
+          </p>
+          <p>
+            Esto significa que el lenguaje ya no se actualiza por lanzamientos
+            anuales, sino de manera continua: se añaden etiquetas y capacidades
+            de forma progresiva, manteniendo la compatibilidad con lo anterior.
+            Por eso el código escrito hace años sigue funcionando.
+          </p>
+          <p>
+            La especificación puede consultarse en
+            <a
+              href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">
+              el sitio oficial de la WHATWG </a>.
+          </p>
+        </section>
+
+        <section id="validacion">
+          <h3>Por qué validar</h3>
+          <p>
+            El <abbr title="World Wide Web Consortium">W3C</abbr> desarrolla los
+            estándares abiertos de la web. Que exista un estándar es lo que
+            garantiza que una página se vea igual en cualquier navegador.
+          </p>
+          <p>
+            Su validador comprueba que el documento cumple la especificación. Un
+            documento válido es más fácil de mantener, se interpreta igual en
+            todas partes y evita errores difíciles de diagnosticar al aplicar
+            estilos.
+          </p>
+          <p>
+            Herramienta:
+            <a href="https://validator.w3.org/" target="_blank" rel="noopener">
+              Validador de marcado del W3C </a>.
+          </p>
+        </section>
+      </article>
+
+      <aside>
+        <h2>Para ampliar</h2>
+        <p>
+          El recorrido completo de las sesiones está en la
+          <a href="horario.html">página de horario</a>, y las inscripciones se
+          gestionan desde el <a href="registro.html">formulario de registro</a>.
+        </p>
+      </aside>
+
+      <p><a href="#inicio">Volver al inicio de la página</a></p>
+    </main>
+
+    <footer>
+      <h2>Contacto</h2>
+      <address>
+        Instituto Nacional de Aprendizaje<br />
+        Correo: <a href="mailto:liambarra@ejemplo.com">giocoto@ejemplo.com</a>
+      </address>
+      <p>
+        <small
+          >&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small>
       </p>
     </footer>
+  
+  
+</body>
+</div>
 </html>

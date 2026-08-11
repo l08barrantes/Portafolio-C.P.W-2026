@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Valery Shanay Mora Acevedo">
+  <meta name="description" content="Sitio de demostración del módulo CSTI12002 Codificación de páginas web del INA.">
+  <meta name="keywords" content="HTML, CSS, desarrollo web, INA, CSTI12002">
+
+  <title>Inicio | Codificación de páginas web</title>
+
+  <link rel="icon" href="recursos/Favicon.png.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+    <div class="contenedor">
+</head>
+</head>
+<body>
+   
+    <!-- CABECERA (Sesión 8) -->
+  <header id="inicio">
+    <h1>Codificación de páginas web</h1>
+    <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="articulo.html">Artículo</a></li>
+        <li><a href="horario.html">Horario</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="insignia.html">Insignia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <article>
+        <h2>Gráficas vectoriales</h2>
+        <!-- SVG EN LÍNEA: se dibuja con codigo (Sesión08)-->
+         <section id="insignia">
+            <h3>Insignia del módulo</h3>
+            <svg width="200" height="200"
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <!--Circle: se ubica por su CENTRO (cx, cy) y su radio(r)-->
+                <circle cx="100" cy="100" r="90" fill="#4CAF50" /><!--Fil: COLOR DE RELLENO-->
+
+                <circle cx="100" cy="100" r="72"
+                fill="#FFF8E1"
+                stroke="#1F4E79"
+                stroke-width="4" /> <!--Stroke: COLOR DEL BORDE-->
+               
+             <!--POLYGON: lista de vértices; la figura se cierra sola-->
+             <polygon points="100,45 112,80 149,80 119,102 130,137 100,115 70,137 81,102 51,80 88,80"
+                      fill="#F5C518"
+                      stroke="#1F4E79"
+                      stroke-width="2"/>
+
+            <!--text:código para crear texto svg-->
+
+            <text x="100" y="160" text-anchor="middle" font-side="14" fill="#1F4E79">
+                HTML</text>
+            </svg>
+
+            <P>La insignia esta dibujada con código, no es fotografia por eso conserva su nitidez en cualquier tamaño
+            </P>
+         </section>
+    <!--SVG como archivo externo-->
+    <section id="externo">
+        <h3>La misma insignia como archivo</h3>
+        <img src="Recursos/insignia.svg" alt="Insignia de módulo con una estrella sobre un circulo" width="100" height="100">
+
+        <p>
+            Aquí la insignia se enlace desde un archivo
+            <code>.svg</code> aparte. Seve igual de nitida aunque mida la mitadd, por que al ser vectorial no pierde calidad
+        </p>
+    </section >
+   
+    </article>
+
+  <p><a href="#inicio">Volver al inicio de la página</a></p>
+  </main>
+
+   <!-- PIE DE PÁGINA -->
+  <footer>
+    <h2>Contacto</h2>
+    <address>
+      Instituto Nacional de Aprendizaje<br>
+      Núcleo Comercio y Servicios<br>
+      Correo: <a href="mailto:daya20@ejemplo.com">Daya20@ejemplo.com</a>
+    </address>
+    <p>
+      Recurso externo:
+      <a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener">
+        Documentación MDN Web Docs
+      </a>
+    </p>
+    <p><small>&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small></p>
+  </footer>
+
+</body>
+</div>
+</html>
