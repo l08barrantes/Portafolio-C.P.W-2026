@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Liam Barrantes"/>
-    <meta name="description" content="Imagen de la galeria con contenido relacionado con HTML5 "/>
-    <meta name="keywords" content="HTML5, estándar vivo, WHATWG, W3C, imágenes de laboratorio"/>
-
     <title>Galería | Imágenes</title>
-</head>
+    <meta name="author" content="Valery Shanay Mora Acevedo" />
+    <meta name="description" content="imagenes de galeria con contenido realicionado con HTML5 y ."/>
+    <meta name="keywords" content="HTML5, estándar vivo, formato, W3C, imagenes del laboratorio" />.
 
+
+    <link rel="stylesheet" href="css/estilos.css">
+      <div class="contenedor">
+
+      </head>
 <body>
-     <!-- CABECERA (Sesión 7) -->
-  <header id="inicio">
+    <header id="inicio">
     <h1>Codificación de páginas web</h1>
     <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
 
@@ -20,7 +22,7 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="articulo.html">Artículo</a></li>
-        <li><a href="horarios.html">Horario</a></li>
+        <li><a href="horario.html">Horario</a></li>
         <li><a href="registro.html">Registro</a></li>
         <li><a href="galeria.html">Galería</a></li>
         <li><a href="insignia.html">Insignia</a></li>
@@ -28,17 +30,17 @@
     </nav>
   </header>
 
-  <main id="Contenido">
+  <<main id="Contenido">
 
     <article>
         <h2>Galería</h2>
 
     <!--Imagen y sus atributos-->
-    <img src="Recursos/S.7_Lab01.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="600" height="400"/>
+    <img src="recursos/s.07_Lab01.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="600" height="400"/>
 
     <!--FIGURE: agrupa contenido con un PIE.-->
       <figure>
-         <img src="Recursos/S.7_Lab02.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="800" height="500" />
+         <img src="recursos/s.07_Lab02.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="800" height="500" />
          <figcaption>Imagen de la galeria de un laboratorio de informatica</figcaption>
       </figure>
 
@@ -46,9 +48,9 @@
 
         <figure>
             <picture>
-                <source srcset="Recursos/S.7_Lab01.webp" type="image/webp" />
-                <source srcset="Recursos/S.7_Lab02.jpg" type="image/jpeg" />
-                <img src="Recursos/S.7_Lab01.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="800" height="500"/>
+                <source srcset="recursos/s.07_Lab01.webp" type="image/webp" />
+                <source srcset="recursos/s.07_Lab02.jpg" type="image/jpeg" />
+                <img src="recursos/s.07_Lab01.jpg" alt="Imagen de la galeria de un laboratorio de informatica" width="800" height="500"/>
             </picture>
             <figcaption>Imagen de un laboratorio de informatica</figcaption>
         </figure>
@@ -58,24 +60,24 @@
         <h3>Audio de Bienvenida</h3>
 
         <audio controls>
-            <source src="Recursos/End-of-Line.mp3" type="audio/mpeg"/>
-            <source src="Recursos/End-of-Line.ogg" type="audio/ogg"/>
+            <source src="recursos/End of Line1.mp3" type="audio/mpeg"/>
+            <source src="recursos/End of Line1.ogg" type="audio/ogg"/>
             <p>Tu navegador no soporta el elemento de audio.</p>
-            <a href="Recursos/End-of-Line.mp3" >Descargar audio</a>
+            <a href="recursos/End of Line1.mp3" >Descargar audio</a>
         </audio>
     </section>
 
-    <!--VIDEO-->
+  <!--VIDEO-->
     <section id="video">
         <h3>Mini tutorial Capcut</h3>
 
-        <video controls width="800" height="500" poster="Recursos/tuto.jpg" preload="metadata">
-            <source src="Recursos/video2.mp4" type="video/mp4"/>
-            <source src="Recursos/video2.webm" type="video/webm"/>
-            <track src="Recursos/video2.vtt" kind="subtitles" srclang="es" label="Español"  default/>
-            
+        <video controls width="800" height="500" poster="recursos/tuto.jpg" preload="metadata">
+            <source src="recursos/video.mp4" type="video/mp4"/>
+            <source src="recursos/video.webm" type="video/webm"/>
+            <track src="recursos/video.vtt" kind="subtitles" srclang="es" label="Español"  default/>
+           
             <p>Tu navegador no soporta el elemento de video.</p>
-            <a href="Recursos/video2.mp4">Descargar el archivo de video</a>
+            <a href="recursos/video.mp4">Descargar el archivo de video</a>
         </video>
 
     </section>
@@ -91,7 +93,7 @@
     <address>
       Instituto Nacional de Aprendizaje<br>
       Núcleo Comercio y Servicios<br>
-      Correo: <a href="mailto:liambarra08@ejemplo.com">liambarra08@ejemplo.com</a>
+      Correo: <a href="mailto:valery10ejemplo.com">valery10ejemplo.com</a>
     </address>
     <p>
       Recurso externo:
@@ -101,5 +103,7 @@
     </p>
     <p><small>&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small></p>
   </footer>
+
 </body>
+</div>
 </html>
