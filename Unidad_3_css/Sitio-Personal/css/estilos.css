@@ -5,35 +5,26 @@ por omisiòn son 16px, */
 html{
     font-size: 100%;
 }
-
+ 
 * {
     margin:0;
     padding:0;
     box-sizing:border-box;
 }/*Esta regla elimina los margenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
-
+ 
 body {
-<<<<<<< HEAD
-    font-family: Arial, sans-serif; color: #241350;
-    background-color: #f5f5f5;
-    /*esta regla define la fuente del texto en el cuerpo del documento*/
-    } 
-    h1{color: #1f4e79; font-size:32px; text-align:center;}
-    
-=======
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    font-family: Arial, sans-serif;
     color: #333;
     background-color: #fae9e9;
 } /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
+ 
 h1{
-    color:#ffffff;
-    text-align: center;
-}
-h1{
+    color: #1f4e79;
     font-size: 2.5rem;
     font-weight: 700;
+    text-align: center;
 }
 h2{
     font-size: 2rem;
@@ -61,40 +52,40 @@ footer{
     padding: 24px;
     border-radius: 8px;
 }
-
+ 
 h2, h3{
     color: #093e0a;
 }
-
+ 
 main p{
     max-width: 70ch;
 }/*ch es el ancho del caracter cero de la fuente en uso, el valor de 70 marca el rango de lectura cómoda por linea o renglón. más larga, la vista se pierde al cambio de linea*/
-
+ 
 main a{
     text-decoration: none;
     border-bottom: 1px solid #0c67bd;
 }
-
+ 
 blockquote{
     font-style: italic;
     color: #ffffff;
 }
-
+ 
 /*Transformación y espacio*/
-
+ 
 header nav a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
     text-decoration: none;
 }
-
+ 
 /*Aplicar estilos a clases*/
 .destacado{
     background-color: #fff3cd;
     padding: 10px; /*aplica como las manesillas del reloj: arriba-derecha-abajo-izquierda*/
 }
-
+ 
 /*Aplicar estilos a identificadores  o IDs*/
 #Galeria{
     background-image: url(../recursos-html/imagenfresas1.png);
@@ -103,39 +94,157 @@ header nav a {
     background-repeat: no-repeat;
     padding: 30px;
 }
-
+ 
 /*Aplicar estilos a identificadores  o IDs*/
 nav a{
     color: #ffffff;
     margin-right: 15px;
     transition: color 0.3s; /*cambio suave */
 }
-
+ 
 /*Pseudo-clase :hover*/
 nav a:hover {
     color: #ab5d5d; /*al pasar el cursor*/
 }
-
+ 
 /*Pseudo-clase :nth-child: filas cebra en la tabla*/
 tbody tr :nth-child(even){
     background-color: #d7c5c5;
 }
-
+ 
 /*Pseudo-elemento ::firts-letter y ::selection*/
 article p::first-letter{
     font-size: 32px;
     font-weight: bold;
     color: #c55a11;
 }
-
+ 
 ::selection{
     background-color: #311286;
     color: white;
 }
-
-/*Agregar familia de fuentes traida de google fonts*/
-body{
-    font-family: "Poppins",Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+/*css/estilos.css*/
+/* Reset básico*/
+/*El 100% del tamaño que el usuario configuro
+por omisiòn son 16px, */
+html{
+    font-size: 100%;
 }
->>>>>>> b7138cd90785e8b116d5eb817fc6de4239ca2953
+ 
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}/*Esta regla elimina los margenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
+ 
+body {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fae9e9;
+} /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
+ 
+h1{
+    color: #1f4e79;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+h3{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+header{
+    background-color: #a92730;
+    color: white;
+}
+footer{
+    background-color: #8bdc9e;
+    padding: 20px;
+    margin-top: 32px;
+}
+.portada-texto{
+    background-color: rgba(170, 8, 8, 0.35);
+    padding: 24px;
+    border-radius: 8px;
+}
+ 
+h2, h3{
+    color: #093e0a;
+}
+ 
+main p{
+    max-width: 70ch;
+}/*ch es el ancho del caracter cero de la fuente en uso, el valor de 70 marca el rango de lectura cómoda por linea o renglón. más larga, la vista se pierde al cambio de linea*/
+ 
+main a{
+    text-decoration: none;
+    border-bottom: 1px solid #0c67bd;
+}
+ 
+blockquote{
+    font-style: italic;
+    color: #ffffff;
+}
+ 
+/*Transformación y espacio*/
+ 
+header nav a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+ 
+/*Aplicar estilos a clases*/
+.destacado{
+    background-color: #fff3cd;
+    padding: 10px; /*aplica como las manesillas del reloj: arriba-derecha-abajo-izquierda*/
+}
+ 
+/*Aplicar estilos a identificadores  o IDs*/
+#Galeria{
+    background-image: url(../recursos-html/imagenfresas1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px;
+}
+ 
+/*Aplicar estilos a identificadores  o IDs*/
+nav a{
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s; /*cambio suave */
+}
+ 
+/*Pseudo-clase :hover*/
+nav a:hover {
+    color: #ab5d5d; /*al pasar el cursor*/
+}
+ 
+/*Pseudo-clase :nth-child: filas cebra en la tabla*/
+tbody tr :nth-child(even){
+    background-color: #d7c5c5;
+}
+ 
+/*Pseudo-elemento ::firts-letter y ::selection*/
+article p::first-letter{
+    font-size: 32px;
+    font-weight: bold;
+    color: #c55a11;
+}
+ 
+::selection{
+    background-color: #311286;
+    color: white;
+}
