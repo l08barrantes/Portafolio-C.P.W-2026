@@ -15,18 +15,18 @@ html{
 body {
     font-size: 1rem;
     line-height: 1.6;
-    font-family: Arial, sans-serif;
+    font-family: Poppins, sans-serif;
     color: #333;
-    background-color: #b4cedc;
-} /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
- .contenedor {
-    max-width: 1900px;
+    background-color: #fcfcfc;
+    padding-top: 100px;
+} /*Esta regla define la fuente y el color del texto en el cuerpo del documento*/
+
+.contenedor{
+    max-width: 1200px;
     margin: 0 auto;
-}
-main{
-    max-width: 1900px;
-    margin: 0 auto;
-}
+    padding: 25px
+}/*Aplica a la parte vertical y horizontal el auto: reparte el espacio sobrante por el igual a ambos lado,lo centra en un elemento con ancho limitado de max-width: 1000px*/
+
 h1{
     color:#aad6fe;
     text-align: center;
@@ -35,22 +35,34 @@ h1{
     font-size: 2.5rem;
     font-weight: 700;
 }
-h2, h3{
+h2{
     font-size: 2rem;
     font-weight: 700;
+}
+h3{
+    font-size: 1.5em;
+    font-weight: 600;
 }
 p{
     font-size: 1rem;
     font-weight: 400;
+    margin-bottom: 16px;
 }
 header{
     background-color: #1f4e79;
     color: white;
+    padding: 24px;
+    border-radius: 8px;
 }
 footer{
     background-color: #dce6f1;
     padding: 20px;
     margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
 }
 .portada-texto{
     background-color: rgba(0, 0, 0, 0.35);
@@ -59,7 +71,7 @@ footer{
 }
 
 h2, h3{
-    color: #436a8f;
+    color: #1f4e79;
     margin-bottom: 12px;
 }
 
@@ -75,6 +87,7 @@ main a{
 blockquote{
     font-style: italic;
     color: #555;
+    border-left: 4px solid #1f4e79;
 }
 
 /*Transformación y espacio*/
@@ -84,23 +97,56 @@ header nav a {
     letter-spacing: 1px;
     font-size: 0.9rem;
     text-decoration: none;
+    padding: 10px 15px;
 }
+header nav{
+    align-self: center;/*anula aling-items para elementos especificos*/
+}
+header nav ul{
+    list-style-type: none;
+    display: flex;/*Activa flexbox y coloca en fila horizontal los elementos por defecto*/
+    gap: 15px; /*Separación uniforme entre elementos (que contiene un contenedor)*/
+    /* justify-content: flex-start;/*coloca elementos al inicio de la fila
+    justify-content: flex-end; coloca elementos al final de la fila
+    justify-content: center;/*coloca elementos en el centro de la fila
+    justify-content: space-between;/*coloca elementos extermos pegados
+    justify-content: space-around;/*coloca espacio al rededor de cada uno*/
+    justify-content: space-evenly;/*coloca espacios iguales a la fila*/
+}/*Quita las viñetas y el subrayado*/
+
+  /*header nav li
+   margin-right: 15px;
+    display: inline-block;
+coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden; oculta la linea de menu,pero sigue existiendo.display:none;oculta la linea de menú y libera el espacio*/
 
 /*Aplicar estilos a clases*/
 .destacado{
     background-color: #fff3cd;
-    padding: 10px; /*aplica como las manesillas del reloj: arriba-derecha-abajo-izquierda*/
+    padding: 10px 20px; /*aplica como las manesillas del reloj: arriba-derecha-abajo-izquierda*/
+
 }
 
 /*Aplicar estilos a identificadores  o IDs*/
 #inicio{
-    background-image: url(../recursos/fondo.1.jpg);
+    display: flex;
+    justify-content: space-between;
+    /*align-items: flex-start;acomoda arriba
+    /*align-items: center;acomoda al centro,align-items:flex-end-acomoda abajo,aling-items: basiline; alinea por la linea base del texto*/
+    position: fixed; /*Vista fija con respecto a la ventana, cabecera queda fija arriba*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url(../Recursos/fondo1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    z-index: 100; /*Cuanto mayor es el numero mas al frente va a estar*/
 }
+/*#inicio{
+    position: sticky;/*Fluye normal y se pega al llegar arriba o límite de su contenedor
+    top: 0;
+}*/
 
 /*Aplicar estilos a identificadores  o IDs*/
 nav a{
@@ -116,8 +162,11 @@ nav a:hover {
 
 /*Pseudo-clase :nth-child: filas cebra en la tabla*/
 tbody tr :nth-child(even){
-    background-color: #d7c5c5;
+    background-color: #dce6f1;
 }
+tbody tr :hover{
+    background-color: #e3eef9;
+}/*la novedad de este paso es resaltar la fila de abajo elcursor no es decoración, es ayuda para no perderse en la fila*/
 
 /*Pseudo-elemento ::firts-letter y ::selection*/
 article p::first-letter{
@@ -131,40 +180,62 @@ article p::first-letter{
     color: white;
 }
 
-/*Agregar familia de fuentes traida de google fonts*/
-body{
-    font-family: "Poppins",Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-}
+
 aside{
     padding: 20px;
-    border: 2px solid #1f4e79;
-    border-radius: 20px;
-    /*en este caso el paddig se alplica a llos 4 lados a la vez, paddig:10px20px aplica vertical y horizontal, padding:10px 20px 15pxaplica  a los 4 lados valores distinyod  en sentido a las manillas del reloj*/
+    border: 2px solid #c55a11;
+    border-radius: 8px;
+   
+}/*En este caso el padding aplica a los 4 lados a la vez,padding: 10px 20px aplica vertical y horizontal
+padding: 10px 20px 15px 5px aplica a los 4 lados valores distintos,en sentido de las manillas del reloj*/
 
-    /*aplicar lado por lado
-    padding-top: 10px aplica arriba
-    padding-right: 10px aplica derecha
-    padding-bottom: 10px aplica abajo
-    padding-left: 10px aplica izquierda*/
+/*Aplicar lado por lado
+padding-top 10px aplica arriba
+padding-right 10px aplica derecha
+padding-bottom 10px aplica abajo
+padding-left 10px aplica izquierda*/
 
-    /* aplicamos a la tabla horatio.html*/
-    th, td{
-        padding: 10px;
-    }
+/*Aplicamos ala tabla horario.html*/
+th, td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    text-align: left;
+
+}
+
+thead th{
+    background-color: #1f4e79;
+    color: white;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}/*Trabaja las 4 celdas del encabezados de la tabla: Semana.Dia.Modalidad.contenido*/
+
+tfoot td{
+    padding: 12px;
+    font-style: italic;
+    background-color: #f5f7fa;
+    border-top: 2px solid #1f4e79;
 }
 fieldset{
-    margin:32px; 
+    padding: 16px
 }
-/*listas de horario*/
-main, ul, main ol{
+
+section{
+    margin-bottom: 32px;
+}
+
+/*Listas de horario.html*/
+main ul, main ol{
     padding-left: 24px;
     margin-bottom: 16px;
 }
+
 main li{
     margin-bottom: 6px;
 }
-/*Lista descriptiva*/
+
+/*La lista descriptiva*/
 #glosario dt{
     font-weight: 700;
     margin-top: 12px;
@@ -172,12 +243,10 @@ main li{
 
 #glosario dd{
     margin-left: 20px;
-    margin-top: 8px;
-}
-/*La sangria de dd es lo que hace visible l arelacion entre el termino y su descripcion/*
+    margin-bottom: 8px;
+}/*La sangria del <dd> es lo que hace visible la relación entre el termino y su descripción*/
 
 /*La tabla de calendario*/
-
 table{
     border-collapse: collapse;
     width: 100%;
@@ -188,40 +257,146 @@ caption{
     padding: 8px;
     font-weight: 700;
     margin-bottom: 24px;
-}
+    text-align: left;
+    color: #6b7280;
+}/*El caption primera semana*/
+
+/*Las figuras de galeria.html*/
 figure {
-      border: 1px solid #dddddd; 
-      border-radius: 6px;
-      padding: 12px;
-         
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 12px
 }
 
-/*Los cinco valores de position
-static: valor por omision
-relative: se desplaza de su propia posicion
-conserva: su propia posicion y los elementos vecinos no se mueven
-absolute: se ubica respecto al ancestro mas cercano
-fixed: se ubica con respecto a la ventana, no se mueve al desplazarce
-sticky: fluye normal hasta llegar a umbral, y entonces se pega*/
+/*Los 5 valores de position
+static:valor por omision
+relative:se desplaza de su propia posición
+conserva su propia posición y los elementos vecinos no se mueven.
+absolute:Se ubica respecto al ancestro más cercano
+fixed: Se ubica respecto a la ventana no se mueve al desplazarse.
+sticky: Fluye normal asta llegar a un umbral,ej-(stroll arriba) y entonces se pega.*/
 
-.figura destacada{
-    position: relative; /*posiciona al padre y este no se mueve. Es referencia de hijos absolutos/
-    /galeria*/
+.figura-destacada{
+    position:relative;/*posiciona como padre y este no se mueve. Es referencia de hijos absolutos*/
 }
 
 .etiqueta {
     position: absolute;
     top: 20px;
+    right: 20px;
     background-color: #c55a11;
     color: white;
     border-radius: 4px;
-    font-size: 0.87rem;
+    font-size: 0.875rem;
     z-index: 10;
-}
-/*z-index solo funciona en elemetos que tengan un position declarados
-si el elemento es static por defecto no funciona
+}   /*z-index SOLO FUNCIONA en elementos con positions declarado
+si el es static no funciona.
 escala de valores de z-index
-10:para elemtos posiscionados dentro del contenido
-100: la cabecera fija
-1000:ventanas emergentes y capas superpuestas
-9999:no hace falta usarlo casi nunca porque no deja margen a otro valor por encima*/
+10 para elementos posicionados dentro del contenido.
+100 la cabecera fija.
+10000 ventanas emergentes y capas superpuestas
+9999  no hace falta usarlo casi nunca por que no deja margen a otro valor por encima */
+
+.centrado{
+    display: flex;
+    justify-content: center;/*centrado horizontal*/
+    align-items: center;/*centrado vertical*/
+}
+
+.fila-targetas{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    /*padding: 20px;
+    flex-grow: 1;/*cuando crece si sobra espacio.0 no crece-
+    flex-shrink: 1;/*cuando encoge si sobre espacio. 0 no se encoge
+    flex-basis: 0;*/
+    flex-grow: wrap-reverse;/* wrap salta hacia abajo- warp-reverse,salta arriba y norap sin salto*/
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+
+}
+/*.targeta{
+    display: flex;
+    flex:1;
+    gap: 20px;
+    flex-grow: nowrap;
+}*/
+
+.galeria-grid{
+    display: grid;/*Activa grid al igual que flexbox, se declara en el contenedor*/
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*grid-template-columns: repeat(2fr, 1fr);/*la primera doble que las otras*/
+    grid-template-columns: 2fr 1fr 1fr;
+    /*grid-template-rows: 200px auto;*/
+    gap: 20px;
+}
+
+.galeria-grid figure:first-of-type {
+    grid-column: 1 / 3;/*Desde la linea 1 ala linea 3: Abarca las columnas 1 2
+    el segundo numero es la linea donde termina, no la ultima columna que ocupa*/
+}
+/*Forma abreviada con span*/
+.galeria-grid figure:first-of-type {
+    grid-column: span 2;/*ocupa dos columnas ,desde donde le toque. Mas legible y no depende de una psoción*/
+}
+
+/*Filas*/
+.destacada {
+    grid-row: span 2;/*abarca dos filas*/
+}
+
+/*#contenido{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    /*grid-template-areas: 'indice principal' 'indice lateral';
+    /*Css dinuja la estructura, cada cadena de texto es una fila.
+    cada palabra dentro es una celda
+    repetir un nombre hace que una zona abarque varias celdas.aqui en indice ocupa 2 filas de la primera columna*/
+    /*Asignar cada elmento a su área*/
+    /*#contenido > nav{grid-area:principal;}
+    #contenido > article{grid-area:principal;}
+    #contenido > aside{grid-area:lateral;}
+    grid-template-areas: 'indice principal';*/
+
+/*Que las imagenes no se desformen*/
+.galeria-grid img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /*Recorta pór el centro en vez de deformas*/
+    border-radius: 6px;
+}
+
+.targeta2{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+form label{/*Display block: Pone la etiqueta sobre el campo
+            funciona mejor en pantallas angostas*/
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea{
+    width: 100% ;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-family: inherit;/*Los campos del formulario NO heredan la fuente del body
+                    por defecto sin esta línea el formulario apareceria con la fuente del sistema */
+
+}
