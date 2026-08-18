@@ -15,7 +15,7 @@ html{
 body {
     font-size: 1rem;
     line-height: 1.6;
-    font-family: Poppins, sans-serif;
+    font-family: Arial, sans-serif;
     color: #333;
     background-color: #fcfcfc;
     padding-top: 100px;
@@ -91,6 +91,7 @@ blockquote{
 }
 
 /*Transformación y espacio*/
+/*Aplicar estilos a identificadores  o IDs*/
 
 header nav a {
     text-transform: uppercase;
@@ -98,6 +99,14 @@ header nav a {
     font-size: 0.9rem;
     text-decoration: none;
     padding: 10px 15px;
+    color: #ffff;
+    margin-right: 15px;
+    transition: color 0.3s/*cambio suave*/  
+    /*ease: Arranca lento y acelera,frena.omisión
+    linear:velocidad constante
+    ease-in: Arranca lento
+    ease-out: Sale lento
+    easeint-out;Lento en los dos extremos*/
 }
 header nav{
     align-self: center;/*anula aling-items para elementos especificos*/
@@ -131,12 +140,12 @@ coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden
     display: flex;
     justify-content: space-between;
     /*align-items: flex-start;acomoda arriba
-    /*align-items: center;acomoda al centro,align-items:flex-end-acomoda abajo,aling-items: basiline; alinea por la linea base del texto*/
+    /*align-items: center;acomoda al centro,align-items:flex-end-acomoda abajo,aling-items: basiline; alinea por la linea base del texto*/ 
     position: fixed; /*Vista fija con respecto a la ventana, cabecera queda fija arriba*/
     top: 0;
     left: 0;
     width: 100%;
-    background-image: url(../Recursos/fondo1.jpg);
+    background-image: url(../recursos/fondo.1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -148,15 +157,9 @@ coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden
     top: 0;
 }*/
 
-/*Aplicar estilos a identificadores  o IDs*/
-nav a{
-    color: #ffff;
-    margin-right: 15px;
-    transition: color 0.3s; /*cambio suave */
-}
 
 /*Pseudo-clase :hover*/
-nav a:hover {
+header a:hover {
     color: #f8cbad; /*al pasar el cursor*/
 }
 
@@ -185,7 +188,7 @@ aside{
     padding: 20px;
     border: 2px solid #c55a11;
     border-radius: 8px;
-   
+    
 }/*En este caso el padding aplica a los 4 lados a la vez,padding: 10px 20px aplica vertical y horizontal
 padding: 10px 20px 15px 5px aplica a los 4 lados valores distintos,en sentido de las manillas del reloj*/
 
@@ -218,7 +221,15 @@ tfoot td{
     border-top: 2px solid #1f4e79;
 }
 fieldset{
-    padding: 16px
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 3px solid#ddd;
+    border-radius: 8px;
+}
+legend {
+    padding: 0 8px;
+    font-weight: 700;
+    color: #1f4e79;
 }
 
 section{
@@ -263,9 +274,12 @@ caption{
 
 /*Las figuras de galeria.html*/
 figure {
+    background:white; 
     border: 1px solid #dddddd;
     border-radius: 6px;
-    padding: 12px
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1)
+
 }
 
 /*Los 5 valores de position
@@ -278,6 +292,10 @@ sticky: Fluye normal asta llegar a un umbral,ej-(stroll arriba) y entonces se pe
 
 .figura-destacada{
     position:relative;/*posiciona como padre y este no se mueve. Es referencia de hijos absolutos*/
+}
+
+.figura-destacada:hover .etiqueta {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .etiqueta {
@@ -311,7 +329,7 @@ escala de valores de z-index
     flex-grow: 1;/*cuando crece si sobra espacio.0 no crece-
     flex-shrink: 1;/*cuando encoge si sobre espacio. 0 no se encoge
     flex-basis: 0;*/
-    flex-grow: wrap-reverse;/* wrap salta hacia abajo- warp-reverse,salta arriba y norap sin salto*/
+    flex-wrap: wrap-reverse;/* wrap salta hacia abajo- warp-reverse,salta arriba y norap sin salto*/
     border: 1px solid #dddddd;
     border-radius: 8px;
 
@@ -334,7 +352,7 @@ escala de valores de z-index
 }
 
 .galeria-grid figure:first-of-type {
-    grid-column: 1 / 3;/*Desde la linea 1 ala linea 3: Abarca las columnas 1 2
+    grid-column: 1 / 3;/*Desde la linea 1 ala linea 3: Abarca las columnas 1 2 
     el segundo numero es la linea donde termina, no la ultima columna que ocupa*/
 }
 /*Forma abreviada con span*/
@@ -399,4 +417,147 @@ form textarea{
     font-family: inherit;/*Los campos del formulario NO heredan la fuente del body
                     por defecto sin esta línea el formulario apareceria con la fuente del sistema */
 
+}
+
+/*Casilla por separado*/
+form input[type="radio"],
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 6px;
+    margin-bottom: 0;
+
+}
+
+form input[type="radio"] + label,/*El selector + alcanza la etiqueta y el display: inline los coloca uno al lado del otro*/
+form input[type="checkbox"] + label {
+    display: inline;
+    font-weight: 400;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #1f4e79;
+    box-shadow: 0 0 0 3px rgb(31, 78, 121, 0.15);
+}/*El halo azul alrededor del campo activo.
+    El focus NO es solo decoración es una guia para el usuario*/
+
+    /*Los estrados de validación*/
+    form input:invalid:not(:placeholder-shown){
+        border-color: #c0392b;
+    }
+    form input:valid:not(:placeholder-shown){
+        border-color: #2e7d32;
+    }/*Apoya la validadcion HTML en los required,type,pattern,minlength,ect, colocando un halo de color segun si es dato es correcto o no*/
+
+    /*Para los mensajes de ayuda*/
+    form small{
+        display: block;
+        margin-top: -10px;
+        margin-bottom: 15px;
+        font-size: 0.8rem;
+        color: #6b7280;
+    }/*Los <small>que acompañan a los campos con los textos "minimo 8 caracteres. entre 1 y 8 sesiones,ect."*/
+
+/*Estilizar el botton con estados*/
+.boton, .boton-secundario {
+    background-color: #c55a11;
+    color: white;
+    padding: 12px;
+    border:none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;/*La mano indica elemento pulsable*/
+}
+/* Los tres estados:1 hover:  mas oscuro al pasar el cursor */
+.boton:hover {
+    background-color: #a8490e;
+}
+/* Estados:2 active: Aun mas oscuro mientras se pulsa.*/
+.boton:active{
+    background-color: #65e006;
+}
+
+/* Estados:3 FOCUS*/
+.boton:focus{
+    outline: 2px solid #f56518;
+    outline-offset: 2px;
+}
+
+/*Variante secundario*/
+.boton-secundario{
+    background-color: #6b7280;
+}
+.boton-secundario:hover{
+    background-color: #4d5563;
+}
+.boton {
+    transition: background-color 0.3s ease;
+}
+.tarjeta {
+    background-color: rgb(246, 245, 245);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0px 1px 3px rgba(0, 0, 0, 0,.15);*/
+}/*0: desplazamiento horizontal. 4px: desplazamiento vertical. 12px: es el desenfoque, cuanto mayor , mas difusa. rgba: color con transparencia*/
+
+/*Tarjeta interactiva*/
+.tarjeta figure:hover{
+    transform: translateY(-5px);/*valor negativo va hacia arriba*/
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);/*Escalar .1 = del tamaño original*/
+    transform: scale(1.1, 0.9);/*X  y Y POR SEPARADO*/
+    transform: translatex(-5px);/*Desplazar .negativo=Hacia arriba*/
+    transform: rotate(5deg);/*Girar .grados*/
+    transform: skew(5deg); /*Inclinar .grados*/
+    transform: translateY(-5px) scale(1.03); 
+}
+
+/*definir la transición*/
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*Aplica*/
+.tarjeta {
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes pulso{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.08);
+    }
+}
+
+.etiqueta {
+    animation: pulso 2s ease-out infinite;
+    /*animation-iteration-count: 5;
+    animation-direction: alternate;*/
+}
+
+/*Apliación de filtros */
+.galeria-grid img:hover {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+    /*filter: blur(2px);
+    filter: brightness(1.2);
+    filter: contrast(1.5);
+    filter: saturate(2);
+    filter: sepia(60%);
+    filter: invert(150%);
+    filter: opacity(50%);
+    filter: grayscale(100%) brightness(1.1);*/
 }
