@@ -18,7 +18,7 @@ body {
     font-family: Poppins, sans-serif;
     color: #333;
     background-color: #fcfcfc;
-    padding-top: 100px;
+    padding-top: 90px;
 } /*Esta regla define la fuente y el color del texto en el cuerpo del documento*/
 
 .contenedor{
@@ -98,6 +98,15 @@ header nav a {
     font-size: 0.9rem;
     text-decoration: none;
     padding: 10px 15px;
+    color: #ffff;
+    margin-right: 15px;
+    transition: color 0.3s; /*cambio suave */
+    transition: background-color 0.3s ease 0.1;
+    /*ease: arranca lento y acelera y frena. omision
+     linear:velocidad constante
+     ease-in:arranca lento 
+     ease-out:sale lento 
+     ease-in-out:lento en los dos extremos*/
 }
 header nav{
     align-self: center;/*anula aling-items para elementos especificos*/
@@ -136,7 +145,7 @@ coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden
     top: 0;
     left: 0;
     width: 100%;
-    background-image: url(../Recursos/fondo1.jpg);
+    background-image: url(../recursos/fondo.1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -147,13 +156,6 @@ coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden
     position: sticky;/*Fluye normal y se pega al llegar arriba o límite de su contenedor
     top: 0;
 }*/
-
-/*Aplicar estilos a identificadores  o IDs*/
-nav a{
-    color: #ffff;
-    margin-right: 15px;
-    transition: color 0.3s; /*cambio suave */
-}
 
 /*Pseudo-clase :hover*/
 nav a:hover {
@@ -399,4 +401,75 @@ form textarea{
     font-family: inherit;/*Los campos del formulario NO heredan la fuente del body
                     por defecto sin esta línea el formulario apareceria con la fuente del sistema */
 
+}
+/*casillas por separado*/
+form input[type="radio"]
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 6px;
+    margin-bottom: 0;
+}
+
+form input[type="radio"] + label,
+form input[type="checkbox"] + label {
+    display: inline;
+    font-weight: 400;
+}
+ /*el selector + alcanza la etiqueta y el display: inline los coloca uno al lado del otro*/
+
+.grupo-botones{
+    display: flex;
+    gap: 10px;
+}
+*Estilizar el botton con estados*/
+.boton, .boton-secundario {
+    background-color: #c55a11;
+    color: white;
+    padding: 12px;
+    border:none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;/*La mano indica elemento pulsable*/
+}
+/* Los tres estados:1 hover:  mas oscuro al pasar el cursor */
+.boton:hover {
+    background-color: #a8490e;
+}
+/* Estados:2 active: Aun mas oscuro mientras se pulsa.*/
+.boton:active{
+    background-color: #65e006;
+}
+
+/* Estados:3 FOCUS*/
+.boton:focus{
+    outline: 2px solid #af663e;
+    outline-offset: 2px;
+}
+
+/*Variante secundario*/
+.boton-secundario{
+    background-color: #6b7280;
+}
+.boton-secundario:hover{
+    background-color: #4d5563;
+}
+.boton {
+    transition: background-color 0.3s ease;
+}
+
+/* Tarjeta interactiva*/
+
+/* tarjeta figure:hover */
+
+tarjeta figure:hover {
+    transform: translateY(-10px); /* Valor negativo va hacia arriba */
+    box-shadow: 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03); /* Escalar */
+    transform: scale(1.1, 0.9); /* X y Y por separado */
+    transform: translateY(-5px); /* Desplazar negativo - hacia arriba */
+    transform: rotate(5deg); /* Girar grados */
+    transform: skew(1deg);
+    transform: translate(-5px) scale(1.03);
 }
