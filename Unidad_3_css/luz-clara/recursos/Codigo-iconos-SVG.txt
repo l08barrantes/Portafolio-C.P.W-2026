@@ -1,0 +1,49 @@
+
+<!-- LOGO EN SVG 1-Cámara · dibujado con código, no es una imagen -->
+
+      <svg class="logo-icono" width="38" height="38" viewBox="0 0 38 38"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Logo del Estudio Luz Clara: una cámara fotográfica">
+        <rect x="2" y="9" width="34" height="25" rx="4" fill="currentColor"/>
+        <rect x="12" y="4" width="14" height="6" rx="2" fill="currentColor"/>
+        <circle cx="19" cy="22" r="8" fill="#FFFFFF"/>
+        <circle cx="19" cy="22" r="5" fill="currentColor"/>
+        <circle cx="30" cy="15" r="2" fill="#FFFFFF"/>
+      </svg>
+
+<!-- LOGO EN SVG 2-Retrato · dibujado con código, no es una imagen -->
+
+          <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+               xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Icono de retrato">
+            <circle cx="22" cy="15" r="8" fill="currentColor"/>
+            <path d="M6 40 C6 29 13 24 22 24 C31 24 38 29 38 40 Z" fill="currentColor"/>
+          </svg>
+
+<!-- LOGO EN SVG 3-Producto · dibujado con código, no es una imagen -->
+          <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+               xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Icono de producto">
+            <rect x="7" y="14" width="30" height="24" rx="3" fill="currentColor"/>
+            <path d="M7 14 L22 5 L37 14 Z" fill="currentColor"/>
+            <rect x="17" y="24" width="10" height="14" fill="#FFFFFF"/>
+          </svg>
+
+<!-- LOGO EN SVG 4-Eventos · dibujado con código, no es una imagen -->
+
+          <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+               xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Icono de producto">
+            <rect x="7" y="14" width="30" height="24" rx="3" fill="currentColor"/>
+            <path d="M7 14 L22 5 L37 14 Z" fill="currentColor"/>
+            <rect x="17" y="24" width="10" height="14" fill="#FFFFFF"/>
+          </svg>
+          <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+               xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Icono de eventos">
+            <circle cx="14" cy="14" r="6" fill="currentColor"/>
+            <circle cx="30" cy="14" r="6" fill="currentColor"/>
+            <path d="M2 38 C2 29 7 25 14 25 C21 25 26 29 26 38 Z" fill="currentColor"/>
+            <path d="M18 38 C18 29 23 25 30 25 C37 25 42 29 42 38 Z" fill="currentColor" opacity="0.75"/>
+          </svg>
+
