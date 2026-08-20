@@ -1,0 +1,18 @@
+/*ESTUDIO LUZ CLARA*/
+
+/*Variables y configuración*/
+/*Una variable guarda un valor con un nombre para poder reutilizarlo
+
+se declara dentro de :root, que representa el elemento html y es el ancestro de todos. todos los elementos lo puedne usar*/
+
+:root {
+    /*paleta de colores*/
+    --color-tinta: #1a1a1a /*texto pirncipal, casi negro*/ 
+    --color-suave: #6b6b6b /*texto pirncipal, casi negro*/ 
+    --color-marca: #2c3e50 /*texto pirncipal, casi negro*/ 
+    --color-acento: #c87941 /*texto pirncipal, casi negro*/ 
+    --color-acento-osc: #a45f2e /*texto pirncipal, casi negro*/ 
+    --color-fondo: #fafaf8 /*texto pirncipal, casi negro*/ 
+    --color-fondo-alt: #f0ee /*texto pirncipal, casi negro*/ 
+    --color-blanco: #ffffff /*texto pirncipal, casi negro*/ 
+}
