@@ -12,6 +12,12 @@ html{
     box-sizing:border-box;
 }/*Esta regla elimina los margenes y el relleno predeterminados de todos los elementos y establece el modelo de caja para incluir el relleno y el borde en el ancho y alto del elemento*/
 
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}/*Aplica a la parte vertical y horizontal el auto: reparte el espacio sobrante por el igual a ambos lado,lo centra en un elemento con ancho limitado de max-width: 1000px*/
+
 body {
     font-size: 1rem;
     line-height: 1.6;
@@ -19,22 +25,16 @@ body {
     color: #333;
     background-color: #fcfcfc;
     padding-top: 100px;
-} /*Esta regla define la fuente y el color del texto en el cuerpo del documento*/
+} /*esta regla define la fuente y el color del texto en el cuerpo del documento*/
 
-.contenedor{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 25px
-}/*Aplica a la parte vertical y horizontal el auto: reparte el espacio sobrante por el igual a ambos lado,lo centra en un elemento con ancho limitado de max-width: 1000px*/
 
 h1{
     color:#aad6fe;
     text-align: center;
-}
-h1{
     font-size: 2.5rem;
     font-weight: 700;
 }
+
 h2{
     font-size: 2rem;
     font-weight: 700;
@@ -43,6 +43,11 @@ h3{
     font-size: 1.5em;
     font-weight: 600;
 }
+h2, h3{
+    color: #1f4e79;
+    margin-bottom: 12px;
+}
+
 p{
     font-size: 1rem;
     font-weight: 400;
@@ -54,26 +59,21 @@ header{
     padding: 24px;
     border-radius: 8px;
 }
-footer{
-    background-color: #dce6f1;
-    padding: 20px;
-    margin-top: 32px;
+footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+    background-color: #dce6f1;
+    padding: 20px;
+    margin-top: 32px;
 }
-.portada-texto{
-    background-color: rgba(0, 0, 0, 0.35);
+/*.portada-texto{
+    background-color: rgba(16, 13, 34, 0.35);
     padding: 24px;
     border-radius: 8px;
-}
-
-h2, h3{
-    color: #1f4e79;
-    margin-bottom: 12px;
-}
+}*/
 
 main p{
     max-width: 70ch;
@@ -87,11 +87,28 @@ main a{
 blockquote{
     font-style: italic;
     color: #555;
-    border-left: 4px solid #1f4e79;
+    border-left: 4px solid#1f4e79;
 }
 
 /*Transformación y espacio*/
-/*Aplicar estilos a identificadores  o IDs*/
+header nav ul{
+    display: flex; /*activa flexbox y coloca en fila horizontal los elementos por defecto*/
+    list-style-type: none;
+    gap: 15px; /*Separación uniforme entre elementos*/
+    /* justify-content: flex-start; /*coloca elementos al inicio de fila
+    justify-content: flex-end;  /*coloca elementos al final de fila
+    justify-content: center;  /*coloca elementos en el centro de fila
+    justify-content: space-between; /*coloca elementos extremos pegados
+    justify-content: space-around;  /*espacio al rededor de cada uno*/
+    justify-content: space-evenly; /*coloca todos los espacios iguales*/
+ }/*Quita las viñetas y el subrayado*/
+
+/*header nav li{
+    /*display: inline-block;
+    margin-right: 15px;
+}/*Coloca las opciones de menú en línea, uno al lado del otro*/
+    /*visibility: hidden; oculta la linea de menu, pero sigue existiendo
+    display: none; oculta la linea de menú y libera el espacio*/
 
 header nav a {
     text-transform: uppercase;
@@ -101,32 +118,17 @@ header nav a {
     padding: 10px 15px;
     color: #ffff;
     margin-right: 15px;
-    transition: color 0.3s/*cambio suave*/  
-    /*ease: Arranca lento y acelera,frena.omisión
-    linear:velocidad constante
-    ease-in: Arranca lento
-    ease-out: Sale lento
-    easeint-out;Lento en los dos extremos*/
+    transition: color 0.3s; /*cambio suave */
+    /*ease:Arranca lento y acelera y frena. omision
+      linear: Velocidad constante
+      ease-in: Arranca lento
+      ease-out Sale lento
+      easeint-out; lento en los dos extremos*/
 }
-header nav{
-    align-self: center;/*anula aling-items para elementos especificos*/
-}
-header nav ul{
-    list-style-type: none;
-    display: flex;/*Activa flexbox y coloca en fila horizontal los elementos por defecto*/
-    gap: 15px; /*Separación uniforme entre elementos (que contiene un contenedor)*/
-    /* justify-content: flex-start;/*coloca elementos al inicio de la fila
-    justify-content: flex-end; coloca elementos al final de la fila
-    justify-content: center;/*coloca elementos en el centro de la fila
-    justify-content: space-between;/*coloca elementos extermos pegados
-    justify-content: space-around;/*coloca espacio al rededor de cada uno*/
-    justify-content: space-evenly;/*coloca espacios iguales a la fila*/
-}/*Quita las viñetas y el subrayado*/
 
-  /*header nav li
-   margin-right: 15px;
-    display: inline-block;
-coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden; oculta la linea de menu,pero sigue existiendo.display:none;oculta la linea de menú y libera el espacio*/
+header nav {
+    align-self: center; /*anula aling-items para el elemento específico*/
+}
 
 /*Aplicar estilos a clases*/
 .destacado{
@@ -136,27 +138,28 @@ coloca las opciones de menu en linea, uno al lado del otro*//*visibility: hidden
 }
 
 /*Aplicar estilos a identificadores  o IDs*/
-#inicio{
+#inicio {
     display: flex;
     justify-content: space-between;
-    /*align-items: flex-start;acomoda arriba
-    /*align-items: center;acomoda al centro,align-items:flex-end-acomoda abajo,aling-items: basiline; alinea por la linea base del texto*/ 
-    position: fixed; /*Vista fija con respecto a la ventana, cabecera queda fija arriba*/
+    /*align-items: flex-start; /*acomada arriba*/
+    /*align-items: center; al centro*/
+    /*align-items: flex-end; acomada abajo*/
+    align-items: baseline; /*alinea por la linea base del*/
+    position: fixed; /*fija con respecto a la ventana. cabecera queda fija arriba*/
     top: 0;
     left: 0;
     width: 100%;
-    background-image: url(../recursos/fondo.1.jpg);
+    background-image: url(../Recursos/fondo1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 12px 20px;
-    z-index: 100; /*Cuanto mayor es el numero mas al frente va a estar*/
+    z-index: 100; /*cuanto mayor es numero m´al frente va a  estar*/
 }
-/*#inicio{
-    position: sticky;/*Fluye normal y se pega al llegar arriba o límite de su contenedor
+/*#inicio {
+    position: sticky; /*Fluye normal y se pega al llegar arriba o límite del su contenedor
     top: 0;
 }*/
-
 
 /*Pseudo-clase :hover*/
 header a:hover {
@@ -165,11 +168,8 @@ header a:hover {
 
 /*Pseudo-clase :nth-child: filas cebra en la tabla*/
 tbody tr :nth-child(even){
-    background-color: #dce6f1;
+    background-color: #d7c5c5;
 }
-tbody tr :hover{
-    background-color: #e3eef9;
-}/*la novedad de este paso es resaltar la fila de abajo elcursor no es decoración, es ayuda para no perderse en la fila*/
 
 /*Pseudo-elemento ::firts-letter y ::selection*/
 article p::first-letter{
@@ -183,7 +183,11 @@ article p::first-letter{
     color: white;
 }
 
-
+/*Agregar familia de fuentes traida de google fonts*/
+body{
+    font-family: "Poppins",Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
 aside{
     padding: 20px;
     border: 2px solid #c55a11;
@@ -209,21 +213,17 @@ th, td {
 thead th{
     background-color: #1f4e79;
     color: white;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}/*Trabaja las 4 celdas del encabezados de la tabla: Semana.Dia.Modalidad.contenido*/
+}/*Trabaja las 4 celdas del encabezados de la tabla */
 
 tfoot td{
     padding: 12px;
     font-style: italic;
     background-color: #f5f7fa;
-    border-top: 2px solid #1f4e79;
 }
 fieldset{
     padding: 16px;
     margin-bottom: 20px;
-    border: 3px solid#ddd;
+    border: 1px solid #ddd;
     border-radius: 8px;
 }
 legend {
@@ -268,18 +268,28 @@ caption{
     padding: 8px;
     font-weight: 700;
     margin-bottom: 24px;
-    text-align: left;
-    color: #6b7280;
-}/*El caption primera semana*/
+}
+/* El <caption> "Horario del módulo CSTI12002, primera semana" */
 
-/*Las figuras de galeria.html*/
+th, td {
+  padding: 10px;
+  border: 1px solid #DDDDDD;
+  text-align: left;
+}
+
+thead th {
+  background-color: #1F4E79;
+  color: white;
+}
+/* ← Las cuatro celdas de encabezado: Semana · Día · Modalidad · Contenido */
+
+/*Las fuguras de galeria.html*/
 figure {
-    background:white; 
+    background: white;
     border: 1px solid #dddddd;
     border-radius: 6px;
     padding: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 1)
-
+    box-shadow: 0 2px 8px rgba(151, 49, 49, 0.08);
 }
 
 /*Los 5 valores de position
@@ -290,10 +300,9 @@ absolute:Se ubica respecto al ancestro más cercano
 fixed: Se ubica respecto a la ventana no se mueve al desplazarse.
 sticky: Fluye normal asta llegar a un umbral,ej-(stroll arriba) y entonces se pega.*/
 
-.figura-destacada{
-    position:relative;/*posiciona como padre y este no se mueve. Es referencia de hijos absolutos*/
+.figura-destacada {
+    position: relative;/*posiona como padre y este no se mueve. Es referencia de hijos absolutos*/
 }
-
 .figura-destacada:hover .etiqueta {
     transform: scale(1.1) rotate(-3deg);
 }
@@ -307,95 +316,95 @@ sticky: Fluye normal asta llegar a un umbral,ej-(stroll arriba) y entonces se pe
     border-radius: 4px;
     font-size: 0.875rem;
     z-index: 10;
-}   /*z-index SOLO FUNCIONA en elementos con positions declarado
+}
+/*z-index SOLO FUNCIONA en elementos con positions declarado
 si el es static no funciona.
 escala de valores de z-index
-10 para elementos posicionados dentro del contenido.
+10 para eleentos posicionados dentro del contenido.
 100 la cabecera fija.
-10000 ventanas emergentes y capas superpuestas
-9999  no hace falta usarlo casi nunca por que no deja margen a otro valor por encima */
-
-.centrado{
+1000 ventanas emergenetes y capas superpuestas
+9999 no hace falta usarlo casi nunca porque no deja margen a otro valor por encima*/
+.centrado {
     display: flex;
-    justify-content: center;/*centrado horizontal*/
-    align-items: center;/*centrado vertical*/
+    justify-content: center; /*centrado horizontal*/
+    align-items: center;  /*centrado vestical*/
 }
-
-.fila-targetas{
+.fila-tarjetas {
     display: flex;
     gap: 20px;
     flex: 1;
     /*padding: 20px;
-    flex-grow: 1;/*cuando crece si sobra espacio.0 no crece-
-    flex-shrink: 1;/*cuando encoge si sobre espacio. 0 no se encoge
-    flex-basis: 0;*/
-    flex-wrap: wrap-reverse;/* wrap salta hacia abajo- warp-reverse,salta arriba y norap sin salto*/
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     border-radius: 8px;
-
+    flex-grow: 1; /*cuando crece si sobre espacio .0 no crece*/
+    /*flex-shrink: 1; /*cuando encoge si sobre espacio .0 no se encoge*/
+    /*flex-basis: 0;*/
+    flex-wrap: wrap-reverse; /*wrap salta hacia abajo. wrap-reverse salta arriba y nowrap sin salto */
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
-/*.targeta{
+/*.tarjeta {
     display: flex;
     flex:1;
     gap: 20px;
-    flex-grow: nowrap;
+    flex-wrap: nowrap;
 }*/
-
-.galeria-grid{
-    display: grid;/*Activa grid al igual que flexbox, se declara en el contenedor*/
+.galeria-grid {
+    display: grid; /*Activa grid al igual que flexbox, se declara en el contenedor*/
     /*grid-template-columns: 1fr 1fr 1fr;*/
     /*grid-template-columns: repeat(3, 1fr);*/
-    /*grid-template-columns: repeat(2fr, 1fr);/*la primera doble que las otras*/
+    /*grid-template-columns: 2fr 1fr; la primera doble que las  otras*/
     grid-template-columns: 2fr 1fr 1fr;
-    /*grid-template-rows: 200px auto;*/
+
     gap: 20px;
 }
+/*.galeria-grid figure:first-of-type {
+    grid-column: 1 / 3; /*Desde la LINEA 1 A LA LINEA 3: ABARCA LAS COLUMNAS 1 2
+    el segundo numero es la linea dond  termina, no la última colum que ocupa
+}*/
 
-.galeria-grid figure:first-of-type {
-    grid-column: 1 / 3;/*Desde la linea 1 ala linea 3: Abarca las columnas 1 2 
-    el segundo numero es la linea donde termina, no la ultima columna que ocupa*/
-}
 /*Forma abreviada con span*/
+
 .galeria-grid figure:first-of-type {
-    grid-column: span 2;/*ocupa dos columnas ,desde donde le toque. Mas legible y no depende de una psoción*/
+    grid-column: span 2; /*ocupa dos columnas, desde donde le toque. Mas legible y no depende de una posición*/
 }
 
-/*Filas*/
+/*Con filas*/
+
 .destacada {
-    grid-row: span 2;/*abarca dos filas*/
+    grid-row: span 2; /*abarca dos filas*/
 }
-
-/*#contenido{
+/*#contedo {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-
     /*grid-template-areas: 'indice principal' 'indice lateral';
-    /*Css dinuja la estructura, cada cadena de texto es una fila.
-    cada palabra dentro es una celda
-    repetir un nombre hace que una zona abarque varias celdas.aqui en indice ocupa 2 filas de la primera columna*/
-    /*Asignar cada elmento a su área*/
-    /*#contenido > nav{grid-area:principal;}
-    #contenido > article{grid-area:principal;}
-    #contenido > aside{grid-area:lateral;}
-    grid-template-areas: 'indice principal';*/
+    /*CSS dibuja la estructura, cada cadena de texto es una fila.
+   cada palabra dentro es una celda
+   repetir un nombre hace que una zona abarque varias celdas.
+   aquí el indice ocupa dos filas de la primera columna*/
+   /*Asignar cada elemento a su área
+   #contenido > nav {grid-area: indice;}
+   #contenido > article {grid-area: principal;}
+   #contenido > aside {grid-area: lateral;}
+   grid-template-areas: 'indice principa';
+}/*
 
-/*Que las imagenes no se desformen*/
-.galeria-grid img{
+/*Que las imagens no se desformen*/
+.galeria-grid img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /*Recorta pór el centro en vez de deformas*/
+    object-fit: cover; /*Recorta por el centro en vez de deformar*/
     border-radius: 6px;
 }
 
-.targeta2{
+.tarjeta2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
+    gap: 100px;
 }
-
-form label{/*Display block: Pone la etiqueta sobre el campo
-            funciona mejor en pantallas angostas*/
+form label { /*Display block: pone la etiqueta sobre el campo
+                funciona mejor en pantallas angostas*/
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
@@ -403,161 +412,168 @@ form label{/*Display block: Pone la etiqueta sobre el campo
 
 form input[type="text"],
 form input[type="email"],
+form input[type="tel"],
 form input[type="password"],
 form input[type="number"],
 form input[type="date"],
 form select,
-form textarea{
-    width: 100% ;
+form textarea {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     margin-bottom: 15px;
     font-size: 1rem;
-    font-family: inherit;/*Los campos del formulario NO heredan la fuente del body
-                    por defecto sin esta línea el formulario apareceria con la fuente del sistema */
-
+    font-family: inherit; /*Los campos del formulario NO heredan la fuente del body
+                          por omisión sin esta línea el formulario aparecería con la 
+                          fuente del sistema*/
 }
 
-/*Casilla por separado*/
+/*Casillas por separado*/
 form input[type="radio"],
 form input[type="checkbox"] {
     width: auto;
     margin-right: 6px;
     margin-bottom: 0;
-
 }
 
-form input[type="radio"] + label,/*El selector + alcanza la etiqueta y el display: inline los coloca uno al lado del otro*/
+form input[type="radio"] + label,
 form input[type="checkbox"] + label {
     display: inline;
     font-weight: 400;
-}
+} /*El selector + alcanza la etiqueta y display: inline los coloca una al lado del otro*/
 
 form input:focus,
 form select:focus,
 form textarea:focus {
     outline: none;
     border-color: #1f4e79;
-    box-shadow: 0 0 0 3px rgb(31, 78, 121, 0.15);
-}/*El halo azul alrededor del campo activo.
-    El focus NO es solo decoración es una guia para el usuario*/
+    box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.15);
+} /*El halo azul alrededor del campo activo.
+  El focus NO es solo decoración es una guía para el usuario*/
 
-    /*Los estrados de validación*/
-    form input:invalid:not(:placeholder-shown){
-        border-color: #c0392b;
-    }
-    form input:valid:not(:placeholder-shown){
-        border-color: #2e7d32;
-    }/*Apoya la validadcion HTML en los required,type,pattern,minlength,ect, colocando un halo de color segun si es dato es correcto o no*/
+/*Los estados de validación*/
+form input:invalid:not(:placeholder-shown){
+    border-color: #c0392b;
+}
+form input:valid:not(:placeholder-shown){
+    border-color: #2e7d32;
+}/*Apoya la validación HTML en los required, type, pattern, minlength, etc, colocando un halo de color según si es dato es correcto o no*/
 
-    /*Para los mensajes de ayuda*/
-    form small{
-        display: block;
-        margin-top: -10px;
-        margin-bottom: 15px;
-        font-size: 0.8rem;
-        color: #6b7280;
-    }/*Los <small>que acompañan a los campos con los textos "minimo 8 caracteres. entre 1 y 8 sesiones,ect."*/
+/*Para los mensajes ayuda*/
+form small {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}/*Los <small> que acompañan a los campos con los textos "míjimo 8 caracteres. Entre 1 y 8 sesionjes, etc"*/
 
-/*Estilizar el botton con estados*/
+/*Estilizar el botón con estados*/
 .boton, .boton-secundario {
     background-color: #c55a11;
     color: white;
-    padding: 12px;
-    border:none;
+    padding: 12px 24px;
+    border: none;
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
-    cursor: pointer;/*La mano indica elemento pulsable*/
+    cursor: pointer; /*La mano indica elemento pulsable*/
 }
-/* Los tres estados:1 hover:  mas oscuro al pasar el cursor */
+ 
+/*Los tres estados: 1: hover: más oscuro al pasar  el cursor*/
 .boton:hover {
     background-color: #a8490e;
 }
-/* Estados:2 active: Aun mas oscuro mientras se pulsa.*/
-.boton:active{
-    background-color: #65e006;
+
+/*Estado: 2: active: Aún más oscuro Mientras se pulsa */ 
+.boton:active {
+    background-color: #8a3b0b;
 }
 
-/* Estados:3 FOCUS*/
-.boton:focus{
-    outline: 2px solid #f56518;
+/*Estado: 3: focus*/
+.boton:focus {
+    outline: 2px solid #f5c518;
     outline-offset: 2px;
 }
 
-/*Variante secundario*/
-.boton-secundario{
+/*variante secundaria*/
+.boton-secundario {
     background-color: #6b7280;
 }
-.boton-secundario:hover{
-    background-color: #4d5563;
+.boton-secundario:hover {
+    background-color: #4b5563;
 }
 .boton {
     transition: background-color 0.3s ease;
 }
+
+/*Tarjetas con sombra*/
+
 .tarjeta {
-    background-color: rgb(246, 245, 245);
+    background: rgb(246, 245, 245);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     /*box-shadow: 0px 1px 3px rgba(0, 0, 0, 0,.15);*/
-}/*0: desplazamiento horizontal. 4px: desplazamiento vertical. 12px: es el desenfoque, cuanto mayor , mas difusa. rgba: color con transparencia*/
-
-/*Tarjeta interactiva*/
-.tarjeta figure:hover{
-    transform: translateY(-5px);/*valor negativo va hacia arriba*/
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transform: scale(1.03);/*Escalar .1 = del tamaño original*/
-    transform: scale(1.1, 0.9);/*X  y Y POR SEPARADO*/
-    transform: translatex(-5px);/*Desplazar .negativo=Hacia arriba*/
-    transform: rotate(5deg);/*Girar .grados*/
-    transform: skew(5deg); /*Inclinar .grados*/
-    transform: translateY(-5px) scale(1.03); 
+    /*0: desplazamiento horizontal. 4px:desplazamnmiento vertical. 12px:es el desenfoque, cuanto mator, más difusa. rgba:color con transparencia*/
 }
 
-/*definir la transición*/
-@keyframes aparecer{
-    from{
-        opacity: 0;
+/*Tarjeta interactiva*/
+.tarjeta figure:hover {
+    transform: translateY(-10px); /*Valor negativo va hacia arriba*/
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);/*Escalar .1 = del tamaño original*/
+    transform: scale(1.1, 0.9);/*X y Y por separado*/
+    transform: translateY(-5px); /*Desplazar .negativo=Hacia arriba*/
+    transform: rotate(5deg); /*Girar . grados*/
+    transform: skew(10deg);  /*inclinar . grados*/
+    transform: translateY(-5px) scale(1.03);
+}
+
+/*Definir la transición*/
+@keyframes aparecer {
+    from {
+        opacity:0;
         transform: translateY(20px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 /*Aplica*/
 .tarjeta {
     animation: aparecer 0.6s ease-out;
 }
 
-@keyframes pulso{
-    0%, 100%{
+@keyframes pulso {
+    0%, 100% {
         transform: scale(1);
     }
-    50%{
+    50% {
         transform: scale(1.08);
     }
 }
 
 .etiqueta {
     animation: pulso 2s ease-out infinite;
-    /*animation-iteration-count: 5;
-    animation-direction: alternate;*/
 }
 
-/*Apliación de filtros */
+/*Aplicacion de filtros*/
 .galeria-grid img:hover {
     filter: grayscale(100%);
-    transition: filter 0.4s ease;
-    /*filter: blur(2px);
+    filter: blur(2px);
     filter: brightness(1.2);
     filter: contrast(1.5);
     filter: saturate(2);
     filter: sepia(60%);
-    filter: invert(150%);
+    filter: invert(90%);
     filter: opacity(50%);
-    filter: grayscale(100%) brightness(1.1);*/
+    filter: grayscale(100%) brightness(1.1);
 }
+
+
+
