@@ -7,12 +7,12 @@ se declara dentro de :root, que representa el elemento html y es el ancestro de 
 
 :root {
     /*paleta de colores*/
-    --color-tinta: #1a1a1a /*texto pirncipal, casi negro*/ 
-    --color-suave: #6b6b6b /*texto pirncipal, casi negro*/ 
-    --color-marca: #2c3e50 /*texto pirncipal, casi negro*/ 
-    --color-acento: #c87941 /*texto pirncipal, casi negro*/ 
-    --color-acento-osc: #a45f2e /*texto pirncipal, casi negro*/ 
-    --color-fondo: #fafaf8 /*texto pirncipal, casi negro*/ 
-    --color-fondo-alt: #f0ee /*texto pirncipal, casi negro*/ 
-    --color-blanco: #ffffff /*texto pirncipal, casi negro*/ 
+    --color-tinta: #1a1a1a /*texto principal, casi negro*/ 
+    --color-suave: #6b6b6b /*texto secundario, pies de foto*/ 
+    --color-marca: #2c3e50 /*el azul del estudio*/ 
+    --color-acento: #c87941 /*terracota de los botones*/ 
+    --color-acento-osc: #a45f2e /*terracota oscuro*/ 
+    --color-fondo: #fafaf8 /*blanco roto.no blanco puro*/ 
+    --color-fondo-alt: #f0ee /*bordes y separadores*/ 
+    --color-blanco: #ffffff /*blanco puro*/ 
 }
