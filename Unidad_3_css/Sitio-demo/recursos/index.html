@@ -5,23 +5,26 @@
   <!-- METADATOS (Sesión 3) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Liam Barrantes Calvo" />
+  <meta name="author" content="Giocoto">
   <meta name="description" content="Sitio de demostración del módulo CSTI12002 Codificación de páginas web del INA.">
   <meta name="keywords" content="HTML, CSS, desarrollo web, INA, CSTI12002">
-  <link rel="icon" href="recursos/favicon.png" type="image/png">
-  <link rel="stylesheet" href="css/estilos.css">
 
   <title>Inicio | Codificación de páginas web</title>
 
- 
-  <div class="contenedor">
+  <link rel="icon" href="recursos/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 
+<div class="contenedor">
+  
 <body>
   <!-- CABECERA (Sesión 6) -->
-  <header id="inicio">
+  <header id="inicio" class="portada-texto">
     <h1>Codificación de páginas web</h1>
-    <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
+    <!--<p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>-->
 
     <nav>
       <ul>
@@ -39,21 +42,21 @@
   <main id="contenido">
 
     <!-- Índice con anclas internas (Sesión 4) -->
-    <nav>
+    <div class="menu-anclas">
       <h2>En esta página</h2>
       <ul>
         <li><a href="#modulo">Sobre el módulo</a></li>
         <li><a href="#unidades">Las cinco unidades</a></li>
         <li><a href="#evaluacion">Cómo se evalúa</a></li>
       </ul>
-    </nav>
+    </div>
 
-    <article>
+    <article class="fila-tarjetas">
       <h2>Presentación del módulo</h2>
 
       <section id="modulo">
         <h3>Sobre el módulo</h3>
-        <p>
+        <p class="destacado">
           Este módulo comprende <strong>150 horas</strong> distribuidas en cinco
           unidades de aprendizaje. Se estudia la construcción de páginas web
           desde su estructura hasta el uso de un framework de diseño.
@@ -72,7 +75,7 @@
         </blockquote>
       </section>
 
-      <section id="unidades">
+      <section id="unidades" class="centrado">
         <h3>Las cinco unidades</h3>
         <p>El recorrido avanza de la estructura a la presentación:</p>
         <ol>
@@ -136,4 +139,3 @@
 </body>
 </div>
 </html>
-

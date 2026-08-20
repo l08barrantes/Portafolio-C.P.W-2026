@@ -3,24 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Liam Barrantes Calvo" />
+    <meta name="author" content="Liam Barrantes" />
     <meta
       name="description"
-      content="Artículo sobre la evolución del HTML y el estándar vivo de la WHATWG."/>
+      content="Artículo sobre la evolución del HTML y el estándar vivo de la WHATWG."
+    />
     <meta
       name="keywords"
-      content="HTML5, estándar vivo, WHATWG, W3C, historia de la web"/>
+      content="HTML5, estándar vivo, WHATWG, W3C, historia de la web"
+    />
 
     <title>Artículo | Codificación de páginas web</title>
 
     <link rel="icon" href="recursos/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="css/estilos.css" />
-      <div class="contenedor">
+    <link rel="stylesheet" href="css/estilos.css">
   </head>
-
+  <div class="contenedor">
   <body>
     <header id="inicio">
-      <h1>Artículo</h1>
+      <h1>Artículos</h1>
       <p>
         Sitio de demostración del módulo
         <abbr title="Código del módulo">CSTI12002</abbr>.
@@ -33,13 +34,13 @@
           <li><a href="horario.html">Horario</a></li>
           <li><a href="registro.html">Registro</a></li>
           <li><a href="galeria.html">Galería</a></li>
-          <li><a href="insignia.html">Insignia</a></li
+          <li><a href="insignia.html">Insignia</a></li>
         </ul>
       </nav>
     </header>
 
     <main id="contenido"> <!--Con el uso de anclas-->
-      <nav>
+      <div class="articulos">
         <h2>Contenido del artículo</h2>
         <ul>
           <li><a href="#origen">El origen</a></li>
@@ -47,12 +48,12 @@
           <li><a href="#estandar-vivo">El estándar vivo</a></li>
           <li><a href="#validacion">Por qué validar</a></li>
         </ul>
-      </nav>
+      </div>
 
       <article>
         <h2>La evolución del HTML: de las versiones al estándar vivo</h2>
 
-        <p>
+        <p class="destacado">
           El lenguaje que estructura la web cumple más de tres décadas. Su
           historia explica por qué hoy se escribe como se escribe.
         </p>
@@ -74,7 +75,7 @@
 
         <section id="versiones">
           <h3>Las versiones numeradas</h3>
-          <p>
+          <p class="destacado">
             Durante dos décadas el lenguaje avanzó por versiones. El hito más
             importante llegó en <strong>1999</strong> con HTML 4.01, que
             estableció un principio vigente hasta hoy:
@@ -163,15 +164,13 @@
       <h2>Contacto</h2>
       <address>
         Instituto Nacional de Aprendizaje<br />
- Correo: <a href="mailto:giocoto@ejemplo.com">giocoto@ejemplo.com</a>
+        Correo: <a href="mailto:giocoto@ejemplo.com">giocoto@ejemplo.com</a>
       </address>
       <p>
         <small
           >&copy; 2026 &middot; INA &middot; Todos los derechos reservados</small>
       </p>
     </footer>
-  
-  
-</body>
-</div>
+  </body>
+  </div>
 </html>

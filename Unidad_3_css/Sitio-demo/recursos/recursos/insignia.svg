@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- circle: se ubica por su CENTRO (cx, cy) y su RADIO (r) -->
+                <circle cx="100" cy="100" r="90" fill="#C55A11"></circle> <!--Fil: color de relleno-->
+
+
+                <circle cx="100" cy="100" r="72" fill="#FFF8E1" stroke="#1F4E79" stroke-width="4"></circle>
+
+                <!-- polygon: lista de vértices; la figura se cierra sola -->
+                <polygon points="100,45 112,80 149,80 119,102 130,137 100,115 70,137 81,102 51,80 88,80" fill="#F5C518" stroke="#1F4E79" stroke-width="2"></polygon>
+
+            <!--text: código para crear texto svg-->
+
+            <text x="100" y="160" text-anchor="middle" font-size="14" fill="#1F4E79">
+                HTML</text>
+            </svg>

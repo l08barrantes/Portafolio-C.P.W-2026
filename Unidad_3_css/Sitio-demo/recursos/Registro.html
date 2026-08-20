@@ -4,42 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Liam Barrantes Calvo" />
+  <meta name="author" content="Giocoto">
   <meta name="description" content="Formulario de matrícula para las sesiones de refuerzo del módulo CSTI12002.">
   <meta name="keywords" content="matrícula, registro, formulario, CSTI12002, INA">
 
   <title>Registro | Codificación de páginas web</title>
 
   <link rel="icon" href="recursos/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
-    <div class="contenedor">
 </head>
 
+<div class="contenedor">
 <body>
-    <header id="inicio">
-      <h1>Registro</h1>
-      <p>
-        Sitio de demostración del módulo
-        <abbr title="Código del módulo">CSTI12002</abbr>.
-      </p>
+  <header id="inicio">
+    <h1>Contacto</h1>
+    <p>Sitio de demostración del módulo <abbr title="Código del módulo">CSTI12002</abbr>.</p>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="articulo.html">Artículo</a></li>
-          <li><a href="horario.html">Horario</a></li>
-          <li><a href="registro.html">Registro</a></li>
-          <li><a href="galeria.html">Galería</a></li>
-          <li><a href="insignia.html">Insignia</a></li
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="articulo.html">Artículo</a></li>
+        <li><a href="horario.html">Horario</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="insignia.html">Insignia</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido">
 
+    
     <article>
-      <h2>Formulario de matrícula</h2>
-
+      <h2>Formulario matrícula</h2>
+      <!--Footer: Pie, créditos, contacto, derechos-->
       <p>
         Complete los datos para inscribirse en una sesión de refuerzo.
         Los campos marcados con asterisco (*) son obligatorios.
@@ -154,11 +155,8 @@
               <label for="grabacion">Grabación de la sesión</label>
             </p>
           </fieldset>
-          <p>
-            </select><br>
 
-           <fieldset>
-            <legend>Intereses</legend>
+          <p>
             <label for="comentarios">Comentarios</label>
             <textarea id="comentarios" name="comentarios"
                       rows="4" maxlength="300"
@@ -179,9 +177,9 @@
           </p>
         </fieldset>
 
-        <p>
-          <button type="submit">Enviar matrícula</button>
-          <button type="reset">Limpiar formulario</button>
+        <p class="grupo-botones ">
+          <button type="submit" class="boton">Enviar matrícula</button>
+          <button class="boton-secundario" type="reset">Limpiar formulario</button>
         </p>
       </form>
     </article>
