@@ -7,25 +7,25 @@ se declara dentro de :root, que representa el elemento html y es el ancestro de 
 
 :root {
     /*PALETA DE COLORES*/
-    --color-tinta: #1a1a1a /*texto principal, casi negro*/ 
-    --color-suave: #6b6b6b /*texto secundario, pies de foto*/ 
-    --color-marca: #2c3e50 /*el azul del estudio*/ 
-    --color-acento: #c87941 /*terracota de los botones*/ 
-    --color-acento-osc: #a45f2e /*terracota oscuro*/ 
-    --color-fondo: #fafaf8 /*blanco roto.no blanco puro*/ 
-    --color-fondo-alt: #f0ee /*bordes y separadores*/ 
-    --color-blanco: #ffffff /*blanco puro*/ 
+    --color-tinta: #1a1a1a; /*texto principal, casi negro*/ 
+    --color-suave: #6b6b6b;/*texto secundario, pies de foto*/ 
+    --color-marca: #2c3e50; /*el azul del estudio*/ 
+    --color-acento: #c87941; /*terracota de los botones*/ 
+    --color-acento-osc: #a45f2e; /*terracota oscuro*/ 
+    --color-fondo: #fafaf8; /*blanco roto.no blanco puro*/ 
+    --color-fondo-alt: #f0ee; /*bordes y separadores*/ 
+    --color-blanco: #ffffff; /*blanco puro*/ 
 
     /*TIPOGRAFÍA*/
-    --fuente-titulo: Georgia, 'Times New Roman', serif
-    --fuente-texto: 'Segoe UI', Arial, sans-serif
+    --fuente-titulo: Georgia, 'Times New Roman', serif;
+    --fuente-texto: 'Segoe UI', Arial, sans-serif;
 
     /*ESPACIADO Converción un 1rem=10px*/
     --esp-xs: 0.8rem; /*8px*/
-    --esp-xs: 1.6rem; /*16px*/
-    --esp-xs: 2.4rem; /*24px*/
-    --esp-xs: 4rem; /*40px*/
-    --esp-xs: 8rem; /*80px*/
+    --esp-sm: 1.6rem; /*16px*/
+    --esp-md: 2.4rem; /*24px*/
+    --esp-lg: 4rem; /*40px*/
+    --esp-xl: 8rem; /*80px*/
 
     /*OTROS ELEMENTOS*/
     --radio: 0.6rem /*6px*/
@@ -34,15 +34,15 @@ se declara dentro de :root, que representa el elemento html y es el ancestro de 
     --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16);/*elemento elevado*/
 
     --transicion: 0.25s ease;
-    --ancho-max: 120rem; /*1200px*/
+    --ancho-max: 120rem; /*1200px*/  
+}
 
-    /*RESET Y BASE TIPOGRAFICO*/
+/*RESET Y BASE TIPOGRAFICO*/
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box; /*la linea más importante del reset: porque sin ella,si a una hoja le damos width: 300px y ademas padding: 20 px, y border 2pxla caja en realidad mide 100+20+20+2+2 =344px.con esta linea se descuebtan hacia adentro*/
     }
-}
 
 /*LA BASE DEL TAMAÑO. La tecnica del 62.5%*/
 html{
@@ -52,6 +52,43 @@ html{
 }
 
 body{
-    font-size: 1.6rem; /**/
-
+    font-size: 1.6rem; /*si no se agraga esta linea el texto no toma el valor de los 16px base y quedaría un texto*/
+    font-family: var(--fuente-texto);
+    line-height: 1.6 ;
+    color: var(--color-tinta);
+    background-color: var(--color-fondo);
 }
+
+ /*JERARQUÍA DE TÍTULOS*/
+    h1, h2, h3{
+        font-family: var(--fuente-titulo);
+        line-height: 1.2;
+        color: var(--color-marca);
+    }
+
+ h1{font-size: 4.8rem;}
+ h2{font-size: 3.2rem;}
+ h3{font-size: 2.0rem;}
+
+ p{
+ margin-bottom: var(--esp-sm);
+}
+    
+ a{
+ color: var(--color-acento);
+ text-decoration: none;
+}
+
+ img{
+ max-width: 100%;
+ height: auto;
+ display: block;
+   }
+
+ /*CONTENEDORES Y SECCIONES*/
+.seccion {
+max-width: var(--ancho-max);
+ margin-left: auto;
+ margin-right: auto;
+ padding: var(--esp-xl) var(--esp-md);
+ }
