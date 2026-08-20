@@ -6,7 +6,7 @@
 se declara dentro de :root, que representa el elemento html y es el ancestro de todos. todos los elementos lo puedne usar*/
 
 :root {
-    /*paleta de colores*/
+    /*PALETA DE COLORES*/
     --color-tinta: #1a1a1a /*texto principal, casi negro*/ 
     --color-suave: #6b6b6b /*texto secundario, pies de foto*/ 
     --color-marca: #2c3e50 /*el azul del estudio*/ 
@@ -15,4 +15,43 @@ se declara dentro de :root, que representa el elemento html y es el ancestro de 
     --color-fondo: #fafaf8 /*blanco roto.no blanco puro*/ 
     --color-fondo-alt: #f0ee /*bordes y separadores*/ 
     --color-blanco: #ffffff /*blanco puro*/ 
+
+    /*TIPOGRAFÍA*/
+    --fuente-titulo: Georgia, 'Times New Roman', serif
+    --fuente-texto: 'Segoe UI', Arial, sans-serif
+
+    /*ESPACIADO Converción un 1rem=10px*/
+    --esp-xs: 0.8rem; /*8px*/
+    --esp-xs: 1.6rem; /*16px*/
+    --esp-xs: 2.4rem; /*24px*/
+    --esp-xs: 4rem; /*40px*/
+    --esp-xs: 8rem; /*80px*/
+
+    /*OTROS ELEMENTOS*/
+    --radio: 0.6rem /*6px*/
+    --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);/*apenas separado*/
+    --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);/*tarjetas*/
+    --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16);/*elemento elevado*/
+
+    --transicion: 0.25s ease;
+    --ancho-max: 120rem; /*1200px*/
+
+    /*RESET Y BASE TIPOGRAFICO*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /*la linea más importante del reset: porque sin ella,si a una hoja le damos width: 300px y ademas padding: 20 px, y border 2pxla caja en realidad mide 100+20+20+2+2 =344px.con esta linea se descuebtan hacia adentro*/
+    }
+}
+
+/*LA BASE DEL TAMAÑO. La tecnica del 62.5%*/
+html{
+    font-size: 62.5%; /*por omision el navegador usa 16px para el tamañop base. el 62.5 de 16 es exactamente 10*/
+
+    scroll-behavior: smooth; /*saltos suaves al usar navegacion con anclas*/
+}
+
+body{
+    font-size: 1.6rem; /**/
+
 }
