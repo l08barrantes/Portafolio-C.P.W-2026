@@ -92,3 +92,8 @@ max-width: var(--ancho-max);
  margin-right: auto;
  padding: var(--esp-xl) var(--esp-md);
  }
+
+ .section-alterna {
+    background-color: var(--color-fondo-alt);
+    max-width: none; /*se anula el ancho para que el fondo ocupe todo el ancho de pantalla*/
+ }
