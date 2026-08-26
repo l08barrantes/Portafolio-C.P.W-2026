@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="CSTI12002">
+  <meta name="description" content="Ejercicio de diagnóstico: página de referencia.">
+  <meta name="keywords" content="diagnóstico, css, ejercicio">
+
+  <title>Ejercicio de diagnóstico | Taller La Colmena</title>
+
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <header id="cabecera" class="cabecera">
+    <div class="marca">
+      <h1>Taller La Colmena</h1>
+      <p class="lema">Carpintería artesanal desde 2009</p>
+    </div>
+
+    <nav class="navegacion">
+      <ul class="menu">
+        <li><a href="#servicios" class="menu-enlace activo">Servicios</a></li>
+        <li><a href="#tarifas" class="menu-enlace">Tarifas</a></li>
+        <li><a href="#contacto" class="menu-enlace">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!--TRES TARJETAS · Flexbox -->
+    <section id="servicios" class="seccion">
+      <h2 class="seccion-titulo">Lo que hacemos</h2>
+
+      <div class="fila-tarjetas">
+
+        <article class="tarjeta">
+          <h3 class="tarjeta-titulo">Mobiliario a medida</h3>
+          <p class="tarjeta-texto">
+            Diseñamos y construimos muebles según el espacio disponible,
+            con maderas nacionales certificadas.
+          </p>
+          <p class="tarjeta-precio">Desde ₡180 000</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3 class="tarjeta-titulo">Restauración</h3>
+          <p class="tarjeta-texto">
+            Recuperamos piezas antiguas conservando su carácter original.
+          </p>
+          <p class="tarjeta-precio">Desde ₡95 000</p>
+        </article>
+
+        <article class="tarjeta">
+          <h3 class="tarjeta-titulo">Talleres abiertos</h3>
+          <p class="tarjeta-texto">
+            Cursos de fin de semana para aprender el uso básico de
+            herramientas manuales.
+          </p>
+          <p class="tarjeta-precio">Desde ₡40 000</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TABLA -->
+    <section id="tarifas" class="seccion seccion-alterna">
+      <h2 class="seccion-titulo">Tarifas de referencia</h2>
+
+      <table class="tabla">
+        <caption class="tabla-titulo">Precios vigentes a agosto de 2026.</caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Servicio</th>
+            <th scope="col">Duración</th>
+            <th scope="col">Precio ₡</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">Mesa de comedor</th>
+            <td>3 semanas</td>
+            <td>320 000</td>
+          </tr>
+          <tr>
+            <th scope="row">Librero empotrado</th>
+            <td>2 semanas</td>
+            <td>240 000</td>
+          </tr>
+          <tr>
+            <th scope="row">Restauración de silla</th>
+            <td>5 días</td>
+            <td>95 000</td>
+          </tr>
+          <tr>
+            <th scope="row">Taller de fin de semana</th>
+            <td>2 días</td>
+            <td>40 000</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="3">El traslado se cotiza por separado.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- CITA -->
+    <section id="testimonio" class="seccion">
+      <blockquote class="cita">
+        <p class="cita-texto">
+          Les llevé la mesa de mi abuela hecha pedazos y me la devolvieron
+          como si el tiempo no hubiera pasado.
+        </p>
+        <footer class="cita-autoria">Rosa Barrantes · Cliente desde 2018</footer>
+      </blockquote>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section id="contacto" class="seccion seccion-alterna">
+      <h2 class="seccion-titulo">Solicitar una cotización</h2>
+
+      <form action="#" method="post" class="formulario">
+
+        <fieldset class="grupo">
+          <legend class="grupo-titulo">Sus datos</legend>
+
+          <p class="campo">
+            <label for="nombre" class="campo-etiqueta">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" class="campo-entrada"
+                   required minlength="3" placeholder="Ana Rodríguez">
+          </p>
+
+          <p class="campo">
+            <label for="correo" class="campo-etiqueta">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" class="campo-entrada"
+                   required placeholder="persona@ejemplo.com">
+          </p>
+
+          <p class="campo">
+            <label for="detalle" class="campo-etiqueta">Qué necesita</label>
+            <textarea id="detalle" name="detalle" class="campo-entrada" rows="4"></textarea>
+          </p>
+
+          <p class="opcion">
+            <input type="checkbox" id="acepto" name="acepto" class="opcion-marca" required>
+            <label for="acepto" class="opcion-etiqueta">Acepto que me contacten *</label>
+          </p>
+        </fieldset>
+
+        <p class="fila-botones">
+          <button type="submit" class="boton boton-principal">Enviar</button>
+          <button type="reset" class="boton boton-secundario">Limpiar</button>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer id="pie" class="pie">
+    <div class="pie-columnas">
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Taller La Colmena</h2>
+        <p class="pie-texto">Carpintería artesanal desde 2009.</p>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Contacto</h2>
+        <address class="pie-datos">
+          Desamparados, San José<br>
+          <a href="mailto:hola@ejemplo.com" class="pie-enlace">hola@ejemplo.com</a>
+        </address>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Horario</h2>
+        <p class="pie-texto">Lunes a viernes<br>8:00 a. m. – 5:00 p. m.</p>
+      </div>
+    </div>
+
+    <p class="pie-creditos"><small>&copy; 2026 · Taller La Colmena</small></p>
+  </footer>
+
+</body>
+
+</html>
