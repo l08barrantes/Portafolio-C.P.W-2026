@@ -1,0 +1,375 @@
+/*TALLER LA COLMENA · HOJA DE ESTILOS
+
+   ESTA HOJA TIENE QUINCE ERRORES.
+    Su tarea es encontrarlos y corregirlos.
+    No hace falta que el resultado sea bonito: hace falta que funcione. */
+
+
+/* 1 · RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box; /*ERROR 6 CORREGIDO BQ 1*/
+}
+
+
+/* 2 · VARIABLES */
+:root {
+  --miel:      #B8860B;
+  --miel-osc:  #8B6508;
+  --madera:    #5D4037;
+  --tinta:     #2B2B2B;
+  --suave:     #6E6E6E;
+  --crema:     #FDFAF5;
+  --crema-alt: #F3EDE3;
+  --linea:     #DDD5C8;
+  --blanco:    #FFFFFF;
+
+  --esp-sm: 1.6rem;
+  --esp-md: 2.4rem;
+  --esp-lg: 4rem;
+  --radio:  0.6rem;
+  --sombra: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  --transicion: 0.25s ease;
+}
+
+
+/* 3 · BASE */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--tinta);
+  background-color: var(--crema);
+  font-size: 1.6rem;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  line-height: 1.2;
+  color: var(--madera);
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
+
+p { margin-bottom: var(--esp-sm);}
+
+a {
+  color: var(--miel);
+  text-decoration: none;
+}
+
+
+/* 4 · CONTENEDORES */
+.seccion {
+  max-width: 110rem; /*error 7*/
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--esp-lg) var(--esp-md);
+}
+
+.seccion-alterna {
+  background-color: var(--crema-alt);
+}
+
+.seccion-titulo {
+  margin-bottom: var(--esp-md); /*ERROR 5 CORREGIDO BQ 4*/
+  padding-bottom: var(--esp-sm);
+  border-bottom: 0.2rem solid var(--linea);
+}
+
+
+/* 5 · CABECERA */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--esp-sm) var(--esp-md);
+  background-color: var(--blanco);
+  border-bottom: 0.1rem solid var(--linea);
+  position: sticky;
+  top: 0; /*ERROR 1 CORREGIDO BQ5 */
+  z-index: 100;
+}
+/*.marca h1: font-size:2.6rem; }*/ /*error 9*/
+.lema {
+  font-size: 1.4rem;
+  color: var(--suave);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.menu {
+  display: flex;
+  gap: var(--esp-sm);
+  list-style: none;
+}
+
+.menu-enlace{ /*ERROR 4 CORREGIDO BQ5*/
+  padding: 1rem 1.6rem;
+  color: var(--tinta);
+  font-weight: 600;
+  border-radius: var(--radio);
+  transition: background-color var(--transicion);
+}
+
+.menu-enlace:hover {
+  background-color: var(--crema-alt);
+  color: var(--madera);
+  transition: background-color var(--transicion);
+}
+
+.menu-enlace.activo {
+  color: var(--miel);
+}
+
+
+/* 6 · TARJETAS */
+.fila-tarjetas {
+  display: flex;
+  gap: var(--esp-md);
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  flex: 1 1 28rem;
+  background-color: var(--blanco);
+  padding: var(--esp-md);
+  border: 0.1rem solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tarjeta-titulo {
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-texto {
+  color: var(--suave);
+}
+
+.tarjeta-precio {
+  margin-bottom: 0;
+  padding-top: var(--esp-sm);
+  border-top: 0.1rem solid var(--linea);
+  font-weight: 700;
+  color: var(--madera);
+}
+
+
+/* 7 · TABLA */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-titulo {
+  padding: var(--esp-sm);
+  text-align: left;
+  font-size: 1.4rem;
+  color: var(--suave);
+}
+
+.tabla th,
+.tabla td {
+  padding: 1.2rem;
+  border-bottom: 0.1rem solid var(--linea);
+  text-align: left;
+}
+
+.tabla thead th {
+  background-color: var(--madera);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: var(--crema);
+}
+
+.tabla tfoot td {
+  background-color: var(--crema-alt);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+
+/* 8 · CITA */
+.cita {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: var(--esp-md) var(--esp-lg);
+  background-color: var(--blanco);
+  border-left: 0.5rem solid var(--miel);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  box-shadow: var(--sombra);
+}
+
+.cita::before {
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  color: var(--miel);
+  opacity: 0.25;
+}
+
+.cita-texto {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.cita-autoria {
+  color: var(--suave);
+  font-size: 1.4rem;
+  text-align: right;
+  font-style: normal;
+}
+
+
+/* 9 · FORMULARIO */
+.formulario {
+  max-height: 70rem; /*ERROR 3 CORREGIDO B9*/
+}
+
+.grupo {
+  border: 0.1rem solid var(--linea);
+  border-radius: var(--radio);
+  padding: var(--esp-md);
+  background-color: var(--blanco);
+}
+
+.grupo-titulo {
+  padding:0.8rem;
+  font-weight: 700;
+  color: var(--madera);
+  font-size: 1.8rem;
+}
+
+.campo {
+  margin-bottom: var(--esp-sm);
+}
+
+.campo-etiqueta {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  border: 0.1rem solid var(--linea);
+  border-radius: var(--radio);
+  font-size: 1.6rem;
+  background-color: var(--crema);
+  box-sizing: border-box; /*ERROR 2 CORREGIDO BQ9*/
+}
+
+.campo-entrada:focus,
+.campo input:focus,
+.campo textarea:focus{
+  outline: 0.2rem solid var(--miel);
+  border-color: var(--miel);
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.opcion-marca {
+  width: 1.8rem;
+  height: 1.8rem;
+  accent-color: var(--miel);
+}
+
+
+/* 10 · BOTONES */
+.boton {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: var(--radio);
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-principal {
+  background-color: var(--miel);
+  color: var(--blanco);
+}
+
+.boton-principal:hover {
+  background-color: var(--miel-osc);
+}
+
+.boton-secundario {
+  background-color: var(--crema-alt);
+  color: var(--tinta);
+}
+
+.fila-botones {
+  display: flex;
+  gap: var(--esp-sm);
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+
+/* 11 · PIE */
+.pie {
+  background-color: var(--madera);
+  color: var(--blanco);
+  padding: var(--esp-lg) var(--esp-md) var(--esp-md);
+  margin-top: var(--esp-lg);
+}
+
+.pie-columnas {
+  display: grid;
+  grid-template-columns:repeat(3,1fr); /*error 8*/
+  gap: var(--esp-md);
+}
+
+.pie-titulo {
+  color: var(--blanco);
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.pie-texto,
+.pie-datos {
+  font-size: 1.4rem;
+  font-style: normal;
+  opacity: 0.88;
+}
+
+.pie-enlace {
+  color: var(--blanco);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
+}
+
+.pie-creditos {
+  margin-top: var(--esp-md);
+  padding-top: var(--esp-sm);
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.22);
+  text-align: center;
+  font-size: 1.3rem;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
