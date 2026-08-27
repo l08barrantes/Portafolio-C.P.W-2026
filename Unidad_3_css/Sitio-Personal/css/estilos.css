@@ -199,6 +199,8 @@ img{ max-width: 100%; display: block; }
 }
 .btn-primary{ background: var(--fresa); color: var(--blanco); }
 .btn-primary:hover{ background: var(--fresa-oscura); transform: translateY(-2px); }
+.btn-secundary{ background: var(--verde-hoja); color: var(--blanco);}
+.btn-secundary:hover{ background: var(--verde-claro); transform: translateY(-2px); }
 .btn-ghost{ background: transparent; color: var(--blanco); border: 1.5px solid rgba(255,253,248,0.55); }
 .btn-ghost:hover{ background: rgba(255,253,248,0.12); transform: translateY(-2px); }
 .btn-large{ font-size: 1.05rem; padding: 16px 34px; }
@@ -624,21 +626,6 @@ tr.highlight-row td{ background: #FBF0E0; }
 .contact-info-row a{ text-decoration: none; color: var(--fresa-oscura); font-weight: 600; }
 .contact-info-row a:hover{ text-decoration: underline; }
 
-.whatsapp-btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--verde-hoja);
-  color: var(--blanco);
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.92rem;
-  width: fit-content;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.whatsapp-btn:hover{ background: var(--verde-oscuro); transform: translateY(-2px); }
 
 .contact-form{
   background: var(--blanco);
