@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="Liam Barrantes" content="width=device-width, initial-scale=1.0">
-    <title>The Strawberry Tour - Contacto</title>
-    <meta name="description" content="Reserva tu experiencia en The Strawberry Tour. Contáctanos para programar tu visita y disfrutar de nuestros tours guiados, talleres de cosecha y experiencias VIP al atardecer.">
-    
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" href="recursos-html/favicon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Liam Barrantes Calvo">
+<title>The Strawberry Tour — Contacto</title>
+<meta name="description" content="Reserva tu tour, taller o experiencia VIP en The Strawberry Tour. Escríbenos por WhatsApp, correo o completa el formulario.">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
+<header class="site-header">
   <nav class="main-nav">
-        <a href="index.html" class="nav-brand"><i class="fa-solid fa-strawberry"></i> Strawberry Tour</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Listas.html" class="active">Servicios</a></li>
-            <li><a href="Galeria.html">Galería</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
-            <li><a href="Insignia.html">Insignias</a></li>
-        </ul>
-    </nav>
+    <a href="index.html" class="nav-brand">🍓 The Strawberry Tour</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Listas.html">Servicios</a></li>
+      <li><a href="Galeria.html">Galería</a></li>
+      <li><a href="Contacto.html" class="active">Contacto</a></li>
+      <li><a href="Insignia.html">Insignias</a></li>
+    </ul>
+    <a href="Contacto.html" class="nav-cta">Reservar</a>
+  </nav>
 
-    <div class="page-container">
-        <h1 class="page-title">Reserva tu Experiencia</h1>
-        <p class="page-subtitle">Ponte en contacto con nosotros para programar tu visita</p>
+  <div class="hero hero-page">
+    <p class="hero-eyebrow">Contacto</p>
+    <h1 class="hero-title">Reserva tu lugar</h1>
+    <p class="hero-sub">Contanos qué tour te interesa y coordinamos fecha, hora y tamaño de grupo.</p>
+  </div>
 
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2 style="margin-bottom: 20px; color: var(--text-main);">Información de Visita</h2>
-                <ul class="custom-list">
-                    <li><i class="fa-solid fa-location-dot"></i> <strong>Ubicación:</strong> Finca Las Fresas, Valle Central.</li>
-                    <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> reservas@strawberrytour.com</li>
-                    <li><i class="fa-solid fa-phone"></i> <strong>Teléfono:</strong> +506 8000-0000</li>
-                    <li><i class="fa-solid fa-clock"></i> <strong>Atención:</strong> Martes a Domingo, 8:00 AM - 5:00 PM</li>
-                </ul>
-            </div>
+  <svg class="hero-row" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 V60 H0 Z"></path>
+  </svg>
+</header>
 
-            <div class="contact-form-box">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-                    </div>
+<main>
 
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
-                    </div>
+  <section class="section section-contact">
+    <div class="contact-grid">
 
-                    <div class="form-group">
-                        <label for="tour">Selecciona el Tour</label>
-                        <select id="tour" name="tour">
-                            <option value="estandar">Tour Guiado Estándar</option>
-                            <option value="cosecha">Taller de Cosecha</option>
-                            <option value="vip">Experiencia VIP Atardecer</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje o Solicitud Especial</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Cuántas personas asistirán?"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Enviar Reserva</button>
-                </form>
-            </div>
+      <div class="contact-info-card">
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">✉️</span>
+          <div>
+            <h3>Correo</h3>
+            <p><a href="mailto:reservas@strawberrytour.com">reservas@strawberrytour.com</a></p>
+          </div>
         </div>
-    </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">📞</span>
+          <div>
+            <h3>Teléfono</h3>
+            <p><a href="tel:+50680000000">+506 8000-0000</a></p>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">📍</span>
+          <div>
+            <h3>Ubicación</h3>
+            <p>San Carlos, Alajuela, Costa Rica</p>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">🕒</span>
+          <div>
+            <h3>Horario de atención</h3>
+            <p>Martes a domingo, 8:00 a.m. – 6:00 p.m.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/50680000000" class="whatsapp-btn" target="_blank" rel="noopener">💬 Escribir por WhatsApp</a>
+      </div>
 
-    <footer>
-        <p>&copy; 2026 The Strawberry Tour. Todos los derechos reservados.</p>
-    </footer>
+      <form class="contact-form" action="mailto:reservas@strawberrytour.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="tour">Tour de interés</label>
+          <select id="tour" name="tour">
+            <option>Tour Clásico</option>
+            <option>Experiencia Atardecer</option>
+            <option>Taller de Cosecha</option>
+            <option>Visita Educativa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="personas">Número de personas</label>
+          <input type="number" id="personas" name="personas" min="1" max="15" value="2">
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Fecha tentativa, horario preferido, alguna necesidad especial..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('#nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
 
 </body>
 </html>

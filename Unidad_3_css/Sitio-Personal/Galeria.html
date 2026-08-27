@@ -1,67 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        <meta charset="UTF-8">
-    <meta name="Liam Barrantes" content="width=device-width, initial-scale=1.0">
-    <title>The Strawberry Tour - Galería</title>
-    <meta name="description" content="Reserva tu experiencia en The Strawberry Tour. Contáctanos para programar tu visita y disfrutar de nuestros tours guiados, talleres de cosecha y experiencias VIP al atardecer.">
-    
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" href="recursos-html/favicon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Liam Barrantes Calvo">
+<title>The Strawberry Tour — Galería</title>
+<meta name="description" content="Galería de fotos de The Strawberry Tour: invernadero, cosecha, degustación y atardecer en la finca.">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
- <nav class="main-nav" id="Galeria">
-        <a href="index.html" class= "nav-brand"><i class="fa-solid fa-strawberry"></i> Strawberry Tour</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Listas.html" class="active">Servicios</a></li>
-            <li><a href="Galeria.html">Galería</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
-            <li><a href="Insignia.html">Insignias</a></li>
-        </ul>
-    </nav>
+<header class="site-header">
+  <nav class="main-nav">
+    <a href="index.html" class="nav-brand">🍓 The Strawberry Tour</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Listas.html">Servicios</a></li>
+      <li><a href="Galeria.html" class="active">Galería</a></li>
+      <li><a href="Contacto.html">Contacto</a></li>
+      <li><a href="Insignia.html">Insignias</a></li>
+    </ul>
+    <a href="Contacto.html" class="nav-cta">Reservar</a>
+  </nav>
 
-   <main id="contenido-principal">
-    <h2>Evidencias Multimedia del Proyecto</h2>
+  <div class="hero hero-page">
+    <p class="hero-eyebrow">Galería</p>
+    <h1 class="hero-title">Un vistazo a la finca</h1>
+    <p class="hero-sub">Momentos del recorrido, del invernadero a la mesa.</p>
+  </div>
 
-    <!-- HORA 5: Imágenes -->
-    <section id="galeria-fotografica">
-      <h3>Fotografías del Huerto</h3>
+  <svg class="hero-row" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 V60 H0 Z"></path>
+  </svg>
+</header>
 
-      <!-- Imagen simple -->
-      <p>
-        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas1.png" alt="" width="400" height="260">
-         <figcaption>Cultivos al aire libre.</figcaption>
-      </p>
+<main>
 
-      <!-- Imagen agrupada con pie -->
-      <figure>
-        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas2.png" alt="" width="400" height="260">
-        <figcaption></figcaption>
+  <section class="section section-gallery">
+    <span class="eyebrow eyebrow-center">Fotos del tour</span>
+    <h2 class="section-title center">Así se vive la experiencia</h2>
+
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--verde-hoja); color: var(--crema);">🌿</div>
+        <figcaption>Bienvenida al invernadero</figcaption>
       </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--fresa); color: var(--blanco);">🍓</div>
+        <figcaption>Fresas en su punto óptimo</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--semilla); color: var(--tierra);">🧑‍🌾</div>
+        <figcaption>Técnica de recolección</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--verde-claro); color: var(--verde-oscuro);">🧺</div>
+        <figcaption>Cesta lista para pesar</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--fresa-oscura); color: var(--crema);">🍯</div>
+        <figcaption>Mermeladas artesanales</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--crema-tile); color: var(--fresa-oscura);">🥧</div>
+        <figcaption>Mesa de degustación</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--verde-oscuro); color: var(--semilla);">🌇</div>
+        <figcaption>Atardecer sobre el cultivo</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <div class="gallery-photo" style="background:var(--tierra); color: var(--crema);">👥</div>
+        <figcaption>Grupo cerrando el recorrido</figcaption>
+      </figure>
+    </div>
 
-      <!-- Imagen adaptativa con varios formatos -->
-      <picture>
-        <source srcset="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas3.png" type="image/webp">
-        <img src="/Unidad_2_html/Sitio-Personal/recursos-html/imagenfresas2.png" alt="" width="400" height="260">
-      </picture>
-    </section>
+    <p class="gallery-note">Estos espacios están listos para tus fotos reales — reemplaza cada <code>.gallery-photo</code> por una etiqueta <code>&lt;img&gt;</code> cuando tengas el material.</p>
+  </section>
 
-<!-- HORA 5: Video -->
-    <section id="video-tutorial">
-      <h3>Taller en Video: The Strawberry Tour</h3>
-      <video controls width="480" poster="/Unidad_2_html/Sitio-Personal/recursos-html/portada-video.jpg" preload="auto">
-        <source src="/Unidad_2_html/Sitio-Personal/recursos-html/video.mp4" type="video/mp4">
-        <source src="/Unidad_2_html/Sitio-Personal/recursos-html/nombre delvideo.webm" type="video/webm">
-        <track src="/Unidad_2_html/Sitio-Personal/recursos-html/subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
-        Su navegador no admite la reproducción de video HTML5. Puede <a href="/Unidad_2_html/Sitio-Personal/recursos-html/10 consejos.mp4">descargar el tutorial aquí</a>.
-      </video>
-    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2026 The Strawberry Tour. Todos los derechos reservados.</p>
-    </footer>
+<footer class="site-footer">
+  <p>© 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('#nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
 
 </body>
 </html>
