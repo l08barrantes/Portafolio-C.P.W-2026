@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Liam Barrantes Calvo">
+<title>The Strawberry Tour — Servicios</title>
+<meta name="description" content="Conoce los tours, talleres y experiencias VIP que ofrece The Strawberry Tour: recorrido clásico, taller de cosecha, experiencia al atardecer y visitas educativas.">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="main-nav">
+    <a href="index.html" class="nav-brand">🍓 The Strawberry Tour</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Listas.html" class="active">Servicios</a></li>
+      <li><a href="Galeria.html">Galería</a></li>
+      <li><a href="Contacto.html">Contacto</a></li>
+    </ul>
+    <a href="Contacto.html" class="nav-cta">Reservar</a>
+  </nav>
+
+  <div class="hero hero-page">
+    <p class="hero-eyebrow">Servicios</p>
+    <h1 class="hero-title">Elige tu experiencia en el campo</h1>
+    <p class="hero-sub">Desde una visita rápida en grupo hasta un taller privado al atardecer.</p>
+  </div>
+
+  <svg class="hero-row" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 V60 H0 Z"></path>
+  </svg>
+</header>
+
+<main>
+
+  <section class="section section-services">
+    <span class="eyebrow eyebrow-center">Nuestros tours</span>
+    <h2 class="section-title center">Cuatro formas de conocer la finca</h2>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <div class="service-card-head">
+          <h3>Tour Clásico</h3>
+          <span class="service-price">$25 USD</span>
+        </div>
+        <span class="service-meta">2 h 30 min · grupos de hasta 15</span>
+        <p>El recorrido completo: bienvenida, invernadero, cosecha propia y degustación de mermeladas y postres.</p>
+        <ul class="service-includes">
+          <li>Cesta de recolección (500 g)</li>
+          <li>Guía especializado</li>
+          <li>Degustación incluida</li>
+        </ul>
+        <a href="Contacto.html" class="btn btn-primary">Reservar este tour</a>
+      </div>
+
+      <div class="service-card featured">
+        <div class="service-card-head">
+          <h3>Experiencia Atardecer</h3>
+          <span class="service-price">$30 USD</span>
+        </div>
+        <span class="service-meta">2 h 30 min · turno de 3:00 p.m.</span>
+        <p>El mismo recorrido, con la luz dorada de la tarde sobre el cultivo y un maridaje ampliado al final.</p>
+        <ul class="service-includes">
+          <li>Cesta de recolección (500 g)</li>
+          <li>Maridaje ampliado</li>
+          <li>Fotografía libre en el mirador</li>
+        </ul>
+        <a href="Contacto.html" class="btn btn-primary">Reservar este tour</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-head">
+          <h3>Taller de Cosecha</h3>
+          <span class="service-price">$18 USD</span>
+        </div>
+        <span class="service-meta">1 h 15 min · ideal en familia</span>
+        <p>Un taller práctico enfocado solo en la recolección: identificación del punto óptimo y técnica de corte.</p>
+        <ul class="service-includes">
+          <li>Cesta de recolección (500 g)</li>
+          <li>Guía especializado</li>
+        </ul>
+        <a href="Contacto.html" class="btn btn-primary">Reservar este taller</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-head">
+          <h3>Visita Educativa</h3>
+          <span class="service-price">$15 USD</span>
+        </div>
+        <span class="service-meta">2 h · grupos escolares</span>
+        <p>Pensada para centros educativos: agricultura sostenible, ciclo de la planta y control biológico de plagas.</p>
+        <ul class="service-includes">
+          <li>Material educativo</li>
+          <li>Guía especializado</li>
+          <li>Tarifa estudiantil</li>
+        </ul>
+        <a href="Contacto.html" class="btn btn-primary">Coordinar visita</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section-booking">
+    <div class="booking-box">
+      <h2>¿No estás seguro cuál elegir?</h2>
+      <p class="subtitle-large">Escríbenos y te ayudamos a armar el plan ideal para tu grupo.</p>
+      <a href="Contacto.html" class="btn btn-primary btn-large">Hablar con nosotros</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('#nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+</body>
+</html>

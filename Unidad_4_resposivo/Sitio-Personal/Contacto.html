@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Liam Barrantes Calvo">
+<title>The Strawberry Tour — Contacto</title>
+<meta name="description" content="Reserva tu tour, taller o experiencia VIP en The Strawberry Tour. Escríbenos por WhatsApp, correo o completa el formulario.">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="icon" href="recursos-html/favicon.png" type="image/png">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="main-nav">
+    <a href="index.html" class="nav-brand">🍓 The Strawberry Tour</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Listas.html">Servicios</a></li>
+      <li><a href="Galeria.html">Galería</a></li>
+      <li><a href="Contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <a href="Contacto.html" class="nav-cta">Reservar</a>
+  </nav>
+
+  <div class="hero hero-page">
+    <p class="hero-eyebrow">Contacto</p>
+    <h1 class="hero-title">Reserva tu lugar</h1>
+    <p class="hero-sub">Contanos qué tour te interesa y coordinamos fecha, hora y tamaño de grupo.</p>
+  </div>
+
+  <svg class="hero-row" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 V60 H0 Z"></path>
+  </svg>
+</header>
+
+<main>
+
+  <section class="section section-contact">
+    <div class="contact-grid">
+
+      <div class="contact-info-card">
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">✉️</span>
+          <div>
+            <h3>Correo</h3>
+            <p><a href="mailto:reservas@strawberrytour.com">reservas@strawberrytour.com</a></p>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">📞</span>
+          <div>
+            <h3>Teléfono</h3>
+            <p><a href="tel:+50680000000">+506 8000-0000</a></p>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">📍</span>
+          <div>
+            <h3>Ubicación</h3>
+            <p>San Carlos, Alajuela, Costa Rica</p>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <span class="bullet-icon" aria-hidden="true">🕒</span>
+          <div>
+            <h3>Horario de atención</h3>
+            <p>Martes a domingo, 8:00 a.m. – 6:00 p.m.</p>
+          </div>
+        </div>
+       
+      </div>
+
+      <form class="contact-form" action="mailto:reservas@strawberrytour.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="tour">Tour de interés</label>
+          <select id="tour" name="tour">
+            <option>Tour Clásico</option>
+            <option>Experiencia Atardecer</option>
+            <option>Taller de Cosecha</option>
+            <option>Visita Educativa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="personas">Número de personas</label>
+          <input type="number" id="personas" name="personas" min="1" max="15" value="2">
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Fecha tentativa, horario preferido, alguna necesidad especial..."></textarea>
+
+
+        </div class= "group-btn">
+        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+        <button class="btn btn-secundary" type="reset">Limpiar formulario</button>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 The Strawberry Tour. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('#nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Liam Barrantes Calvo" >
+    <meta name="description" content="Estudio fotográfico Luz clara: fotografia,retrato producto y eventos en san josé" >
+    <meta name="keywords" content="fotografia,retrato,estudio, producto, eventos,Costa Rica">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inicio | Estudio Luz Clara</title>
+    <link rel="icon" href="recursos/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+<body>
+    <!--CABECERA.SE REPITE EN LAS 4 PAGINAS-->
+    <header id="cabecera" class="cabecera">
+        <a href="index.html" class="logo">
+        <!-- LOGO EN SVG 1-Cámara · dibujado con código, no es una imagen -->
+
+            <svg class="logo-icono" width="38" height="38" viewBox="0 0 38 38"
+                xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-label="Logo del Estudio Luz Clara: una cámara fotográfica">
+                <rect x="2" y="9" width="34" height="25" rx="4" fill="currentColor"/>
+                <rect x="12" y="4" width="14" height="6" rx="2" fill="currentColor"/>
+                <circle cx="19" cy="22" r="8" fill="#FFFFFF"/>
+                <circle cx="19" cy="22" r="5" fill="currentColor"/>
+                circle cx="30" cy="15" r="2" fill="#FFFFFF"/>
+            </svg>
+            <span class="logo-texto">Estudio Luz Clara</span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <ul class="menu">
+                <li><a href="index.html" class="menu-enlace activo">Inicio</a></li>
+                <li><a href="galeria.html" class="menu-enlace">Galeria</a></li>
+                <li><a href="nosotros.html" class="menu-enlace">Nosotros</a></li>
+                <li><a href="index.html" class="menu-enlace">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+     <main id="contenido">
+        <!--PORTADA.PRACTICAMOS EL FONDO Y LA SUPERPOSICIÓN-->
+        <section id="portada" class="portada">
+            <!--imagen de fondo que vamos a trabajar o aplicar desde css con la clase.portada-->
+
+            <div class="portada-caja">
+                <h1 class="portada-titulo">La luz cuenta una historia</h1>
+                <p class="portada-bajada">
+                    Fotografía de <strong>retrato</strong>, <strong>producto</strong> y <strong>eventos</strong> en el corazón de San José.
+                </p>
+                <a href="|contacto.html" class="boton boton-principal">Reservar una sesión</a>
+            </div>
+        </section>
+         <!--Servicios.  Tres targetas que se maquetan con flexbox-->
+        <section id="servicios" class="seccion"A>
+            <h2 class="seccion-titulo">Lo que hacemos</h2>
+
+            <p class="|seccion-entrada">
+                Cada sección incluye asesoría previa, edición profesional y entrega digital de alta resolución.
+            </p>
+
+            <div class="fila-servicio">
+                <article class="tarjeta">
+                    <!-- LOGO EN SVG 2-Retrato · dibujado con código, no es una imagen -->
+
+                    <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+                        xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Icono de retrato">
+                        <circle cx="22" cy="15" r="8" fill="currentColor"/>
+                        <path d="M6 40 C6 29 13 24 22 24 C31 24 38 29 38 40 Z" fill="currentColor"/>
+                    </svg>
+                    <h3 class="tarjeta-titulo">Retrato</h3>
+                    <p class="tarjeta-texto">
+                        Sesiones individuales, familiares y de perfil profesional.
+                        Trabajamos con luz natural y con estudio.
+                    </p>
+                    <p class="tarjeta-precio">Desde ¢45.000</p> <!--ctrl:alt+189-->
+                </article>
+
+                <article class="tarjeta">
+                    <!-- LOGO EN SVG 3-Producto · dibujado con código, no es una imagen -->
+                    <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+                        xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Icono de producto">
+                        <rect x="7" y="14" width="30" height="24" rx="3" fill="currentColor"/>
+                        <path d="M7 14 L22 5 L37 14 Z" fill="currentColor"/>
+                        <rect x="17" y="24" width="10" height="14" fill="#FFFFFF"/>
+                    </svg>
+                    <h3 class="tarjeta-titulo">Producto</h3>
+                    <p class="tarjeta-texto">
+                        Catalogos para tienda en línea, con fondo neutro o ambiente según lo requiera la marca.
+                    </p>
+                    <p class="tarjeta-precio">Desde ¢30.000</p> <!--ctrl:alt+189-->
+                </article>
+
+                <article class="tarjeta">
+                    <!-- LOGO EN SVG 4-Eventos · dibujado con código, no es una imagen -->
+
+                        <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+                            xmlns="http://www.w3.org/2000/svg" role="img"
+                            aria-label="Icono de producto">
+                            <rect x="7" y="14" width="30" height="24" rx="3" fill="currentColor"/>
+                            <path d="M7 14 L22 5 L37 14 Z" fill="currentColor"/>
+                            <rect x="17" y="24" width="10" height="14" fill="#FFFFFF"/>
+                        </svg>
+                        <svg class="tarjeta-icono" width="44" height="44" viewBox="0 0 44 44"
+                            xmlns="http://www.w3.org/2000/svg" role="img"
+                            aria-label="Icono de eventos">
+                            <circle cx="14" cy="14" r="6" fill="currentColor"/>
+                            <circle cx="30" cy="14" r="6" fill="currentColor"/>
+                            <path d="M2 38 C2 29 7 25 14 25 C21 25 26 29 26 38 Z" fill="currentColor"/>
+                            <path d="M18 38 C18 29 23 25 30 25 C37 25 42 29 42 38 Z" fill="currentColor" opacity="0.75"/>
+                        </svg>
+
+                    <h3 class="tarjeta-titulo">Eventos</h3>
+                    <p class="tarjeta-texto">
+                        Cobertura de bodas, graduaciónes y actividades corporativas, con entrega en galería privada.
+                    </p>
+                    <p class="tarjeta-precio">Desde ¢120.000</p> <!--ctrl:alt+189-->
+                </article>
+
+            </div>
+        </section>
+
+        <!--Galeria . 6 imagenes . se maquetan con grid-->
+        <section id="galeria" class="seccion seccion-alterna">
+            <h2 class="seccion-titulo">Trabajos recientes</h2>
+
+            <div class="rejilla-galeria">
+                <!--MARCADORES DE IMAGEN, recursos/foto-1.jpg 800 x 600-->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-1.jpg" alt="retrato en blanco y negro junto a una ventana" width="800" height="600">
+                    <figcaption class="galeria-pie">Retrato de estudio.</figcaption>
+                </figure>
+
+                <!--MARCADOR recursos/foto2.jpg. 600 x 600   -->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-2.jpg" alt="Botella de vidrio sobre fondo neutro" width="600" height="600">
+                    <figcaption class="galeria-pie">Producto . Cerámica local</figcaption>
+                </figure>
+
+                <!--MARCADOR recursos/foto3.jpg. 600 x 600   -->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-3.jpg" alt="Pareja de novios caminando entre árboles" width="600" height="600">
+                    <figcaption class="galeria-pie">Boda . escazú</figcaption>
+                </figure>
+
+                <!--MARCADOR recursos/foto4.jpg. 600 x 600   -->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-4.jpg" alt="Manos trabajando una pieza de barro" width="600" height="600">
+                    <figcaption class="galeria-pie">Documental . Taller</figcaption>
+                </figure>
+
+                <!--MARCADOR recursos/foto5.jpg. 600 x 600   -->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-5.jpg" alt="Retrato corporativo sobre fondo gris" width="600" height="600">
+                    <figcaption class="galeria-pie">Perfil profesional</figcaption>
+                </figure>
+
+                <!--MARCADOR recursos/foto6.jpg. 600 x 600   -->
+                <figure class="galeria-pieza pieza-destacada">
+                    <img src="recursos/foto-6.jpg" alt="Salón decorado durante una celebración" width="600" height="600">
+                    <figcaption class="galeria-pie">Evento corporativo</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!--Testimoniales. practica la cita y el  speudoelemento-->
+        <section id="testimonio" class="seccion" >
+            <blockquote class="cita">
+                <p class="cita-texto">
+                Llegamos con la idea de una foto de perfil y salimos con un retrato que de verdad se nos parece.
+                </p>
+
+                <footer class="cita-autoria">Adriana Sancho . diseñadora</footer>
+            </blockquote>
+        </section>
+     </main>
+     
+     <!--PIE SE REPITE EN TODAS LAS 4 PAGINAS-->
+     <footer id="pie" class="pie">
+        <div class="pie-columnas">
+
+            <div class="pie-bloque">
+                <h2 class="pie-titulo"> Estudio luz clara</h2>
+                <p class="pie-texto"> Fotografía con luz natural desde el 2014</p>
+            </div>
+
+            <div class="pie-bloque">
+                <h2 class="pie-titulo"> Contacto</h2>
+                <address class="pie-datos">Barrio Escalante, San José <br>
+                Costa Rica <br>
+            </address>
+            </div>
+
+            <div class="pie-bloque">
+                <h2 class="pie-titulo">Horario</h2>
+                <p class="pie-texto">
+                    Lunes a viernes <br>
+                    9:00 a .m.  - 6:00 p. m.
+                </p>
+            </div>
+        </div>
+        <p class="pie-credito"> <small>&copy;2026 . Estudio Luz Clara</small> </p>
+     </footer>
+</body>
+</html>
