@@ -1944,3 +1944,17 @@ img {
      3. Verificar el contraste en webaim.org/resources/contrastchecker
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
         está el foco */
+        
+@media(max-width:768px){
+  .cabecera{
+    flex-direction:column;
+    /*La cabecerapasa de fila a columna*/
+    gap:var(--esp-md);
+  }
+  h1{font-size:3.2rem}
+  h2{font-size:2.4rem}
+
+  .section{
+    padding:var(--esp-lg) var(--esp-sm);
+  }
+}
