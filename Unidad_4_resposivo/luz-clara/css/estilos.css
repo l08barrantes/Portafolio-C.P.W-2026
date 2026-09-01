@@ -1,0 +1,1946 @@
+/* ESTUDIO LUZ CLARA · HOJA DE ESTILOS
+   Módulo CSTI12002 · Facilitador: Giovanni Antonio Coto Calderón
+
+   PUNTO DE PARTIDA DE LA UNIDAD 4
+
+   Esta es la hoja tal como quedó al terminar la Unidad 3. El sitio
+   funciona bien en un monitor de escritorio, pero todavía no está
+   adaptado a pantallas pequeñas: eso es lo que se construye a lo largo
+   de las sesiones 23 a 28.
+
+   UBICACIÓN:   css/estilos.css
+   SE APLICA A: index.html · galeria.html · nosotros.html · contacto.html
+
+   CÓMO LEER ESTE ARCHIVO
+   Está ordenado por temas. Cada bloque indica entre paréntesis de qué
+   sesión de la Unidad 3 viene lo que se usa, para poder repasar.
+   Los comentarios explican QUÉ HACE cada regla y POR QUÉ está escrita
+   así, no solo qué propiedad es.
+
+   LO QUE SE LE VA A AGREGAR EN ESTA UNIDAD
+     S23  revisión del viewport y de los anchos fluidos
+     S24  media queries con enfoque mobile-first
+     S25  menú adaptable y hoja de impresión
+     S26  imágenes adaptativas con la etiqueta picture
+     S27  patrones: Mostly Fluid, Column Drop y Tiny Tweaks
+     S28  patrones: Layout Shifter y Off Canvas */
+
+
+/* ÍNDICE
+    1 · Variables y configuración          (S20)
+    2 · Reset y base tipográfica           (S11 · S13)
+    3 · Contenedores y secciones           (S14)
+    4 · Cabecera y menú                    (S12 · S15 · S16)
+    5 · Portada                            (S13 · S15)
+    6 · Servicios · FLEXBOX                (S16)
+    7 · Galería · CSS GRID                 (S17)
+    8 · Equipo · CSS GRID                  (S17)
+    9 · Dos columnas · FLEXBOX             (S16)
+   10 · Listas y glosario                  (S14)
+   11 · Cita                               (S12 · S14)
+   12 · Tabla                              (S18)
+   13 · Formulario                         (S18)
+   14 · Botones                            (S18)
+   15 · Pie de página                      (S16)
+   16 · Movimiento                         (S19)
+   17 · Accesibilidad del movimiento       (S19) */
+
+
+/* 1 · VARIABLES Y CONFIGURACIÓN           tema de la S20
+
+   Una VARIABLE guarda un valor con un nombre, para poder reutilizarlo.
+   Se declaran dentro de :root, que representa el elemento <html> y es
+   el "ancestro de todos": lo que se declara ahí lo pueden usar todos
+   los elementos del documento.
+
+   OJO: La sintaxis tiene dos partes que no se parecen entre sí:
+       PARA DECLARARLA ->  --nombre: valor;
+       PARA USARLA     ->  propiedad: var(--nombre);
+
+   ¿Para qué sirve? El color principal de este sitio aparece en más de
+   quince reglas. Sin variables, cambiarlo significa buscar y editar
+   quince lugares —y basta olvidar uno para que el sitio quede
+   descuadrado—. Con variables se cambia UNA línea.                     */
+
+:root {
+
+  /*  COLORES  */
+  --color-tinta:      #1A1A1A;   /* el texto principal · casi negro */
+  --color-suave:      #6B6B6B;   /* texto secundario, pies de foto */
+  --color-marca:      #2C3E50;   /* el azul del estudio */
+  --color-acento:     #C87941;   /* el terracota de los botones */
+  --color-acento-osc: #A45F2E;   /* el mismo terracota, más oscuro */
+  --color-fondo:      #FAFAF8;   /* blanco roto · no blanco puro */
+  --color-fondo-alt:  #F0EEE9;   /* para alternar secciones */
+  --color-linea:      #DDDAD3;   /* bordes y separadores */
+  --color-blanco:     #FFFFFF;
+
+  /*  TIPOGRAFÍA  */
+  --fuente-titulo: Georgia, 'Times New Roman', serif;
+  --fuente-texto:  'Segoe UI', Arial, sans-serif;
+  /* OJO: La LISTA DE RESPALDO: si la primera fuente no está disponible,
+     el navegador prueba la siguiente. La última SIEMPRE debe ser una
+     familia genérica (serif, sans-serif, monospace), porque esa
+     siempre existe.                                                  */
+
+  /*  ESPACIADO  */
+  --esp-xs: 0.8rem;    /*  8px */
+  --esp-sm: 1.6rem;    /* 16px */
+  --esp-md: 2.4rem;    /* 24px */
+  --esp-lg: 4.0rem;    /* 40px */
+  --esp-xl: 8.0rem;    /* 80px */
+  /* Usar una escala fija en vez de números al azar hace que todos los
+     espacios del sitio guarden relación entre sí. Es lo que hace que
+     una página se vea "ordenada" aunque no se sepa explicar por qué. */
+
+  /*  OTROS  */
+  --radio:   0.6rem;                            /*  6px */
+  --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);  /* apenas separado */
+  --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);  /* una tarjeta */
+  --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16);  /* elemento elevado */
+  --transicion: 0.25s ease;
+  --ancho-max: 120rem;                          /* 1200px */
+}
+
+
+/* 2 · RESET Y BASE TIPOGRÁFICA           temas de la S11 y la S13 */
+
+/*  EL RESET · va SIEMPRE al inicio de la hoja  */
+* {
+  /* El ASTERISCO es el "selector universal": alcanza absolutamente
+     todos los elementos del documento.                                */
+
+  margin: 0;
+  /* Cada navegador pone sus propios márgenes a los títulos, párrafos
+     y listas. Son distintos entre navegadores, así que el mismo sitio
+     se ve diferente en cada uno. Aquí se ponen todos en cero y a
+     partir de este punto cada espacio es una decisión nuestra.        */
+
+  padding: 0;
+  /* Lo mismo con el relleno interior. Se nota sobre todo en las
+     listas, que traen un relleno a la izquierda para las viñetas.     */
+
+  box-sizing: border-box;
+  /* OJO: ESTA LÍNEA ES LA MÁS IMPORTANTE DEL RESET.
+
+     Sin ella, si a una caja le damos  width: 300px  y además
+     padding: 20px  y  border: 2px, la caja mide en realidad:
+         300 + 20 + 20 + 2 + 2 = 344px
+     El width solo controlaba el CONTENIDO, y todo lo demás se sumaba
+     por fuera.
+
+     Con border-box, esa caja mide 300px EXACTOS: el relleno y el borde
+     se descuentan hacia adentro. Es lo que hace que las medidas sean
+     predecibles.                                                      */
+}
+
+
+/*  LA BASE DEL TAMAÑO · la técnica del 62.5%  */
+html {
+  font-size: 62.5%;
+  /* OJO: LA TÉCNICA DEL 62.5% · esto es lo nuevo de hoy
+
+     Por omisión, el navegador usa 16px como tamaño base. El 62.5% de
+     16 es exactamente 10.
+     Como 1rem equivale al tamaño base, a partir de aquí:
+
+         1rem  = 10px          2.4rem = 24px
+         1.6rem = 16px         4rem   = 40px
+
+     ¿Para qué? Para poder pensar en píxeles y escribir en rem sin
+     hacer divisiones mentales. Antes, escribir 24px en rem obligaba a
+     calcular 24 ÷ 16 = 1.5rem. Ahora es mover la coma: 24px = 2.4rem.
+
+     OJO: SIGUE SIENDO ACCESIBLE: es un PORCENTAJE, no un valor fijo. Si
+       alguien configura su navegador en 20px porque necesita letra
+       más grande, el 62.5% de 20 son 12.5px y TODO el sitio crece
+       proporcionalmente. Eso NO pasaría con  font-size: 10px.         */
+
+  scroll-behavior: smooth;
+  /* Hace que los saltos a un ancla se desplacen suavemente en vez de
+     saltar de golpe. Es un detalle pequeño que se agradece.           */
+}
+
+body {
+  font-size: 1.6rem;
+  /* OJO: ESTA LÍNEA NO SE PUEDE OLVIDAR.
+
+     El 62.5% dejó la base en 10px. Si no se devuelve el texto a un
+     tamaño legible, TODO el sitio queda con letra de 10 píxeles:
+     minúscula e ilegible.
+
+     1.6rem = 16px, que es el tamaño de lectura normal.
+     Es el error número uno de esta técnica: se aplica el 62.5% y se
+     olvida esta línea.                                               */
+
+  font-family: var(--fuente-texto);
+  line-height: 1.6;
+  /* OJO: SIN UNIDAD, a propósito.
+     1.6 significa "1.6 veces el tamaño de fuente de ESTE elemento".
+     En un párrafo de 16px da 25.6px de alto de línea; en un título de
+     40px daría 64px. Se ajusta solo a cada elemento.
+     Si se pusiera un valor fijo como 26px, los títulos grandes se
+     verían apretados.                                                 */
+
+  color: var(--color-tinta);
+  background-color: var(--color-fondo);
+  /* OJO: Ni negro puro sobre blanco puro. Esa combinación tiene tanto
+     contraste que cansa la vista en pantalla. Un gris muy oscuro
+     sobre un blanco roto se lee mejor durante más tiempo.             */
+}
+
+
+/*  JERARQUÍA DE TÍTULOS  */
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  line-height: 1.2;
+  /* Los títulos llevan una altura de línea MENOR que el texto normal.
+     Un título de dos renglones con line-height 1.6 se ve desarmado:
+     las dos líneas quedan muy separadas.                              */
+  color: var(--color-marca);
+}
+
+h1 { font-size: 4.8rem; }   /* 48px */
+h2 { font-size: 3.2rem; }   /* 32px */
+h3 { font-size: 2.0rem; }   /* 20px */
+/* OJO: Los tamaños guardan PROPORCIÓN entre sí: cada nivel es
+   notoriamente más pequeño que el anterior. Elegir números al azar
+   —por ejemplo 48, 44 y 40— produce una página donde no se distingue
+   la jerarquía y todo parece del mismo peso.                          */
+
+p {
+  margin-bottom: var(--esp-sm);
+}
+
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+  /* Se quita el subrayado por omisión, PERO cada tipo de enlace del
+     sitio recibe después otra señal visual de que lo es. Dejar un
+     enlace sin ninguna marca distintiva es un error de accesibilidad:
+     quien no distingue bien los colores no lo percibiría.             */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Estas tres líneas juntas evitan tres problemas:
+       max-width  la imagen nunca desborda su contenedor
+       height     mantiene la proporción al encogerse (no se achata)
+       display    quita un pequeño espacio en blanco que los navegadores
+                  dejan debajo de las imágenes por tratarlas como texto */
+}
+
+
+/* 3 · CONTENEDORES Y SECCIONES           tema de la S14 */
+
+.seccion {
+  max-width: var(--ancho-max);
+  /* Un ancho MÁXIMO, no un ancho fijo. En una pantalla angosta la
+     sección usa todo el espacio disponible; en un monitor grande se
+     detiene en 1200px. Una línea de texto de 2000px de ancho es
+     imposible de leer: la vista se pierde al saltar de renglón.       */
+
+  margin-left: auto;
+  margin-right: auto;
+  /* OJO: ESTO ES LO QUE CENTRA el bloque.
+     auto significa "repartí el espacio sobrante por igual".
+     Solo funciona si el elemento tiene un ancho menor que su
+     contenedor: sin el max-width de arriba, auto no tendría nada
+     que repartir.                                                     */
+
+  padding: var(--esp-xl) var(--esp-md);
+  /* Dos valores: el primero es arriba y abajo, el segundo izquierda y
+     derecha. El relleno lateral es lo que impide que el texto quede
+     pegado al borde de la pantalla en un teléfono.                    */
+}
+
+.seccion-alterna {
+  background-color: var(--color-fondo-alt);
+  max-width: none;
+  /* OJO: Se anula el max-width para que el FONDO ocupe todo el ancho de
+     la pantalla. Si no, la franja de color quedaría cortada a 1200px
+     y se vería como un recuadro en medio de la página.                */
+}
+
+.seccion-alterna > * {
+  max-width: var(--ancho-max);
+  margin-left: auto;
+  margin-right: auto;
+  /* Pero el CONTENIDO de esa sección sí se limita y se centra.
+     El selector  >  significa "hijo directo": alcanza solo el primer
+     nivel de elementos dentro de la sección, no los nietos.
+     Resultado: fondo de borde a borde, contenido centrado.            */
+}
+
+.seccion-titulo {
+  margin-bottom: var(--esp-sm);
+  text-align: center;
+}
+
+.seccion-entrada {
+  max-width: 65ch;
+  /* La unidad  ch  equivale al ancho del carácter "0" de la fuente en
+     uso. 65ch son unos 65 caracteres por línea, que es el rango donde
+     la lectura resulta más cómoda. Más largo, cuesta encontrar el
+     inicio del renglón siguiente.                                     */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--esp-lg);
+  text-align: center;
+  color: var(--color-suave);
+}
+
+.pagina-encabezado {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: var(--esp-xl) var(--esp-md) var(--esp-lg);
+  /* Tres valores: arriba | los lados | abajo.
+     Se usa cuando el espacio de arriba y el de abajo deben ser
+     distintos.                                                        */
+  text-align: center;
+}
+
+.pagina-titulo {
+  margin-bottom: var(--esp-xs);
+}
+
+.pagina-bajada {
+  color: var(--color-suave);
+  font-size: 1.8rem;
+}
+
+.subtitulo {
+  margin-top: var(--esp-md);
+  margin-bottom: var(--esp-xs);
+}
+
+
+/* 4 · CABECERA Y MENÚ           temas de la S12, S15 y S16 */
+
+.cabecera {
+  display: flex;
+  /* OJO: ACTIVA FLEXBOX. Se declara en el CONTENEDOR, nunca en los hijos.
+     Los hijos directos —el logo y la navegación— se convierten en
+     "elementos flexibles" y se colocan en fila automáticamente.       */
+
+  justify-content: space-between;
+  /* Controla el EJE PRINCIPAL, que con la dirección por omisión (fila)
+     es el HORIZONTAL.
+     space-between pega el primer elemento al inicio, el último al
+     final, y reparte el sobrante en el medio. Es exactamente lo que
+     necesita una cabecera: marca a la izquierda, menú a la derecha.   */
+
+  align-items: center;
+  /* Controla el EJE CRUZADO, que con dirección fila es el VERTICAL.
+     center los alinea a la misma altura, aunque el logo mida más que
+     el texto del menú.
+
+     OJO: RECORDAR: si la dirección fuera  column, estos dos ejes se
+       INTERCAMBIAN. Es la confusión más común de Flexbox.             */
+
+  padding: var(--esp-sm) var(--esp-md);
+  background-color: var(--color-blanco);
+  border-bottom: 0.1rem solid var(--color-linea);
+
+  position: sticky;
+  top: 0;
+  /* sticky hace que el elemento fluya normal mientras hay espacio, y
+     se PEGUE al llegar al borde superior de la ventana.
+
+     OJO: Se prefiere sticky sobre fixed porque NO saca el elemento del
+       flujo: no hace falta compensar con un padding-top en el body.
+       Con fixed, el contenido se metería debajo de la cabecera.       */
+
+  z-index: 100;
+  /* Decide qué elemento queda ENCIMA cuando dos se superponen: a mayor
+     número, más al frente. Con 100, la cabecera pasa por encima de
+     todo el contenido al desplazar la página.
+
+     OJO: z-index SOLO funciona si el elemento tiene  position  declarado.
+       En un elemento normal no hace absolutamente nada.               */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-xs);
+  /* gap pone separación ENTRE los elementos flexibles. Es mejor que
+     ponerle margen a cada uno: no agrega espacio antes del primero
+     ni después del último, y no hay que compensarlo.                  */
+  color: var(--color-marca);
+}
+
+.logo-icono {
+  color: var(--color-marca);
+  /* OJO: EL TRUCO DEL SVG:
+     En el HTML, las formas del logo usan  fill="currentColor".
+     currentColor significa "el valor actual de la propiedad color".
+     Así, cambiando el color aquí cambia el dibujo entero, sin tocar
+     el SVG. Es lo que permite reutilizar el mismo icono en distintos
+     colores.                                                          */
+  transition: transform var(--transicion);
+}
+
+.logo:hover .logo-icono {
+  transform: rotate(-8deg);
+  /* Lee: "cuando el cursor esté sobre el logo, girá el icono".
+     El efecto se dispara al pasar por CUALQUIER parte del logo, no
+     solo sobre el dibujo: es un área más fácil de acertar.            */
+}
+
+.logo-texto {
+  font-family: var(--fuente-titulo);
+  font-size: 2.0rem;
+  font-weight: 700;
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+  /* El <nav> envuelve al menú. Se declara como contenedor flexible
+     para que, si más adelante se le agregara algo al lado del menú
+     —un botón de búsqueda, por ejemplo—, quede alineado sin
+     necesidad de reescribir nada.                                    */
+}
+
+.menu {
+  display: flex;
+  gap: var(--esp-sm);
+  list-style: none;
+  /* El menú es una LISTA por su significado —es un conjunto de
+     enlaces del mismo nivel— pero no debe VERSE como lista. Por eso
+     se quitan las viñetas con list-style.                             */
+}
+
+.menu-enlace {
+  display: inline-block;
+  /* OJO: IMPRESCINDIBLE.
+     Un enlace es "inline" por omisión, y los elementos inline IGNORAN
+     el relleno vertical. Sin esta línea, el padding de arriba y abajo
+     de la regla siguiente no haría ningún efecto y el área para hacer
+     clic quedaría del alto exacto del texto.                          */
+
+  padding: var(--esp-xs) var(--esp-sm);
+  /* Amplía el ÁREA PULSABLE. No es decorativo: un enlace pequeño es
+     difícil de acertar con el dedo en un teléfono.                    */
+
+  color: var(--color-tinta);
+  font-weight: 600;
+  border-radius: var(--radio);
+  transition: background-color var(--transicion), color var(--transicion);
+  /* OJO: La transición va en la regla BASE, no dentro de :hover.
+     Si se pusiera en :hover, la entrada sería suave pero la salida
+     brusca: al quitar el cursor el color volvería de golpe.           */
+}
+
+.menu-enlace:hover {
+  background-color: var(--color-fondo-alt);
+  color: var(--color-marca);
+}
+
+.menu-enlace:focus {
+  outline: 0.2rem solid var(--color-acento);
+  outline-offset: 0.2rem;
+  /* OJO: :focus se activa al llegar al enlace con la tecla Tab, sin usar
+     el ratón. Es lo que permite navegar el sitio con teclado.
+     Quitarlo sin poner otra señal visible deja a esas personas sin
+     saber dónde están. Si se quita, hay que reemplazarlo.             */
+}
+
+.menu-enlace.activo {
+  color: var(--color-acento);
+  /* Dos clases en el mismo elemento se escriben juntas y sin espacio:
+       .menu-enlace.activo
+     significa "el elemento que tenga LAS DOS clases a la vez".
+     Marca cuál es la página actual.                                   */
+}
+
+
+/* 5 · PORTADA           temas de la S13 y la S15 */
+
+.portada {
+  /*  AQUÍ VA LA IMAGEN DE FONDO
+     Descomente la línea siguiente cuando coloque el archivo en
+     recursos/portada.jpg                                              */
+  background-image: url('../recursos/portada.webp');   /* <- ya activa */
+
+  background-color: var(--color-marca);
+  /* Un color de respaldo, por si la imagen no carga o todavía no se
+     ha colocado. Así la portada nunca se ve vacía.                    */
+
+  /* OJO: LA RUTA DE LA IMAGEN ES RELATIVA A ESTA HOJA, NO AL HTML.
+     Esta hoja está en  css/estilos.css
+     La imagen está en  recursos/portada.jpg
+     Desde la carpeta css hay que SUBIR un nivel con  ../  y luego
+     bajar a recursos. Por eso  ../recursos/portada.jpg
+     Escribir  recursos/portada.jpg  la buscaría en css/recursos/ y no
+     la encontraría. Es el error más frecuente de este paso.           */
+
+  background-size: cover;
+  /* cover  -> la imagen cubre todo el espacio, recortando lo que sobre
+     contain -> se ve completa, dejando espacio vacío
+     Para una portada casi siempre se quiere cover.                    */
+
+  background-position: center;
+  /* Decide qué parte se conserva al recortar. Sin esto, el recorte
+     empieza desde la esquina superior izquierda y suele cortar mal.   */
+
+  background-repeat: no-repeat;
+  /* Sin esto, una imagen más pequeña que el contenedor se repetiría
+     en mosaico.                                                       */
+
+  min-height: 55rem;   /* 550px */
+  /* OJO: IMPRESCINDIBLE. Una imagen de fondo NO le da altura al elemento.
+     Si el contenedor solo tiene un título y un botón, sin esta línea
+     la imagen apenas se asomaría.                                     */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* OJO: EL CENTRADO PERFECTO: centrar algo horizontal y verticalmente
+     fue un problema difícil durante años. Con Flexbox son dos líneas.
+     Aquí centra el bloque de texto dentro de la portada.              */
+
+  padding: var(--esp-md);
+  text-align: center;
+}
+
+.portada-caja {
+  background-color: rgba(0, 0, 0, 0.45);
+  /* rgba tiene CUATRO valores: rojo, verde, azul y la OPACIDAD, que va
+     de 0 (invisible) a 1 (sólido).
+
+     OJO: LA DIFERENCIA CON  opacity:
+         background-color: rgba(0,0,0,.45)  -> solo el FONDO se
+             transparenta; el texto encima se ve nítido  <- lo que se busca
+         opacity: 0.45                      -> TODO el elemento se
+             transparenta, incluido el texto, que quedaría desvaído
+
+     Esta capa oscura es lo que garantiza que el texto blanco se lea
+     sobre una fotografía que puede tener zonas claras.                */
+
+  padding: var(--esp-lg);
+  border-radius: var(--radio);
+  max-width: 70rem;   /* 700px */
+}
+
+.portada-titulo {
+  color: var(--color-blanco);
+  margin-bottom: var(--esp-sm);
+}
+
+.portada-bajada {
+  color: var(--color-blanco);
+  font-size: 1.8rem;
+  margin-bottom: var(--esp-md);
+}
+
+
+/* 6 · SERVICIOS · FLEXBOX           tema de la S16
+
+   FLEXBOX organiza elementos a lo largo de UN eje.
+   Se usa cuando los elementos deben acomodarse según su contenido.    */
+
+.fila-servicios {
+  display: flex;
+
+  gap: var(--esp-md);
+  /* Separación uniforme entre las tres tarjetas. */
+
+  flex-wrap: wrap;
+  /* OJO: SIN ESTA LÍNEA las tarjetas se comprimirían hasta quedar
+     ilegibles al angostar la ventana: el texto se apilaría en columnas
+     de dos palabras.
+     Con wrap, cuando ya no caben, SALTAN a la línea siguiente.        */
+}
+
+.tarjeta {
+  flex: 1 1 30rem;
+  /* OJO: ESTA LÍNEA ES LA CLAVE DEL COMPORTAMIENTO ADAPTABLE.
+
+     flex es un atajo de tres propiedades, en este orden:
+         flex-grow: 1     -> si sobra espacio, crece
+         flex-shrink: 1   -> si falta espacio, se encoge
+         flex-basis: 30rem -> parte de un tamaño base de 300px
+
+     Resultado: mientras quepan tres tarjetas de 300px, se ven las tres
+     en fila. Cuando no caben, la tercera baja sola. Si se angosta más,
+     queda una por línea.
+
+     OJO: TODO ESTO SIN MEDIA QUERIES. Esas se estudian en la Unidad 4,
+       pero Flexbox ya resuelve buena parte del comportamiento
+       adaptable por sí solo.                                          */
+
+  background-color: var(--color-blanco);
+  padding: var(--esp-md);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-2);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  /* OJO: La tarjeta es a la vez un elemento flexible (de la fila) y un
+     contenedor flexible (de su propio contenido). Un contenedor puede
+     estar dentro de otro sin problema.
+
+     Con  column, la dirección cambia a vertical: el icono, el título,
+     el texto y el precio se apilan.
+     OJO: Y AL CAMBIAR LA DIRECCIÓN, LOS DOS EJES SE INTERCAMBIAN.        */
+
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta-icono {
+  color: var(--color-acento);
+  margin: 0 auto var(--esp-sm);
+  /* Tres valores: arriba | los lados | abajo.
+     El  auto  de los lados centra el icono horizontalmente.           */
+}
+
+.tarjeta-titulo {
+  margin-bottom: var(--esp-xs);
+}
+
+.tarjeta-texto {
+  color: var(--color-suave);
+  flex-grow: 1;
+  /* OJO: ESTE ES EL DETALLE QUE ORDENA LA FILA.
+
+     flex-grow: 1 hace que el párrafo absorba todo el espacio vertical
+     sobrante de la tarjeta. Como las tres tarjetas tienen distinta
+     cantidad de texto, sin esto el precio de cada una quedaría a una
+     altura diferente y la fila se vería desordenada.
+
+     Con esta línea, los tres precios quedan alineados al pie.         */
+}
+
+.tarjeta-precio {
+  font-weight: 700;
+  color: var(--color-marca);
+  font-size: 1.8rem;
+  margin-bottom: 0;
+  padding-top: var(--esp-sm);
+  border-top: 0.1rem solid var(--color-linea);
+}
+
+
+/* 7 · GALERÍA · CSS GRID           tema de la S17
+
+   OJO: LA DIFERENCIA DE FONDO CON FLEXBOX:
+       Flexbox -> UNA dimensión · los elementos se acomodan a lo largo
+                 de un eje, según su contenido
+       Grid    -> DOS dimensiones · se define una CUADRÍCULA de filas y
+                 columnas, y los elementos se colocan en ella
+
+   No compiten: se combinan. La regla práctica del curso es usar Grid
+   para el layout general y Flexbox dentro de cada zona.               */
+
+.rejilla-galeria {
+  display: grid;
+  /* ACTIVA GRID. Igual que Flexbox, se declara en el CONTENEDOR.      */
+
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  /* OJO: ESTA LÍNEA ES LA MÁS POTENTE DE TODA LA HOJA.
+     Se lee de adentro hacia afuera:
+
+     minmax(28rem, 1fr)
+         "cada columna mide COMO MÍNIMO 280px y COMO MÁXIMO una
+          fracción del espacio disponible"
+
+     repeat(auto-fit, ...)
+         "creá TANTAS columnas COMO QUEPAN con esa medida"
+
+     JUNTAS SIGNIFICAN:
+         "poné todas las columnas de 280px que quepan, y repartí el
+          espacio sobrante entre ellas"
+
+     Resultado: en una pantalla ancha se ven 3 o 4 columnas; al
+     angostar pasan a 2; y en un teléfono queda 1.
+
+     OJO: SIN UNA SOLA MEDIA QUERY, y mejor que con ellas: no hay puntos
+       de quiebre fijos, el ajuste es continuo.                        */
+
+  gap: var(--esp-sm);
+  /* La misma propiedad que en Flexbox. Con un valor aplica a filas y
+     columnas; con dos  (gap: 20px 12px)  el primero es entre filas.   */
+}
+
+/*  LA UNIDAD fr
+   fr es una FRACCIÓN del espacio disponible, no un porcentaje.
+
+     grid-template-columns: 1fr 1fr 1fr;   tres columnas iguales
+     grid-template-columns: 2fr 1fr;       la primera, el doble
+     grid-template-columns: 25rem 1fr;     una fija y otra flexible
+
+   OJO: ¿POR QUÉ fr Y NO PORCENTAJES?
+     Con  33.33% 33.33% 33.33%  más un gap, la suma SUPERA el ancho del
+     contenedor y aparece una barra de desplazamiento horizontal.
+     fr descuenta los gaps automáticamente. Por eso se prefiere.       */
+
+.galeria-pieza {
+  position: relative;
+  /* OJO: Esto NO mueve la figura. Solo la declara como PUNTO DE
+     REFERENCIA para los hijos que se posicionen en absoluto.
+     El pie de foto de más abajo se ubica respecto a esta figura, no
+     respecto a la página, gracias a esta línea.                       */
+
+  overflow: hidden;
+  /* Recorta lo que sobresalga de los límites de la figura. Es lo que
+     permite que la imagen se agrande al pasar el cursor sin invadir a
+     las figuras vecinas.                                              */
+
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+}
+
+.pieza-destacada {
+  grid-column: span 2;
+  /* "ocupá 2 columnas, desde donde te toque".
+
+     Existe también la forma  grid-column: 1 / 3, que indica desde qué
+     línea hasta qué línea. Pero  span  es más legible y no depende de
+     la posición: si el elemento se mueve, sigue ocupando dos.
+
+     OJO: SI NO CABE, GRID REACOMODA SOLO. Nunca desborda: reorganiza.
+       Es lo que lo hace distinto de las maquetaciones antiguas, donde
+       un cálculo mal hecho rompía la página entera.                   */
+
+  grid-row: span 2;   /* y además, 2 filas */
+}
+
+.galeria-pieza img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* OJO: object-fit: cover RECORTA la imagen por el centro en vez de
+     DEFORMARLA. Sin esta línea, imágenes de proporciones distintas se
+     estirarían para llenar su celda y las personas de las fotos
+     saldrían achatadas.                                               */
+
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(60%);
+  /* Un filtro que quita el 60% del color. Da unidad visual a una
+     galería con fotos de tonos muy distintos.                         */
+}
+
+.galeria-pieza:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0);
+  /* Al pasar el cursor: la imagen se acerca un poco y recupera todo su
+     color. Los dos cambios juntos producen la sensación de que la
+     fotografía "despierta".
+
+     OJO: El recorte lo hace el  overflow: hidden  de la figura: sin él,
+       la imagen ampliada se saldría de su marco.                      */
+}
+
+.galeria-pie {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* OJO: absolute ubica el elemento respecto al ancestro posicionado más
+     cercano, que aquí es  .galeria-pieza  gracias a su
+     position: relative.
+
+     Sin ese relative en el padre, este pie de foto se posicionaría
+     respecto al <body> y aparecería en la esquina de la PÁGINA. Es el
+     error más frecuente del posicionamiento.
+
+     Al poner  left: 0  y  right: 0  a la vez, el elemento se estira
+     de borde a borde.                                                 */
+
+  background-color: rgba(0, 0, 0, 0.65);
+  color: var(--color-blanco);
+  padding: var(--esp-xs);
+  font-size: 1.3rem;
+  text-align: center;
+
+  transform: translateY(100%);
+  /* Lo desplaza hacia abajo el 100% de su propia altura: queda justo
+     fuera de la vista, oculto por el overflow de la figura.           */
+
+  transition: transform var(--transicion);
+}
+
+.galeria-pieza:hover .galeria-pie {
+  transform: translateY(0);
+  /* Al pasar el cursor vuelve a su posición y aparece deslizándose
+     desde abajo.                                                      */
+}
+
+
+/* 8 · EQUIPO · CSS GRID           tema de la S17 */
+
+.rejilla-equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: var(--esp-md);
+  /* La misma técnica de la galería, con una medida mínima menor
+     (240px) porque las fichas necesitan menos ancho.                  */
+}
+
+.ficha {
+  background-color: var(--color-blanco);
+  padding: var(--esp-md);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+  text-align: center;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.ficha-foto {
+  width: 14rem;    /* 140px */
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 50%;
+  /* OJO: border-radius: 50% convierte un cuadrado en un CÍRCULO.
+     Solo funciona si el elemento es cuadrado: si midiera 140 × 100,
+     saldría un óvalo. Por eso el ancho y el alto son iguales.         */
+
+  margin: 0 auto var(--esp-sm);
+  border: 0.3rem solid var(--color-fondo-alt);
+}
+
+.ficha-nombre {
+  margin-bottom: 0.2rem;
+}
+
+.ficha-rol {
+  color: var(--color-acento);
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  /* OJO: text-transform cambia el texto a mayúsculas SIN tocar el HTML.
+     La ventaja frente a escribirlo en mayúsculas en el HTML: el texto
+     real sigue en minúsculas, así que un lector de pantalla lo lee
+     normal en vez de deletrearlo letra por letra.
+
+     OJO: letter-spacing MEJORA la legibilidad en mayúsculas; en
+       minúsculas casi siempre la empeora.                             */
+  margin-bottom: var(--esp-xs);
+}
+
+.ficha-texto {
+  color: var(--color-suave);
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+
+/* 9 · DOS COLUMNAS · FLEXBOX           tema de la S16 */
+
+.dos-columnas {
+  display: flex;
+  gap: var(--esp-lg);
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* align-items controla el eje cruzado (aquí, el vertical).
+     flex-start alinea las dos columnas por arriba. Sin esto, el valor
+     por omisión (stretch) estiraría ambas a la misma altura, y la
+     imagen se deformaría para igualar al texto.                       */
+}
+
+.columna-texto {
+  flex: 1 1 32rem;
+  /* Crece, se encoge, y parte de 320px. Cuando las dos columnas ya no
+     caben en esa medida, se apilan solas.                             */
+}
+
+.columna-imagen {
+  flex: 1 1 32rem;
+  margin: 0;
+}
+
+.columna-imagen img {
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-2);
+  width: 100%;
+}
+
+.imagen-pie {
+  margin-top: var(--esp-xs);
+  font-size: 1.3rem;
+  color: var(--color-suave);
+  text-align: center;
+  font-style: italic;
+}
+
+
+/* 10 · LISTAS Y GLOSARIO           tema de la S14 */
+
+.direccion {
+  font-style: normal;
+  /* OJO: La etiqueta <address> viene en CURSIVA por omisión en todos los
+     navegadores. Casi nunca es lo que se busca, así que se anula.
+     Es un caso típico de estilo por omisión que conviene conocer.    */
+  color: var(--color-suave);
+  line-height: 1.9;
+  margin-bottom: var(--esp-sm);
+}
+
+.lista-equipo,
+.lista-simple {
+  padding-left: var(--esp-md);
+  margin-bottom: var(--esp-sm);
+  /* OJO: El reset del inicio quitó el relleno de TODAS las listas, y con
+     él desaparecieron las viñetas (quedaban fuera del área visible).
+     Aquí se devuelve solo a las listas del contenido, dejando el menú
+     de la cabecera sin relleno.                                       */
+}
+
+.lista-equipo li,
+.lista-simple li {
+  margin-bottom: var(--esp-xs);
+}
+
+.lista-equipo ul {
+  padding-left: var(--esp-md);
+  margin-top: var(--esp-xs);
+  /* La lista anidada recibe su propia sangría, que es lo que hace
+     visible que depende de la de arriba.                              */
+}
+
+.glosario {
+  margin-bottom: var(--esp-sm);
+}
+
+.glosario-termino {
+  font-weight: 700;
+  color: var(--color-marca);
+  margin-top: var(--esp-sm);
+}
+
+.glosario-definicion {
+  margin-left: var(--esp-md);
+  color: var(--color-suave);
+  /* OJO: La sangría del  dd  es lo que hace visible la relación entre el
+     término y su definición. Sin ella, la lista descriptiva se ve como
+     una sucesión de párrafos sueltos.                                 */
+}
+
+
+/* 11 · CITA           temas de la S12 y la S14 */
+
+.cita {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: var(--esp-lg);
+  background-color: var(--color-blanco);
+  border-left: 0.5rem solid var(--color-acento);
+  /* Solo el borde IZQUIERDO. Es la forma clásica de marcar una cita:
+     una línea gruesa de color al costado.                             */
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+  position: relative;
+}
+
+.cita::before {
+  content: '\201C';
+  /* OJO: ::before es un PSEUDO-ELEMENTO: crea un elemento que no existe
+     en el HTML, para poder darle estilo.
+
+     OJO: La propiedad  content  es OBLIGATORIA: sin ella no aparece nada,
+       aunque el resto de la regla esté bien escrita.
+
+     El valor \201C es el código de la comilla tipográfica de apertura.
+     Se escribe así para que no se confunda con las comillas del CSS.  */
+
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+  font-family: var(--fuente-titulo);
+  font-size: 8rem;
+  color: var(--color-acento);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.cita-texto {
+  font-family: var(--fuente-titulo);
+  font-size: 2.2rem;
+  font-style: italic;
+  line-height: 1.5;
+  position: relative;
+  /* Este relative levanta el texto por encima de la comilla decorativa,
+     para que no quede tapado por ella.                                */
+}
+
+.cita-autoria {
+  color: var(--color-suave);
+  font-size: 1.4rem;
+  text-align: right;
+}
+
+
+/* 12 · TABLA           tema de la S18
+
+   Lo que hace profesional a una tabla no es ningún efecto llamativo:
+   son cuatro cosas sencillas. Celdas con aire, bordes que no se
+   dupliquen, filas alternas y encabezado distinguible.                */
+
+.tabla-envoltorio {
+  overflow-x: auto;
+  /* Si la tabla no cabe en la pantalla, este contenedor le da su
+     PROPIA barra de desplazamiento horizontal, en vez de romper el
+     diseño de toda la página. Es la solución más simple para tablas
+     anchas en pantallas angostas.                                     */
+  margin-bottom: var(--esp-md);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  /* OJO: IMPRESCINDIBLE. Sin esta línea, cada celda dibuja su propio
+     borde y entre dos celdas contiguas quedan DOS líneas juntas, con
+     un espacio entre ellas. collapse las fusiona en una sola.
+
+     Es el primer ajuste que necesita cualquier tabla.                 */
+  background-color: var(--color-blanco);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra-1);
+}
+
+.tabla-titulo {
+  padding: var(--esp-sm);
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-suave);
+  font-size: 1.4rem;
+  /* El  caption  es el título accesible de la tabla: los lectores de
+     pantalla lo anuncian antes de leer los datos, para que se sepa
+     qué se está por escuchar.                                         */
+}
+
+.tabla th,
+.tabla td {
+  padding: var(--esp-sm);
+  /* OJO: Sin relleno, el texto queda pegado a las líneas y la tabla
+     resulta ilegible aunque los datos sean correctos.                 */
+  border-bottom: 0.1rem solid var(--color-linea);
+  text-align: left;
+}
+
+.tabla thead th {
+  background-color: var(--color-marca);
+  color: var(--color-blanco);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: var(--color-fondo);
+  /* OJO: :nth-child(even) alcanza las filas PARES.
+     Produce el efecto "cebra", que ayuda a seguir una fila con la
+     vista en una tabla ancha.
+
+     OJO: Se cuentan las filas del  tbody: la del encabezado no entra en
+       la cuenta porque está en otro grupo.                            */
+}
+
+.tabla tbody tr:hover {
+  background-color: var(--color-fondo-alt);
+  /* Resalta la fila bajo el cursor. Tampoco es decorativo: en una
+     tabla de cuatro columnas, ayuda a no perder el renglón al leer de
+     izquierda a derecha.                                              */
+}
+
+.tabla tfoot td {
+  background-color: var(--color-fondo-alt);
+  font-style: italic;
+  font-size: 1.4rem;
+  border-top: 0.2rem solid var(--color-marca);
+  /* El borde superior más grueso separa visualmente el pie del
+     contenido de la tabla.                                            */
+}
+
+
+/* 13 · FORMULARIO           tema de la S18 */
+
+.formulario {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.grupo {
+  border: 0.1rem solid var(--color-linea);
+  border-radius: var(--radio);
+  padding: var(--esp-md);
+  margin-bottom: var(--esp-md);
+  background-color: var(--color-blanco);
+}
+
+.grupo-titulo {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  color: var(--color-marca);
+  padding: 0 var(--esp-xs);
+  font-size: 1.8rem;
+}
+
+.grupo-opciones {
+  border: none;
+  padding: var(--esp-sm) 0 0;
+  margin-bottom: 0;
+}
+
+.campo {
+  margin-bottom: var(--esp-sm);
+}
+
+.campo-etiqueta {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  /* OJO: display: block coloca la etiqueta ARRIBA del campo, no a su
+     lado. Es la disposición que mejor funciona en pantallas angostas
+     y no requiere ningún ajuste adicional.                            */
+}
+
+.campo-entrada {
+  width: 100%;
+  padding: var(--esp-xs) var(--esp-sm);
+  border: 0.1rem solid var(--color-linea);
+  border-radius: var(--radio);
+  font-size: 1.6rem;
+
+  font-family: inherit;
+  /* OJO: IMPRESCINDIBLE Y POCO CONOCIDO.
+     Los campos de formulario NO heredan la tipografía del body por
+     omisión: usan la fuente que trae el sistema operativo. Sin esta
+     línea, el formulario se ve con una tipografía distinta a la del
+     resto del sitio, como si fuera de otra página.
+
+     COMPROBARLO: comentar esta línea, guardar y recargar. Se nota de
+     inmediato.                                                        */
+
+  background-color: var(--color-fondo);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.campo-entrada:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 0.3rem rgba(200, 121, 65, 0.18);
+  /* OJO: LA REGLA DE ORO: se quita el contorno por omisión PERO se
+     sustituye por otra señal claramente visible, en este caso un halo
+     de color alrededor del campo.
+
+     Quitar el outline sin reemplazo —escribir  outline: none  a
+     secas— deja a quien navega con la tecla Tab sin saber en qué campo
+     está. Es uno de los daños de accesibilidad más frecuentes en la
+     web, y se comete casi siempre sin mala intención.                 */
+}
+
+.campo-ayuda {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  color: var(--color-suave);
+}
+
+.opcion {
+  margin-bottom: var(--esp-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--esp-xs);
+  /* Flexbox también sirve para alinear una casilla con su etiqueta.
+     align-items: center las deja a la misma altura, sin importar el
+     tamaño del texto.                                                 */
+}
+
+.opcion-marca {
+  width: 1.8rem;
+  height: 1.8rem;
+  accent-color: var(--color-acento);
+  /* accent-color colorea las casillas y los círculos de opción con el
+     color de la marca, sin tener que rehacerlos desde cero.           */
+  cursor: pointer;
+}
+
+.opcion-etiqueta {
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* La mano indica que también se puede hacer clic en el texto, no
+     solo en la casilla. Eso ya funciona gracias al atributo  for  del
+     HTML; el cursor lo hace evidente.                                 */
+}
+
+.fila-botones {
+  display: flex;
+  gap: var(--esp-sm);
+  justify-content: flex-end;
+  /* Los dos botones juntos y alineados a la derecha, que es donde se
+     espera encontrarlos al terminar de llenar un formulario.          */
+  margin-bottom: 0;
+}
+
+
+/* 14 · BOTONES           tema de la S18 */
+
+.boton {
+  display: inline-block;
+  padding: var(--esp-xs) var(--esp-md);
+  border: none;
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  /* La mano indica que el elemento es pulsable. Un <button> ya la
+     muestra en la mayoría de navegadores, pero un <a> con aspecto de
+     botón NO: conviene declararla siempre para que las dos cosas se
+     comporten igual.                                                  */
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.boton-principal {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+.boton-principal:hover {
+  background-color: var(--color-acento-osc);
+  transform: translateY(-0.2rem);
+  /* Sube dos píxeles al pasar el cursor. Es un movimiento mínimo, pero
+     suficiente para que el botón se sienta "vivo".                    */
+}
+
+.boton-principal:active {
+  transform: translateY(0);
+  /* Al MANTENERLO pulsado vuelve a su sitio, como si se hundiera.
+     Confirma que la pulsación se registró.                            */
+}
+
+.boton-secundario {
+  background-color: var(--color-fondo-alt);
+  color: var(--color-tinta);
+}
+
+.boton-secundario:hover {
+  background-color: var(--color-linea);
+}
+
+.boton:focus {
+  outline: 0.2rem solid var(--color-marca);
+  outline-offset: 0.2rem;
+}
+
+/* OJO: LOS TRES ESTADOS SON NECESARIOS Y CADA UNO DICE ALGO DISTINTO:
+     :hover   "esto se puede pulsar"      -> para quien usa ratón
+     :active  "lo estás pulsando ahora"   -> confirma la acción
+     :focus   "estás aquí"                -> PARA QUIEN USA TECLADO
+
+   Omitir :focus deja fuera a quien navega con Tab.                    */
+
+
+/* 15 · PIE DE PÁGINA · FLEXBOX           tema de la S16 */
+
+.pie {
+  background-color: var(--color-marca);
+  color: var(--color-blanco);
+  padding: var(--esp-xl) var(--esp-md) var(--esp-md);
+  margin-top: var(--esp-xl);
+}
+
+.pie-columnas {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-lg);
+  justify-content: space-between;
+  /* Las tres columnas se reparten el ancho, con los extremos pegados a
+     los bordes. Al angostar la ventana, flex-wrap las apila.          */
+}
+
+.pie-bloque {
+  flex: 1 1 25rem;
+}
+
+.pie-titulo {
+  color: var(--color-blanco);
+  font-size: 1.8rem;
+  margin-bottom: var(--esp-xs);
+}
+
+.pie-texto,
+.pie-datos {
+  font-size: 1.4rem;
+  font-style: normal;
+  /* OJO: La etiqueta  <address>  viene en cursiva por omisión en todos
+     los navegadores. Casi nunca es lo que se quiere, así que se anula
+     con  font-style: normal.                                          */
+  opacity: 0.85;
+  line-height: 1.8;
+}
+
+.pie-enlace {
+  color: var(--color-blanco);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
+  /* OJO: Se quitó el subrayado en la regla general de los enlaces, así
+     que aquí se pone OTRA señal: un borde inferior tenue. Un enlace
+     sin ninguna marca distintiva no se reconoce como tal.             */
+  transition: border-color var(--transicion);
+}
+
+.pie-enlace:hover {
+  border-bottom-color: var(--color-blanco);
+}
+
+.pie-creditos {
+  max-width: var(--ancho-max);
+  margin: var(--esp-lg) auto 0;
+  padding-top: var(--esp-sm);
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: 1.3rem;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+
+/* 16 · MOVIMIENTO           tema de la S19
+
+   Hay dos formas de producir movimiento en CSS:
+
+     transition  necesita un EVENTO que dispare el cambio, como pasar
+                 el cursor o llegar con el teclado
+     animation   se ejecuta SOLA, sin que nadie haga nada              */
+
+/*  EFECTO DE ELEVACIÓN EN TARJETAS Y FICHAS  */
+.tarjeta:hover,
+.ficha:hover {
+  transform: translateY(-0.6rem);
+  box-shadow: var(--sombra-3);
+  /* Dos cambios que van juntos: el elemento sube Y su sombra crece.
+     Si solo subiera, se vería como un salto; si solo creciera la
+     sombra, se vería como un parpadeo. Juntos producen la sensación de
+     que la tarjeta se acerca.
+
+     OJO: SE USA transform Y NO margin:
+       transform NO altera el espacio que ocupa el elemento, así que
+       los vecinos no se mueven y la página no se reacomoda. Con
+       margin-top: -6px la tarjeta también subiría, pero empujaría a
+       las demás y toda la fila temblaría.                             */
+}
+
+/*  ANIMACIÓN DE ENTRADA  */
+@keyframes aparecer {
+  /* @keyframes define un GUION con nombre. Aquí describe:
+     "empezá invisible y 20px más abajo, y terminá visible en tu sitio".
+
+     OJO: Definir la animación NO la ejecuta. Solo se activa cuando algún
+       selector la invoca con la propiedad  animation.                 */
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarjeta {
+  animation: aparecer 0.6s ease-out backwards;
+  /*         nombre | duración | ritmo | relleno
+
+     backwards hace que el elemento tome el estado inicial (invisible)
+     ANTES de que empiece la animación. Sin eso, durante el retardo de
+     la regla siguiente la tarjeta se vería un instante antes de
+     desaparecer y volver a aparecer.                                  */
+}
+
+.fila-servicios .tarjeta:nth-child(1) { animation-delay: 0s; }
+.fila-servicios .tarjeta:nth-child(2) { animation-delay: 0.12s; }
+.fila-servicios .tarjeta:nth-child(3) { animation-delay: 0.24s; }
+/* OJO: EL RETARDO ESCALONADO.
+   Las tres tarjetas aparecen una tras otra en vez de todas a la vez.
+   El efecto en cascada se percibe más cuidado y cuesta tres líneas.
+
+   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
+   (2) la segunda, y así.                                              */
+
+/*  ANIMACIÓN EN BUCLE · con mucha moderación  */
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+  /* Con PORCENTAJES se definen varios momentos, no solo el inicio y el
+     final.
+     OJO: 0% y 100% comparten el mismo valor para que el ciclo sea
+       continuo: al terminar, el elemento está donde empezó y el ciclo
+       siguiente arranca sin salto.                                    */
+}
+
+.menu-enlace.activo::after {
+  content: '';
+  /* Un pseudo-elemento vacío que sirve solo como forma: el puntito
+     bajo el enlace de la página actual.                              */
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  margin: 0.3rem auto 0;
+  animation: latido 2.5s ease-in-out infinite;
+  /*                                   se repite sin fin            */
+}
+
+/* OJO: EL CRITERIO SOBRE LAS ANIMACIONES EN BUCLE
+   Una animación que nunca se detiene tiene un costo: compite por la
+   atención de quien lee, consume batería y puede resultar molesta.
+
+   Por eso se usa con moderación:
+     OK UN elemento pequeño que marca algo (este puntito)
+     NO Varios elementos animándose a la vez
+     NO Algo que la persona necesita leer con calma
+
+   En este sitio se anima UN puntito de 6px. Si se animaran las seis
+   fotos de la galería, la página resultaría agotadora.                */
+
+
+/* 18 · PÁGINA DE GALERÍA           temas de la S16 y la S17
+
+   OJO: CÓMO USAR ESTE BLOQUE
+     Copie todo lo que sigue y péguelo al FINAL de css/estilos.css,
+     justo ANTES del bloque de accesibilidad del movimiento
+     (@media prefers-reduced-motion).
+
+     OJO: POR QUÉ ANTES DE ESE BLOQUE Y NO DESPUÉS
+       Esa regla desactiva las animaciones para quien lo haya pedido en
+       su sistema. Como en CSS, a igual especificidad, GANA LA ÚLTIMA
+       regla escrita, si este bloque quedara después, sus transiciones
+       volverían a activarse y anularían esa protección.
+
+     Todo lo de aquí usa las mismas variables ya declaradas en :root, así
+     que no hay que tocar nada más del archivo original. */
+
+
+/*  18.1 · LAS CIFRAS · CSS GRID  */
+
+.rejilla-cifras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  /* La misma técnica de la galería de la portada, con un mínimo menor
+     (200px) porque cada cifra ocupa poco.
+
+     Se reparte sola: cuatro columnas en pantalla ancha, dos en tableta
+     y una en teléfono. Sin media queries.                             */
+  gap: var(--esp-md);
+  text-align: center;
+}
+
+.cifra {
+  padding: var(--esp-md) var(--esp-sm);
+  background-color: var(--color-blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+  border-top: 0.4rem solid var(--color-acento);
+  /* Solo el borde SUPERIOR. Un detalle de color que une visualmente las
+     cuatro tarjetas sin recargarlas con un marco completo.            */
+}
+
+.cifra-numero {
+  font-family: var(--fuente-titulo);
+  font-size: 4.2rem;
+  font-weight: 700;
+  color: var(--color-marca);
+  line-height: 1;
+  /* OJO: line-height: 1 en un número grande.
+     El valor heredado del body (1.6) dejaría demasiado espacio arriba y
+     abajo de la cifra, y se vería flotando dentro de su tarjeta.      */
+  margin-bottom: var(--esp-xs);
+}
+
+.cifra-texto {
+  color: var(--color-suave);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  margin-bottom: 0;
+  /* OJO: margin-bottom: 0 anula el margen que la regla general de los
+     párrafos les da. Al ser el último elemento de la tarjeta, ese
+     margen dejaría un hueco desigual en la parte de abajo.            */
+}
+
+
+/*  18.2 · LAS ETIQUETAS DE CATEGORÍA · FLEXBOX  */
+
+.fila-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-sm);
+  justify-content: center;
+  /* justify-content centra en el EJE PRINCIPAL, que con la dirección
+     por omisión (fila) es el horizontal.
+
+     OJO: Se usa Flexbox y no Grid porque las etiquetas tienen ANCHOS
+       DISTINTOS según su texto: "Retrato" es más corta que "Todo el
+       trabajo". Flexbox deja que cada una mida lo que necesita; Grid
+       las forzaría a todas al mismo ancho.
+
+     Es un buen ejemplo de la regla práctica: cuando el CONTENIDO manda,
+     Flexbox; cuando manda el CONTENEDOR, Grid.                        */
+
+  list-style: none;
+  /* Es una lista por su significado —un conjunto de enlaces del mismo
+     nivel— pero no debe verse como tal.                               */
+
+  margin-bottom: var(--esp-md);
+}
+
+.etiqueta {
+  display: inline-block;
+  /* OJO: IMPRESCINDIBLE.
+     Un enlace es "inline" por omisión y los elementos inline IGNORAN el
+     relleno vertical. Sin esta línea, el padding de arriba y abajo de
+     la regla siguiente no haría nada y la etiqueta quedaría aplastada. */
+
+  padding: var(--esp-xs) var(--esp-md);
+  background-color: var(--color-blanco);
+  border: 0.1rem solid var(--color-linea);
+  border-radius: 3rem;
+  /* Un radio muy grande convierte el rectángulo en una cápsula. Como es
+     mayor que la mitad de la altura del elemento, los extremos quedan
+     completamente redondeados.                                        */
+
+  color: var(--color-tinta);
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: background-color var(--transicion),
+              color var(--transicion),
+              border-color var(--transicion);
+  /* OJO: La transición va en la regla BASE, no dentro de :hover.
+     Si se pusiera en :hover, la entrada sería suave pero la salida
+     brusca: al quitar el cursor el color volvería de golpe.           */
+}
+
+.etiqueta:hover {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+.etiqueta:focus {
+  outline: 0.2rem solid var(--color-marca);
+  outline-offset: 0.2rem;
+  /* OJO: :focus se activa al llegar con la tecla Tab. Es lo que permite
+     recorrer las categorías sin ratón. Quitarlo sin poner otra señal
+     visible deja a esas personas sin saber dónde están.               */
+}
+
+
+/*  18.3 · EL MOSAICO · CSS GRID con piezas de distinto tamaño  */
+
+.mosaico {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  /* Tantas columnas de 240px como quepan. En una pantalla ancha salen
+     cuatro; al angostar, tres, dos y finalmente una.                  */
+
+  grid-auto-rows: 22rem;
+  /* OJO: ESTA LÍNEA ES NUEVA EN EL CURSO.
+
+     grid-template-rows define filas CONCRETAS. Pero aquí no sabemos
+     cuántas filas habrá: depende de cuántas piezas quepan por fila, y
+     eso cambia con el ancho de la ventana.
+
+     grid-auto-rows dice: "toda fila que se cree automáticamente medirá
+     220px de alto". Es lo que hace posible que las piezas que ocupan
+     dos filas midan exactamente el doble.                             */
+
+  grid-auto-flow: dense;
+  /* OJO: TAMBIÉN NUEVA, Y RESUELVE UN PROBLEMA CONCRETO.
+
+     Al mezclar piezas de distintos tamaños quedan HUECOS: si en una
+     fila sobra una sola celda y la pieza siguiente ocupa dos, esa pieza
+     baja y deja el hueco vacío.
+
+     Con  dense, Grid busca hacia atrás una pieza más pequeña que sí
+     quepa y la coloca ahí. El mosaico queda compacto.
+
+     OJO: EL PRECIO: cambia el ORDEN VISUAL respecto del orden del HTML.
+       Para una galería es aceptable —el orden de las fotos no comunica
+       nada—, pero NO se debe usar donde la secuencia importe, como en
+       una lista de pasos. Y conviene recorrer la página con Tab: el
+       orden de lectura sigue siendo el del HTML.                      */
+
+  gap: var(--esp-sm);
+}
+
+/*  Las piezas de tamaño especial  */
+
+.pieza-ancha {
+  grid-column: span 2;
+  /* "ocupá 2 columnas, desde donde te toque".
+
+     Existe también la forma  grid-column: 1 / 3, que indica de qué
+     línea a qué línea. Pero  span  es más legible y no depende de la
+     posición: si la pieza se mueve, sigue ocupando dos.
+
+     OJO: El error de conteo más frecuente es con la otra forma: en
+       1 / 3  el segundo número es la línea DONDE TERMINA, no la última
+       columna que ocupa.                                              */
+}
+
+.pieza-alta {
+  grid-row: span 2;
+  /* Lo mismo, pero hacia abajo. Aquí es donde importa el
+     grid-auto-rows de arriba: sin una altura de fila definida, "dos
+     filas" no significaría nada concreto.                             */
+}
+
+.pieza-grande {
+  grid-column: span 2;
+  grid-row: span 2;
+  /* Un bloque de 2 × 2 celdas.
+
+     OJO: SI NO CABE, GRID REACOMODA SOLO. Nunca desborda: reorganiza.
+       Es lo que lo hace distinto de las maquetaciones antiguas con
+       float, donde un cálculo mal hecho rompía la página entera.
+       Se comprueba angostando la ventana: cuando solo caben dos
+       columnas, esta pieza ocupa el ancho completo.                   */
+}
+
+
+/*  18.4 · LA PIEZA · imagen con pie superpuesto  */
+
+.pieza {
+  position: relative;
+  /* OJO: Esto NO mueve la figura. Solo la declara como PUNTO DE
+     REFERENCIA para los hijos que se posicionen en absoluto.
+
+     El pie de foto de más abajo se ubica respecto a ESTA figura, no
+     respecto a la página, gracias a esta línea. Sin ella aparecería en
+     la esquina del documento: es el error más frecuente del
+     posicionamiento.                                                  */
+
+  overflow: hidden;
+  /* Recorta lo que sobresalga de los límites de la figura. Es lo que
+     permite ampliar la imagen al pasar el cursor sin invadir a las
+     piezas vecinas, y lo que mantiene el pie oculto hasta que se
+     necesita.                                                         */
+
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+  margin: 0;
+  /* OJO: La etiqueta <figure> trae márgenes laterales generosos por
+     omisión en todos los navegadores. El reset del inicio ya los quitó,
+     pero se declara aquí de nuevo por claridad.                       */
+
+  background-color: var(--color-fondo-alt);
+  /* Un color de respaldo mientras la imagen carga, o si no existe. Sin
+     esto, la celda se ve transparente y el mosaico parece incompleto. */
+}
+
+.pieza img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* OJO: object-fit: cover RECORTA la imagen por el centro en vez de
+     DEFORMARLA.
+
+     Es imprescindible aquí: las piezas tienen proporciones muy
+     distintas —cuadradas, anchas, altas— y las fotos originales
+     también. Sin esta línea, cada imagen se estiraría para llenar su
+     celda y las personas saldrían achatadas o alargadas.              */
+
+  display: block;
+  /* Quita el pequeño espacio en blanco que los navegadores dejan bajo
+     las imágenes por tratarlas como texto en línea.                   */
+
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(45%) brightness(0.95);
+  /* Dos filtros a la vez, separados por ESPACIO (no por coma).
+     Quitan parte del color y bajan un poco el brillo, lo que da unidad
+     visual a un mosaico con fotos de tonos muy distintos.             */
+}
+
+.pieza:hover img {
+  transform: scale(1.08);
+  filter: grayscale(0) brightness(1);
+  /* Al pasar el cursor la imagen se acerca y recupera todo su color.
+     Los dos cambios juntos producen la sensación de que la fotografía
+     "despierta".
+
+     OJO: SE USA transform Y NO width/height:
+       transform NO altera el espacio que ocupa el elemento, así que
+       las piezas vecinas no se mueven y el mosaico no tiembla.        */
+}
+
+
+/*  18.5 · EL PIE DE LA PIEZA · aparece al pasar el cursor  */
+
+.pieza-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* OJO: absolute ubica el elemento respecto al ancestro posicionado más
+     cercano, que aquí es  .pieza  gracias a su position: relative.
+
+     Al declarar  left: 0  y  right: 0  a la vez, el elemento se estira
+     de borde a borde sin necesidad de darle un ancho.                 */
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  /* Con column, el título y la categoría se apilan.
+     OJO: Al cambiar la dirección, los dos ejes se INTERCAMBIAN: si aquí
+       se usara align-items, centraría en HORIZONTAL, no en vertical.  */
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.55) 70%,
+    rgba(0, 0, 0, 0)
+  );
+  /* OJO: UN DEGRADADO, no un color plano.
+     linear-gradient produce una transición suave entre colores. Aquí va
+     de negro casi opaco abajo a transparente arriba, así que el pie se
+     funde con la imagen en vez de cortarla con una línea dura.
+
+     La dirección  to top  indica hacia dónde avanza el degradado.
+     El  70%  marca en qué punto del recorrido se alcanza ese color.   */
+
+  color: var(--color-blanco);
+  padding: var(--esp-md) var(--esp-sm) var(--esp-sm);
+
+  transform: translateY(100%);
+  /* Lo desplaza hacia abajo el 100% de su PROPIA altura: queda justo
+     fuera de la vista, oculto por el overflow: hidden de la pieza.    */
+
+  transition: transform var(--transicion);
+}
+
+.pieza:hover .pieza-info,
+.pieza:focus-within .pieza-info {
+  transform: translateY(0);
+  /* Vuelve a su posición y aparece deslizándose desde abajo.
+
+     OJO: :focus-within ES IMPORTANTE Y SUELE OLVIDARSE.
+       Significa "cuando este elemento o CUALQUIERA DE SUS HIJOS tenga
+       el foco". Sin esta segunda línea, quien navega con la tecla Tab
+       nunca vería el pie de foto: el efecto solo funcionaría con ratón.
+
+       Es el tipo de detalle que convierte un efecto bonito en un
+       efecto accesible.                                               */
+}
+
+.pieza-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.pieza-categoria {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--color-acento);
+  /* OJO: text-transform pasa a mayúsculas SIN tocar el HTML. La ventaja:
+     el texto real sigue en minúsculas, así que un lector de pantalla lo
+     lee normal en vez de deletrearlo.
+
+     OJO: letter-spacing MEJORA la legibilidad en mayúsculas; en minúsculas
+       casi siempre la empeora.                                        */
+}
+
+
+/*  18.6 · LAS REJILLAS POR CATEGORÍA  */
+
+.rejilla-categoria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: var(--esp-sm);
+  /* Más simple que el mosaico: todas las piezas del mismo tamaño, sin
+     span ni dense. Se apoya en la misma clase .pieza, que ya trae el
+     recorte, la sombra y el efecto al pasar el cursor.
+
+     OJO: Reutilizar .pieza en vez de escribir reglas nuevas es lo que
+       mantiene el sitio coherente. Si mañana se cambia el efecto de las
+       piezas, cambia en los dos lugares a la vez.                     */
+}
+
+.rejilla-categoria .pieza {
+  aspect-ratio: 4 / 3;
+  /* OJO: PROPIEDAD NUEVA Y MUY ÚTIL.
+
+     Fija la PROPORCIÓN del elemento: por cada 4 de ancho, 3 de alto.
+     La altura se calcula sola a partir del ancho que le toque.
+
+     Antes de que existiera, conseguir esto requería un truco con
+     padding en porcentaje que costaba explicar. Hoy es una línea.
+
+     Aquí sirve para que todas las piezas de una categoría se vean
+     iguales aunque las fotos originales tengan proporciones distintas. */
+}
+
+
+/*  18.7 · EL LLAMADO FINAL  */
+
+.llamado {
+  background-color: var(--color-marca);
+  color: var(--color-blanco);
+  padding: var(--esp-xl) var(--esp-md);
+  border-radius: var(--radio);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--esp-sm);
+  /* OJO: Con flex-direction: column, align-items centra en HORIZONTAL.
+     Si la dirección fuera row, centraría en vertical.
+     Es la confusión más frecuente de Flexbox, y aquí se ve en la
+     práctica: el título, el texto y el botón quedan centrados uno bajo
+     otro.                                                             */
+}
+
+.llamado-titulo {
+  color: var(--color-blanco);
+  /* OJO: HACE FALTA DECLARARLO.
+     La regla general  h1, h2, h3  del archivo original les da el color
+     de marca. Como aquí el fondo ES ese color, el título quedaría azul
+     sobre azul: ilegible.
+
+     Es el mismo conflicto que se resolvió en la sección de color del
+     archivo original, y conviene señalarlo cada vez que aparece.      */
+  margin-bottom: 0;
+}
+
+.llamado-texto {
+  max-width: 55ch;
+  /* La unidad  ch  equivale al ancho del carácter "0". Unos 55
+     caracteres por línea es cómodo de leer en un bloque centrado.     */
+  opacity: 0.9;
+  margin-bottom: var(--esp-xs);
+}
+
+
+/*  18.8 · EL ENLACE DE REGRESO  */
+
+.volver-arriba {
+  text-align: center;
+  padding-bottom: var(--esp-lg);
+  margin-bottom: 0;
+}
+
+.volver-arriba a {
+  color: var(--color-suave);
+  font-size: 1.4rem;
+  border-bottom: 0.1rem solid var(--color-linea);
+  transition: color var(--transicion), border-color var(--transicion);
+  /* OJO: El borde inferior sustituye al subrayado que la regla general de
+     los enlaces quitó. Un enlace sin ninguna marca distintiva no se
+     reconoce como tal, y quien no distingue bien los colores no lo
+     percibiría solo por el tono.                                      */
+}
+
+.volver-arriba a:hover {
+  color: var(--color-acento);
+  border-bottom-color: var(--color-acento);
+}
+
+
+/*  18.9 · ANIMACIÓN DE ENTRADA DEL MOSAICO  */
+
+.mosaico .pieza {
+  animation: aparecer 0.5s ease-out backwards;
+  /* Reutiliza la animación  aparecer  ya definida en el archivo
+     original (sección de movimiento). No hace falta declararla otra
+     vez: @keyframes se define una sola vez y se invoca desde donde se
+     necesite.
+
+     backwards hace que la pieza tome el estado inicial (invisible)
+     ANTES de que empiece su retardo. Sin eso, durante la espera se
+     vería un instante antes de desaparecer y volver a aparecer.       */
+}
+
+.mosaico .pieza:nth-child(1) { animation-delay: 0.00s; }
+.mosaico .pieza:nth-child(2) { animation-delay: 0.06s; }
+.mosaico .pieza:nth-child(3) { animation-delay: 0.12s; }
+.mosaico .pieza:nth-child(4) { animation-delay: 0.18s; }
+.mosaico .pieza:nth-child(5) { animation-delay: 0.24s; }
+.mosaico .pieza:nth-child(6) { animation-delay: 0.30s; }
+.mosaico .pieza:nth-child(7) { animation-delay: 0.36s; }
+.mosaico .pieza:nth-child(8) { animation-delay: 0.42s; }
+.mosaico .pieza:nth-child(9) { animation-delay: 0.48s; }
+.mosaico .pieza:nth-child(10){ animation-delay: 0.54s; }
+/* OJO: EL RETARDO ESCALONADO.
+   Las piezas aparecen una tras otra en vez de todas a la vez. El efecto
+   en cascada se percibe más cuidado y cuesta diez líneas.
+
+   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
+   (2) la segunda, y así.
+
+   OJO: El retardo total es de poco más de medio segundo. Conviene que sea
+     corto: mientras dura, las piezas están invisibles, y una entrada
+     larga hace que la página parezca vacía al abrirla.                */
+
+
+/* FIN DEL BLOQUE DE LA GALERÍA
+
+   OJO: RECORDATORIO: pegar ANTES del bloque
+     @media (prefers-reduced-motion: reduce)
+
+   Esa regla desactiva estas animaciones para quien lo haya solicitado
+   en su sistema operativo. Si este bloque quedara después, sus
+   transiciones se reactivarían y anularían la protección. */
+
+
+/* 17 · ACCESIBILIDAD DEL MOVIMIENTO           tema de la S19 */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* OJO: ESTA REGLA NO ES OPCIONAL.
+
+   Hay personas para quienes el movimiento en pantalla provoca mareo,
+   náusea o migraña. El sistema operativo permite pedir "reducir
+   movimiento" en sus preferencias de accesibilidad, y esta regla
+   detecta esa preferencia y desactiva todo lo animado.
+
+   OJO: NO SE USA  animation: none.
+     Eso dejaría los elementos en su estado inicial, y las tarjetas de
+     este sitio empiezan en  opacity: 0: quedarían INVISIBLES.
+     Poner una duración casi nula (0.01ms) hace que la animación se
+     complete de inmediato: el elemento llega a su estado final sin
+     que se perciba ningún movimiento.
+
+   CÓMO PROBARLO
+     Windows: Configuración -> Accesibilidad -> Efectos visuales ->
+              desactivar "Efectos de animación"
+     macOS:   Accesibilidad -> Pantalla -> Reducir movimiento
+   Recargar y comprobar que nada se anima, pero todo sigue visible.
+
+   OJO: Este es el primer @media del curso. Las consultas de medio se
+     estudian a fondo en la Unidad 4; este caso corresponde aquí
+     porque trata sobre el movimiento.                                 */
+
+
+/* FIN DE LA HOJA
+
+   ANTES DE ENTREGAR:
+     1. Validar en jigsaw.w3.org/css-validator
+        OJO: UNA sola validación de CSS: hay una única hoja para las tres
+          páginas. El HTML sí se valida página por página.
+     2. Comprobar el sitio en dos navegadores distintos
+     3. Verificar el contraste en webaim.org/resources/contrastchecker
+     4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
+        está el foco */

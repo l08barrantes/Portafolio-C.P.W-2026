@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Escriba aquí su nombre completo">
+  <meta name="description" content="Quiénes somos: el equipo y la trayectoria del Estudio Luz Clara.">
+  <meta name="keywords" content="equipo, fotógrafos, trayectoria, estudio, San José">
+
+  <title>Nosotros | Estudio Luz Clara</title>
+
+  <link rel="icon" href="recursos/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <!--  CABECERA · idéntica a la de index.html  -->
+  <header id="cabecera" class="cabecera">
+
+    <a href="index.html" class="logo">
+      <svg class="logo-icono" width="38" height="38" viewBox="0 0 38 38"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Logo del Estudio Luz Clara: una cámara fotográfica">
+        <rect x="2" y="9" width="34" height="25" rx="4" fill="currentColor"/>
+        <rect x="12" y="4" width="14" height="6" rx="2" fill="currentColor"/>
+        <circle cx="19" cy="22" r="8" fill="#FFFFFF"/>
+        <circle cx="19" cy="22" r="5" fill="currentColor"/>
+        <circle cx="30" cy="15" r="2" fill="#FFFFFF"/>
+      </svg>
+      <span class="logo-texto">Estudio Luz Clara</span>
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html" class="menu-enlace">Inicio</a></li>
+        <li><a href="galeria.html" class="menu-enlace">Galería</a></li>
+        <li><a href="nosotros.html" class="menu-enlace activo">Nosotros</a></li>
+        <li><a href="contacto.html" class="menu-enlace">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main id="contenido">
+
+    <!--  ENCABEZADO DE PÁGINA · versión reducida de la portada  -->
+    <section id="intro" class="pagina-encabezado">
+      <h1 class="pagina-titulo">Quiénes estamos detrás</h1>
+      <p class="pagina-bajada">
+        Un equipo de cuatro personas que trabaja en el mismo local desde 2014.
+      </p>
+    </section>
+
+    <!-- HISTORIA · se practica el texto enriquecido y las columnas -->
+    <section id="historia" class="seccion">
+      <h2 class="seccion-titulo">Nuestra historia</h2>
+
+      <div class="dos-columnas">
+
+        <div class="columna-texto">
+          <p>
+            El estudio abrió en <em>2014</em> en un cuarto de servicio
+            adaptado, con una sola ventana y un fondo de papel prestado.
+            La primera sesión fue el retrato de una vecina que buscaba una
+            foto para su currículum.
+          </p>
+          <p>
+            Hoy ocupamos un local de <strong>120 metros cuadrados</strong>
+            en Barrio Escalante, con dos salas de iluminación y un espacio
+            de edición. Aquella ventana sigue siendo nuestra fuente de luz
+            favorita.
+          </p>
+          <p>
+            Trabajamos con <abbr title="Cámara de Comercio de Costa Rica">CCCR</abbr>,
+            con editoriales independientes y con personas que llegan por
+            recomendación de otras.
+          </p>
+        </div>
+
+        <!--  MARCADOR DE IMAGEN   recursos/estudio.jpg  ·  800 × 1000 px, vertical -->
+        <figure class="columna-imagen">
+          <img src="recursos/estudio.jpg"
+               alt="Interior del estudio con luz entrando por una ventana grande"
+               width="800" height="1000">
+          <figcaption class="imagen-pie">El local en Barrio Escalante</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- EQUIPO · cuatro personas · se maquetan con CSS GRID -->
+    <section id="equipo" class="seccion seccion-alterna">
+      <h2 class="seccion-titulo">El equipo</h2>
+
+      <div class="rejilla-equipo">
+
+        <!--  MARCADOR   recursos/persona-1.jpg  ·  400 × 400 px, cuadrada -->
+        <article class="ficha">
+          <img src="recursos/persona-1.jpg" alt="Retrato de Mariana Sánchez"
+               class="ficha-foto" width="400" height="400">
+          <h3 class="ficha-nombre">Mariana Sánchez</h3>
+          <p class="ficha-rol">Fotografía de retrato</p>
+          <p class="ficha-texto">
+            Doce años de trayectoria. Le interesa el retrato que no posa.
+          </p>
+        </article>
+
+        <!--  MARCADOR   recursos/persona-2.jpg -->
+        <article class="ficha">
+          <img src="recursos/persona-2.jpg" alt="Retrato de Diego Rojas"
+               class="ficha-foto" width="400" height="400">
+          <h3 class="ficha-nombre">Diego Rojas</h3>
+          <p class="ficha-rol">Producto y catálogo</p>
+          <p class="ficha-texto">
+            Viene del diseño industrial. Arma sus propios fondos y soportes.
+          </p>
+        </article>
+
+        <!--  MARCADOR   recursos/persona-3.jpg -->
+        <article class="ficha">
+          <img src="recursos/persona-3.jpg" alt="Retrato de Laura Jiménez"
+               class="ficha-foto" width="400" height="400">
+          <h3 class="ficha-nombre">Laura Jiménez</h3>
+          <p class="ficha-rol">Eventos</p>
+          <p class="ficha-texto">
+            Cubre bodas desde 2016. Prefiere la fotografía documental.
+          </p>
+        </article>
+
+        <!--  MARCADOR   recursos/persona-4.jpg -->
+        <article class="ficha">
+          <img src="recursos/persona-4.jpg" alt="Retrato de Óscar Mena"
+               class="ficha-foto" width="400" height="400">
+          <h3 class="ficha-nombre">Óscar Mena</h3>
+          <p class="ficha-rol">Edición y color</p>
+          <p class="ficha-texto">
+            Responsable del acabado final de todo lo que sale del estudio.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EQUIPAMIENTO · lista descriptiva y lista anidada -->
+    <section id="equipamiento" class="seccion">
+      <h2 class="seccion-titulo">Con qué trabajamos</h2>
+
+      <div class="dos-columnas">
+
+        <div class="columna-texto">
+          <h3 class="subtitulo">Equipo disponible</h3>
+          <ul class="lista-equipo">
+            <li>Cámaras
+              <ul>
+                <li>Dos cuerpos de formato completo</li>
+                <li>Un cuerpo de formato medio</li>
+              </ul>
+            </li>
+            <li>Iluminación
+              <ul>
+                <li>Cuatro luces de estudio</li>
+                <li>Dos paneles de luz continua</li>
+              </ul>
+            </li>
+            <li>Fondos
+              <ul>
+                <li>Papel en seis colores</li>
+                <li>Telón de tela neutro</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="columna-texto">
+          <h3 class="subtitulo">Términos que usamos</h3>
+          <dl class="glosario">
+            <dt class="glosario-termino">Sesión</dt>
+            <dd class="glosario-definicion">
+              Bloque de trabajo de hasta dos horas con una misma persona o marca.
+            </dd>
+
+            <dt class="glosario-termino">Retoque</dt>
+            <dd class="glosario-definicion">
+              Ajuste de luz, color y detalles de cada fotografía seleccionada.
+            </dd>
+
+            <dt class="glosario-termino">Galería privada</dt>
+            <dd class="glosario-definicion">
+              Espacio en línea con contraseña donde se entregan los archivos.
+            </dd>
+          </dl>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--  PIE · idéntico al de index.html  -->
+  <footer id="pie" class="pie">
+    <div class="pie-columnas">
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Estudio Luz Clara</h2>
+        <p class="pie-texto">Fotografía con luz natural desde 2014.</p>
+      </div>
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Contacto</h2>
+        <address class="pie-datos">
+          Barrio Escalante, San José<br>
+          Costa Rica<br>
+          <a href="mailto:hola@ejemplo.com" class="pie-enlace">hola@ejemplo.com</a>
+        </address>
+      </div>
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Horario</h2>
+        <p class="pie-texto">
+          Lunes a viernes<br>
+          9:00 a. m. – 6:00 p. m.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="pie-creditos"><small>&copy; 2026 · Estudio Luz Clara</small></p>
+  </footer>
+
+</body>
+
+</html>

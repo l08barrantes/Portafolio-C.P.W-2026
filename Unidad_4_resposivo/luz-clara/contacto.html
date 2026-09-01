@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Escriba aquí su nombre completo">
+  <meta name="description" content="Solicite una sesión fotográfica: tarifas, horarios y formulario de contacto.">
+  <meta name="keywords" content="contacto, reservas, tarifas, sesión fotográfica">
+
+  <title>Contacto | Estudio Luz Clara</title>
+
+  <link rel="icon" href="recursos/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <!--  CABECERA · idéntica a la de index.html  -->
+  <header id="cabecera" class="cabecera">
+
+    <a href="index.html" class="logo">
+      <svg class="logo-icono" width="38" height="38" viewBox="0 0 38 38"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Logo del Estudio Luz Clara: una cámara fotográfica">
+        <rect x="2" y="9" width="34" height="25" rx="4" fill="currentColor"/>
+        <rect x="12" y="4" width="14" height="6" rx="2" fill="currentColor"/>
+        <circle cx="19" cy="22" r="8" fill="#FFFFFF"/>
+        <circle cx="19" cy="22" r="5" fill="currentColor"/>
+        <circle cx="30" cy="15" r="2" fill="#FFFFFF"/>
+      </svg>
+      <span class="logo-texto">Estudio Luz Clara</span>
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html" class="menu-enlace">Inicio</a></li>
+        <li><a href="galeria.html" class="menu-enlace">Galería</a></li>
+        <li><a href="nosotros.html" class="menu-enlace">Nosotros</a></li>
+        <li><a href="contacto.html" class="menu-enlace activo">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main id="contenido">
+
+    <section id="intro" class="pagina-encabezado">
+      <h1 class="pagina-titulo">Hablemos de su proyecto</h1>
+      <p class="pagina-bajada">
+        Respondemos todas las solicitudes dentro de las siguientes 48 horas hábiles.
+      </p>
+    </section>
+
+    <!-- TARIFAS · aquí se practica el estilo de TABLA (S18) -->
+    <section id="tarifas" class="seccion">
+      <h2 class="seccion-titulo">Tarifas y duración</h2>
+
+      <div class="tabla-envoltorio">
+        <table class="tabla">
+          <caption class="tabla-titulo">
+            Tarifas vigentes a agosto de 2026. Incluyen edición y entrega digital.
+          </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Precio ₡</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td rowspan="3">Retrato</td>
+              <th scope="row">Individual</th>
+              <td>1 hora</td>
+              <td>45 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Familiar</th>
+              <td>2 horas</td>
+              <td>75 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Perfil profesional</th>
+              <td>45 minutos</td>
+              <td>38 000</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Producto</td>
+              <th scope="row">Catálogo básico</th>
+              <td>Hasta 15 piezas</td>
+              <td>30 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Catálogo ampliado</th>
+              <td>Hasta 40 piezas</td>
+              <td>68 000</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Eventos</td>
+              <th scope="row">Media jornada</th>
+              <td>4 horas</td>
+              <td>120 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Jornada completa</th>
+              <td>8 horas</td>
+              <td>210 000</td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="4">
+                El traslado fuera del Área Metropolitana se cotiza aparte.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- FORMULARIO · aquí se practica el estilo de FORMULARIO (S18) -->
+    <section id="solicitud" class="seccion seccion-alterna">
+      <h2 class="seccion-titulo">Solicitar una sesión</h2>
+
+      <form action="#" method="post" class="formulario">
+
+        <fieldset class="grupo">
+          <legend class="grupo-titulo">Sus datos</legend>
+
+          <p class="campo">
+            <label for="nombre" class="campo-etiqueta">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" class="campo-entrada"
+                   required minlength="3" maxlength="60"
+                   placeholder="Ana Rodríguez Mora">
+          </p>
+
+          <p class="campo">
+            <label for="correo" class="campo-etiqueta">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" class="campo-entrada"
+                   required placeholder="persona@ejemplo.com">
+          </p>
+
+          <p class="campo">
+            <label for="telefono" class="campo-etiqueta">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" class="campo-entrada"
+                   required pattern="[0-9]{8}"
+                   title="Ocho dígitos, sin espacios ni guiones"
+                   placeholder="88887777">
+            <small class="campo-ayuda">Ocho dígitos, sin espacios ni guiones.</small>
+          </p>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend class="grupo-titulo">Sobre la sesión</legend>
+
+          <p class="campo">
+            <label for="tipo" class="campo-etiqueta">Tipo de sesión *</label>
+            <select id="tipo" name="tipo" class="campo-entrada" required>
+              <option value="">Seleccione una opción</option>
+              <option value="retrato">Retrato</option>
+              <option value="producto">Producto</option>
+              <option value="evento">Evento</option>
+            </select>
+          </p>
+
+          <p class="campo">
+            <label for="fecha" class="campo-etiqueta">Fecha tentativa</label>
+            <input type="date" id="fecha" name="fecha" class="campo-entrada">
+          </p>
+
+          <p class="campo">
+            <label for="personas" class="campo-etiqueta">Cantidad de personas</label>
+            <input type="number" id="personas" name="personas" class="campo-entrada"
+                   min="1" max="50" step="1" value="1">
+          </p>
+
+          <fieldset class="grupo-opciones">
+            <legend class="grupo-titulo">Lugar de la sesión *</legend>
+            <p class="opcion">
+              <input type="radio" id="estudio" name="lugar" value="estudio"
+                     class="opcion-marca" required>
+              <label for="estudio" class="opcion-etiqueta">En el estudio</label>
+            </p>
+            <p class="opcion">
+              <input type="radio" id="exteriores" name="lugar" value="exteriores"
+                     class="opcion-marca">
+              <label for="exteriores" class="opcion-etiqueta">En exteriores</label>
+            </p>
+            <p class="opcion">
+              <input type="radio" id="domicilio" name="lugar" value="domicilio"
+                     class="opcion-marca">
+              <label for="domicilio" class="opcion-etiqueta">En su domicilio</label>
+            </p>
+          </fieldset>
+
+          <p class="campo">
+            <label for="mensaje" class="campo-etiqueta">Cuéntenos qué necesita</label>
+            <textarea id="mensaje" name="mensaje" class="campo-entrada"
+                      rows="5" maxlength="400"></textarea>
+            <small class="campo-ayuda">Máximo 400 caracteres.</small>
+          </p>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend class="grupo-titulo">Confirmación</legend>
+          <p class="opcion">
+            <input type="checkbox" id="acepto" name="acepto"
+                   class="opcion-marca" required>
+            <label for="acepto" class="opcion-etiqueta">
+              Acepto que me contacten por los medios indicados *
+            </label>
+          </p>
+        </fieldset>
+
+        <p class="fila-botones">
+          <button type="submit" class="boton boton-principal">Enviar solicitud</button>
+          <button type="reset" class="boton boton-secundario">Limpiar</button>
+        </p>
+
+      </form>
+    </section>
+
+    <!-- CÓMO LLEGAR · dos columnas con FLEXBOX -->
+    <section id="ubicacion" class="seccion">
+      <h2 class="seccion-titulo">Cómo llegar</h2>
+
+      <div class="dos-columnas">
+
+        <div class="columna-texto">
+          <h3 class="subtitulo">Dirección</h3>
+          <address class="direccion">
+            Calle 33, Barrio Escalante<br>
+            75 metros norte de la panadería<br>
+            San José, Costa Rica
+          </address>
+
+          <h3 class="subtitulo">Horario de atención</h3>
+          <ul class="lista-simple">
+            <li>Lunes a viernes: 9:00 a. m. – 6:00 p. m.</li>
+            <li>Sábados: 9:00 a. m. – 1:00 p. m. (con cita)</li>
+            <li>Domingos: cerrado</li>
+          </ul>
+        </div>
+
+        <!--  MARCADOR DE IMAGEN   recursos/mapa.jpg  ·  800 × 600 px
+             Puede ser una captura de mapa o una foto de la fachada -->
+        <figure class="columna-imagen">
+          <img src="recursos/mapa.jpg"
+               alt="Mapa de la ubicación del estudio en Barrio Escalante"
+               width="800" height="600">
+          <figcaption class="imagen-pie">Estamos a dos cuadras del parque</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--  PIE · idéntico al de index.html  -->
+  <footer id="pie" class="pie">
+    <div class="pie-columnas">
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Estudio Luz Clara</h2>
+        <p class="pie-texto">Fotografía con luz natural desde 2014.</p>
+      </div>
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Contacto</h2>
+        <address class="pie-datos">
+          Barrio Escalante, San José<br>
+          Costa Rica<br>
+          <a href="mailto:hola@ejemplo.com" class="pie-enlace">hola@ejemplo.com</a>
+        </address>
+      </div>
+
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Horario</h2>
+        <p class="pie-texto">
+          Lunes a viernes<br>
+          9:00 a. m. – 6:00 p. m.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="pie-creditos"><small>&copy; 2026 · Estudio Luz Clara</small></p>
+  </footer>
+
+</body>
+
+</html>
