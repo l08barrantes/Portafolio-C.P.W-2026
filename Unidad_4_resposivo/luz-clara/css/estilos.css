@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*ESTUDIO LUZ CLARA*/
 
 /*Variables y configuración*/
@@ -98,7 +97,6 @@ max-width: var(--ancho-max);
     background-color: var(--color-fondo-alt);
     max-width: none; /*se anula el ancho para que el fondo ocupe todo el ancho de pantalla*/
  }
-=======
 /* ESTUDIO LUZ CLARA · HOJA DE ESTILOS
    Módulo CSTI12002 · Facilitador: Giovanni Antonio Coto Calderón
 
@@ -2045,4 +2043,27 @@ img {
      3. Verificar el contraste en webaim.org/resources/contrastchecker
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
         está el foco */
->>>>>>> dfed5b17b5526725ca6a46399fab2ae402f04117
+@media (min-width: 768px) {
+  .cabecera {
+    flex-direction: row;
+    /*La Cabecera pasa de fila a columna*/
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--esp-md);
+  }
+
+  h1 {font-size: 4.0rem,}
+  h2 {font-size: 2.8rem;}
+
+  .seccion {
+    padding: var(--esp-xl) var(--esp-md);
+  }
+
+  .portada-caja {
+    padding: var(--esp-lg);
+  }
+
+  .cita {
+    padding: var(--esp-lg);
+  }
+}
