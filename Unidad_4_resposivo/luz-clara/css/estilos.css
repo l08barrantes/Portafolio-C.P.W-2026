@@ -2043,6 +2043,8 @@ img {
      3. Verificar el contraste en webaim.org/resources/contrastchecker
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
         está el foco */
+
+        /*Modalidad movil first*/
 @media (min-width: 768px) {
   .cabecera {
     flex-direction: row;
@@ -2052,7 +2054,7 @@ img {
     gap: var(--esp-md);
   }
 
-  h1 {font-size: 4.0rem,}
+  h1 {font-size: 4.0rem;}
   h2 {font-size: 2.8rem;}
 
   .seccion {
@@ -2067,3 +2069,104 @@ img {
     padding: var(--esp-lg);
   }
 }
+
+
+/*A partir de los 1024px - vista escritorio*/
+@media (min-width: 1024px) {
+  h1 {font-size: 4.8rem;} /*h1 recupera el tamaño original*/
+
+  .portada {min-height: 55rem;} /*una portada con 50px de alto ocupa casi toda la pantalla de un celular*/
+
+  .seccion {padding: var(--esp-xl) var(--esp-lg);}
+}
+
+/*¿CUÁNTOS PUNTOS DE QUIEBRE HACEN FALTA
+Para luz clara? Basta con estos dos:
+
+Base         hasta 767px        telefono
+768px        hasta 1023px       tableta
+1024px                          escritorio
+*/
+
+/*COMÓ SE ACUMULAN LAS REGLAS
+en una pantalla de 1200px se aplican las 3 reglas
+1. la base 1200px
+2. la de min-width 768px (1200 es mayor que 768)
+2. la de min-width 1024px (1200 es mayor que 1024)
+Donde se repite una propiedad, gana la ultima.
+Por eso el orden importa: de menor a mayor.
+
+si la regla de 1024 estuviera antes de la regla de 768, la última alularía en pantallas grandes*/
+
+/*LA ESCALA COMPLETA, POR TRAMOS*/
+
+/*BASE - TELEFONO*/
+h1 {font-size: 3.2rem;}
+h2 {font-size: 2.4rem;}
+h1 {font-size: 1.8rem;}
+body {font-size: 1.6rem;}
+
+/*ESCALA - TABLET*/
+@media (min-width: 768px) {
+  h1 {font-size: 4.0rem;}
+  h2 {font-size: 2.8rem;}
+  h1 {font-size: 1.9rem;}
+}
+
+@media (min-width: 1024px) {
+  h1 {font-size: 4.8rem;}
+  h2 {font-size: 3.2rem;}
+  h1 {font-size: 2.0rem;}
+
+  /*LA TABLA DE: contacto.html*/
+}
+
+.tabla-envoltorio { /*despues de los 360px no hay forma rasonable de que la tabla quepa sin perder la relación entre los datos*/
+    overflow-x: auto; /*crea su propia barra de desplazamiento*/
+  }
+
+@media (max-width: 768px) {/*se usa mas en lugar de min porque el media query ataca la parte movil directamente*/
+  .tabla th,
+  .tabla td {
+    padding: var(--esp-xs);
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main p {max-width: 65ch;}/*mejor lectura para los textos*/
+}
+
+/*en movil no hace falta adaptar el texto de los párrafos, la pantalla lo hace. la adaptación es para tables hacia arriba por comodidad de lectura*/
+
+/*PUNTOS DE QUIEBRE 
+Base         hasta 767px        telefono
+768px        hasta 1023px       tableta
+1024px                          escritorio
+*/
+
+/*TABLETA . a partir de 768px
+@media (min-width: 768px) {
+cabecera y fila
+títulos mas grandes
+más relleno en las secciones
+}*/
+
+/*ESCRITORIO . a partir de 1024px
+@media (min-width: 1024px) {
+titulos a tamaño completo
+portada mas alta
+}*/
+
+/*AJUSTES SOLO PARA PANTALLA PEQUEÑA
+@media (min-width: 768px) {
+celdas de la tabla mas compactas
+}*/
+
+/*ACCESIBILIDAD DEL MOVIMIENTO
+@media (prefer-reduce-motion: reduce) {
+Va siempre al final de todo. desactiva las animaciones desde el so del dispositivo ne uso
+}*/
+
+/*estos encabezados NO son decorativos
+Quien abra esta hoja de estilos o usted mismo en 6 meses sepa o tenga una idea de lo que se hizo y la estrategia que se uso*/
