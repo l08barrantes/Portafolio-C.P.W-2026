@@ -496,7 +496,51 @@ tr.highlight-row td{ background: #FBF0E0; }
   padding: 26px var(--section-pad-x);
   font-size: 0.85rem;
 }
+.pie {
+  background-color: var(--color-marca);
+  color: var(--color-blanco);
+  padding: var(--esp-xl) var(--esp-md) var(--esp-md);
+  margin-top: var(--esp-xl);
+}
 
+.pie-columnas {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-lg);
+  justify-content: space-between;
+  /* Las tres columnas se reparten el ancho, con los extremos pegados a
+     los bordes. Al angostar la ventana, flex-wrap las apila.          */
+}
+
+.pie-bloque {
+  flex: 1 1 25rem;
+}
+
+.pie-titulo {
+  color: var(--color-blanco);
+  font-size: 1.35rem;
+  margin-bottom: var(--esp-xs);
+}
+
+.pie-texto,
+.pie-datos {
+  font-size: 1.1rem;
+  font-style: normal;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.pie-enlace {
+  color: var(--color-blanco);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
+  transition: border-color var(--transicion);
+}
+
+.pie-enlace:hover {
+  border-bottom-color: var(--color-blanco);
+}
 /* ============ SERVICIOS (Listas.html) ============ */
 
 .service-grid{
