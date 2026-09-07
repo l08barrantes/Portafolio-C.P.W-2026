@@ -1,102 +1,3 @@
-/*ESTUDIO LUZ CLARA*/
-
-/*Variables y configuración*/
-/*Una variable guarda un valor con un nombre para poder reutilizarlo
-
-se declara dentro de :root, que representa el elemento html y es el ancestro de todos. todos los elementos lo puedne usar*/
-
-:root {
-    /*PALETA DE COLORES*/
-    --color-tinta: #1a1a1a; /*texto principal, casi negro*/ 
-    --color-suave: #6b6b6b;/*texto secundario, pies de foto*/ 
-    --color-marca: #2c3e50; /*el azul del estudio*/ 
-    --color-acento: #c87941; /*terracota de los botones*/ 
-    --color-acento-osc: #a45f2e; /*terracota oscuro*/ 
-    --color-fondo: #fafaf8; /*blanco roto.no blanco puro*/ 
-    --color-fondo-alt: #f0ee; /*bordes y separadores*/ 
-    --color-blanco: #ffffff; /*blanco puro*/ 
-
-    /*TIPOGRAFÍA*/
-    --fuente-titulo: Georgia, 'Times New Roman', serif;
-    --fuente-texto: 'Segoe UI', Arial, sans-serif;
-
-    /*ESPACIADO Converción un 1rem=10px*/
-    --esp-xs: 0.8rem; /*8px*/
-    --esp-sm: 1.6rem; /*16px*/
-    --esp-md: 2.4rem; /*24px*/
-    --esp-lg: 4rem; /*40px*/
-    --esp-xl: 8rem; /*80px*/
-
-    /*OTROS ELEMENTOS*/
-    --radio: 0.6rem /*6px*/
-    --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);/*apenas separado*/
-    --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);/*tarjetas*/
-    --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16);/*elemento elevado*/
-
-    --transicion: 0.25s ease;
-    --ancho-max: 120rem; /*1200px*/  
-}
-
-/*RESET Y BASE TIPOGRAFICO*/
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box; /*la linea más importante del reset: porque sin ella,si a una hoja le damos width: 300px y ademas padding: 20 px, y border 2pxla caja en realidad mide 100+20+20+2+2 =344px.con esta linea se descuebtan hacia adentro*/
-    }
-
-/*LA BASE DEL TAMAÑO. La tecnica del 62.5%*/
-html{
-    font-size: 62.5%; /*por omision el navegador usa 16px para el tamañop base. el 62.5 de 16 es exactamente 10*/
-
-    scroll-behavior: smooth; /*saltos suaves al usar navegacion con anclas*/
-}
-
-body{
-    font-size: 1.6rem; /*si no se agraga esta linea el texto no toma el valor de los 16px base y quedaría un texto*/
-    font-family: var(--fuente-texto);
-    line-height: 1.6 ;
-    color: var(--color-tinta);
-    background-color: var(--color-fondo);
-}
-
- /*JERARQUÍA DE TÍTULOS*/
-    h1, h2, h3{
-        font-family: var(--fuente-titulo);
-        line-height: 1.2;
-        color: var(--color-marca);
-    }
-
- h1{font-size: 4.8rem;}
- h2{font-size: 3.2rem;}
- h3{font-size: 2.0rem;}
-
- p{
- margin-bottom: var(--esp-sm);
-}
-    
- a{
- color: var(--color-acento);
- text-decoration: none;
-}
-
- img{
- max-width: 100%;
- height: auto;
- display: block;
-   }
-
- /*CONTENEDORES Y SECCIONES*/
-.seccion {
-max-width: var(--ancho-max);
- margin-left: auto;
- margin-right: auto;
- padding: var(--esp-xl) var(--esp-md);
- }
-
- .section-alterna {
-    background-color: var(--color-fondo-alt);
-    max-width: none; /*se anula el ancho para que el fondo ocupe todo el ancho de pantalla*/
- }
 /* ESTUDIO LUZ CLARA · HOJA DE ESTILOS
    Módulo CSTI12002 · Facilitador: Giovanni Antonio Coto Calderón
 
@@ -298,9 +199,9 @@ h1, h2, h3 {
      las dos líneas quedan muy separadas.                              */
   color: var(--color-marca);
 }
-
-h1 { font-size: 4.8rem; }   /* 48px */
-h2 { font-size: 3.2rem; }   /* 32px */
+/*Tamaños movil*/
+h1 { font-size: 3.2rem; }   /* 32px */
+h2 { font-size: 2.4rem; }   /* 24px */
 h3 { font-size: 2.0rem; }   /* 20px */
 /* OJO: Los tamaños guardan PROPORCIÓN entre sí: cada nivel es
    notoriamente más pequeño que el anterior. Elegir números al azar
@@ -349,7 +250,7 @@ img {
      contenedor: sin el max-width de arriba, auto no tendría nada
      que repartir.                                                     */
 
-  padding: var(--esp-xl) var(--esp-md);
+  padding: var(--esp-lg) var(--esp-sm);
   /* Dos valores: el primero es arriba y abajo, el segundo izquierda y
      derecha. El relleno lateral es lo que impide que el texto quede
      pegado al borde de la pantalla en un teléfono.                    */
@@ -420,10 +321,11 @@ img {
 
 .cabecera {
   display: flex;
+  flex-direction: column;
   /* OJO: ACTIVA FLEXBOX. Se declara en el CONTENEDOR, nunca en los hijos.
      Los hijos directos —el logo y la navegación— se convierten en
      "elementos flexibles" y se colocan en fila automáticamente.       */
-
+  gap: var(--esp-sm);
   justify-content: space-between;
   /* Controla el EJE PRINCIPAL, que con la dirección por omisión (fila)
      es el HORIZONTAL.
@@ -439,7 +341,7 @@ img {
      OJO: RECORDAR: si la dirección fuera  column, estos dos ejes se
        INTERCAMBIAN. Es la confusión más común de Flexbox.             */
 
-  padding: var(--esp-sm) var(--esp-md);
+  padding: var(--esp-sm);
   background-color: var(--color-blanco);
   border-bottom: 0.1rem solid var(--color-linea);
 
@@ -504,24 +406,74 @@ img {
      necesidad de reescribir nada.                                    */
 }
 
+/*LA BASE PARA MOVIL*/
 .menu {
   display: flex;
-  gap: var(--esp-sm);
+  flex-direction: column; /*en movil el menu vuelve a columnas*/
+  gap: 0;
   list-style: none;
   /* El menú es una LISTA por su significado —es un conjunto de
      enlaces del mismo nivel— pero no debe VERSE como lista. Por eso
      se quitan las viñetas con list-style.                             */
+  width: 100%;
+  display: none;
 }
 
+.menu-control {
+  position: absolute;
+  opacity: 0;
+  width: 0.1rem;
+  height: 0.1rem;
+}
+ /*EL BOTON DEL MENU HAMBURGUEZA*/
+.menu-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--esp-xs);
+  cursor: pointer;
+  padding: var(--esp-xs);
+}
+
+.menu-barra {
+  display: block;
+  width: 2.4rem;
+  height: 0.3rem;
+  background-color: var(--color-marca);
+  border-radius: 0.2rem; /*Las 3 barras del ícono dibujadas con css*/
+}
+.menu-barra + .menu-barra {
+  margin-top: 0.4rem;
+}
+
+.menu-texto {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*Menu abierto cuando la casilla esta marcada*/
+.menu-control:checked ~ .menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-boton:focus-within {
+  outline: 0.2rem solid var(--color-acento);
+  outline-offset: 0.2rem;
+}
+
+
 .menu-enlace {
-  display: inline-block;
+  /*display: inline-block;*/
   /* OJO: IMPRESCINDIBLE.
      Un enlace es "inline" por omisión, y los elementos inline IGNORAN
      el relleno vertical. Sin esta línea, el padding de arriba y abajo
      de la regla siguiente no haría ningún efecto y el área para hacer
      clic quedaría del alto exacto del texto.                          */
-
-  padding: var(--esp-xs) var(--esp-sm);
+    
+  display: block; /*ocupa todo el ancho disponible y el área para tocar es mayor*/
+  padding: var(--esp-sm);
   /* Amplía el ÁREA PULSABLE. No es decorativo: un enlace pequeño es
      difícil de acertar con el dedo en un teléfono.                    */
 
@@ -532,6 +484,8 @@ img {
   /* OJO: La transición va en la regla BASE, no dentro de :hover.
      Si se pusiera en :hover, la entrada sería suave pero la salida
      brusca: al quitar el cursor el color volvería de golpe.           */
+  border-bottom: 0.1rem solid var(--color-linea);
+  text-align: center;
 }
 
 .menu-enlace:hover {
@@ -620,7 +574,7 @@ img {
      Esta capa oscura es lo que garantiza que el texto blanco se lea
      sobre una fotografía que puede tener zonas claras.                */
 
-  padding: var(--esp-lg);
+  padding: var(--esp-sm);
   border-radius: var(--radio);
   max-width: 70rem;   /* 700px */
 }
@@ -634,6 +588,37 @@ img {
   color: var(--color-blanco);
   font-size: 1.8rem;
   margin-bottom: var(--esp-md);
+}
+.video-envoltorio {
+  width: 100%;
+  max-width: 96rem;
+  margin: 0 auto;
+
+  aspect-ratio: 16 / 9;
+  /* Mantiene la proporción sin importar el ancho de la pantalla.
+     La altura se calcula sola a partir del ancho disponible.
+     Antes de que existiera esta propiedad, conseguirlo requería un
+     truco con relleno en porcentaje que costaba explicar.            */
+
+  background-color: var(--color-tinta);
+  /* Color de respaldo mientras el video carga. Sin esto se ve un
+     hueco transparente que parece un error.                          */
+
+  border-radius: var(--radio);
+  overflow: hidden;
+  /* Recorta las esquinas del video para que sigan el redondeado del
+     envoltorio.                                                      */
+
+  box-shadow: var(--sombra-2);
+}
+
+.video-envoltorio video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Igual que con las imágenes: RECORTA en vez de DEFORMAR si la
+     proporción del archivo no coincide con la del envoltorio.        */
+  display: block;
 }
 
 
@@ -1027,7 +1012,7 @@ img {
 .cita {
   max-width: 70rem;
   margin: 0 auto;
-  padding: var(--esp-lg);
+  padding: var(--esp-md);
   background-color: var(--color-blanco);
   border-left: 0.5rem solid var(--color-acento);
   /* Solo el borde IZQUIERDO. Es la forma clásica de marcar una cita:
@@ -1073,7 +1058,12 @@ img {
   font-size: 1.4rem;
   text-align: right;
 }
-
+ /*Pequeños cambios para base teléfono*/
+#testimonio p,
+.cita-texto {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
 
 /* 12 · TABLA           tema de la S18
 
@@ -1404,6 +1394,21 @@ img {
   margin-bottom: 0;
 }
 
+/*LOS CINCO PATRONES.
+Son las 5 formas en  que un diseño puede reorganizarse al cambiar el ancho.
+
+1. Mostly Fluid. Una rejilla que se encoge y, al llegar al mínimo sus elementos bajan de linea. En pantalla grande se detiene y se centra.
+
+2. Column Drop. columnas que se apilan una debajo de la otra al angostar. Lo hace flex-wrap: wrap.
+
+3. Layout Shifter. Las zonas de posición, no solo de tamaño. Se resuelve con grid.
+
+4. Tiny Tweaks. Solo ajustan tamaños y espacios, para contenido de una sola columna.
+
+5. Off Canvas. Contenido que vive fuera de la pantalla y entra al pedirlo. Por ejemplo en menú hamburgueza*/
+
+
+
 
 /* 16 · MOVIMIENTO           tema de la S19
 
@@ -1418,6 +1423,7 @@ img {
 .ficha:hover {
   transform: translateY(-0.6rem);
   box-shadow: var(--sombra-3);
+
   /* Dos cambios que van juntos: el elemento sube Y su sombra crece.
      Si solo subiera, se vería como un salto; si solo creciera la
      sombra, se vería como un parpadeo. Juntos producen la sensación de
@@ -2044,88 +2050,84 @@ img {
      4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
         está el foco */
 
-        /*Modalidad movil first*/
+  /*Modalidad movil first*/
 @media (min-width: 768px) {
   .cabecera {
     flex-direction: row;
-    /*La Cabecera pasa de fila a columna*/
+    /*La cabecera de fila a columna*/
     justify-content: space-between;
     align-items: center;
     gap: var(--esp-md);
   }
-
   h1 {font-size: 4.0rem;}
   h2 {font-size: 2.8rem;}
 
   .seccion {
     padding: var(--esp-xl) var(--esp-md);
   }
-
   .portada-caja {
     padding: var(--esp-lg);
   }
-
   .cita {
     padding: var(--esp-lg);
   }
 }
 
-
-/*A partir de los 1024px - vista escritorio*/
+/*a partir de los 1024px - vista escritorio*/
 @media (min-width: 1024px) {
-  h1 {font-size: 4.8rem;} /*h1 recupera el tamaño original*/
+  h1 { font-size: 4.8rem; } /*h1 recupera el tamaño original*/
 
-  .portada {min-height: 55rem;} /*una portada con 50px de alto ocupa casi toda la pantalla de un celular*/
+  .portada { min-height: 55rem; } /*una portada con 50px de alto ocupa casi toda la pantalla de un celular*/
 
-  .seccion {padding: var(--esp-xl) var(--esp-lg);}
+  .seccion { padding: var(--esp-xl) var(--esp-lg); }
 }
 
-/*¿CUÁNTOS PUNTOS DE QUIEBRE HACEN FALTA
-Para luz clara? Basta con estos dos:
+/*CUÁNTOS PUNTOS DE QUIEBRE HACEN FALTA
+Para Luz Clara basta con estos dos
 
-Base         hasta 767px        telefono
-768px        hasta 1023px       tableta
-1024px                          escritorio
-*/
+  base              hasta 767px             telefono
+  768px              tableta
+  1024px             escritorio*/
 
-/*COMÓ SE ACUMULAN LAS REGLAS
-en una pantalla de 1200px se aplican las 3 reglas
-1. la base 1200px
-2. la de min-width 768px (1200 es mayor que 768)
-2. la de min-width 1024px (1200 es mayor que 1024)
-Donde se repite una propiedad, gana la ultima.
-Por eso el orden importa: de menor a mayor.
+  /*CÓMO SE ACUMULAN LAS REGLAS
+  en una pantalla de 1200px se aplican las TRES REGLAS:
+  1. La base 1200px
+  2. la de min-width: 768px (1200 es mayor que 768)
+  3. la de min-width: 1024px (1200 es mayor que 1024) 
+  Donde se repite una propiedad, gana la última.
+  Por eso el orden importa: de menor a mayor.
+  Si la de 1024 estuviera antes de las regla de 768, la última la anularía en pantallas grandes*/
 
-si la regla de 1024 estuviera antes de la regla de 768, la última alularía en pantallas grandes*/
-
-/*LA ESCALA COMPLETA, POR TRAMOS*/
+/*LA ESCLA COMPLETA, POR TRAMOS*/
 
 /*BASE - TELEFONO*/
-h1 {font-size: 3.2rem;}
-h2 {font-size: 2.4rem;}
-h1 {font-size: 1.8rem;}
-body {font-size: 1.6rem;}
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.8rem; }
+body { font-size: 1.6rem; }
 
-/*ESCALA - TABLET*/
+/*ESCALA TABLETS*/
+
 @media (min-width: 768px) {
-  h1 {font-size: 4.0rem;}
-  h2 {font-size: 2.8rem;}
-  h1 {font-size: 1.9rem;}
+h1 { font-size: 4.0rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 1.9rem; }
 }
+
+/*ESCALA ESCRITORIO*/
 
 @media (min-width: 1024px) {
-  h1 {font-size: 4.8rem;}
-  h2 {font-size: 3.2rem;}
-  h1 {font-size: 2.0rem;}
-
-  /*LA TABLA DE: contacto.html*/
+h1 { font-size: 4.8rem; }
+h2 { font-size: 3.2rem; }
+h3 { font-size: 2.0rem; }
 }
 
-.tabla-envoltorio { /*despues de los 360px no hay forma rasonable de que la tabla quepa sin perder la relación entre los datos*/
-    overflow-x: auto; /*crea su propia barra de desplazamiento*/
-  }
+/*LA TABLA DE contacto.html*/
+.tabla-envoltorio { /*despues de lo 360px no hay forma razonable de que una tabla quepa sin perder la relacion entre los datos*/
+  overflow-x: auto;  /*crea su propia barra de desplazamiento*/
+}
 
-@media (max-width: 768px) {/*se usa mas en lugar de min porque el media query ataca la parte movil directamente*/
+@media (max-width: 768px) { /*Se uas  max en luga de min porque em media query ataca la parte movil, e lajsute es solo para movil*/
   .tabla th,
   .tabla td {
     padding: var(--esp-xs);
@@ -2133,41 +2135,217 @@ body {font-size: 1.6rem;}
   }
 }
 
-@media (min-width: 768px) {
-  main p {max-width: 65ch;}/*mejor lectura para los textos*/
+@media (min-width:768px) {
+  main p { max-width: 65ch; }
 }
+/*en movil no hace falta adaptar texto de los párrafos, la pantalla lo hace. la adptación es pata de tablets hacia arriba por comodidad de lectura*/
 
-/*en movil no hace falta adaptar el texto de los párrafos, la pantalla lo hace. la adaptación es para tables hacia arriba por comodidad de lectura*/
+/* PUNTOS DE QUIEBRE
+base              hasta 767px             telefono
+  768px              tableta
+  1024px             escritorio*/
 
-/*PUNTOS DE QUIEBRE 
-Base         hasta 767px        telefono
-768px        hasta 1023px       tableta
-1024px                          escritorio
-*/
+  /*TABLETA . a partir de 768px
+  @media (min-width:768) {
+  cabecera e fila
+  títulos más grandes
+  más relleno en las secciones
+  }*/
 
-/*TABLETA . a partir de 768px
-@media (min-width: 768px) {
-cabecera y fila
-títulos mas grandes
-más relleno en las secciones
-}*/
+  /*ESCRITORIO . a partir de 1024px
+  @media (min-width:1024) {
+  títulos a tamaño completo
+  portada más alta
+  }*/
 
-/*ESCRITORIO . a partir de 1024px
-@media (min-width: 1024px) {
-titulos a tamaño completo
-portada mas alta
-}*/
-
-/*AJUSTES SOLO PARA PANTALLA PEQUEÑA
-@media (min-width: 768px) {
-celdas de la tabla mas compactas
-}*/
+  /*AJUSTES SOLO PARA PANTALLA PEQUEÑA
+  @media (max-width:768) {
+  celdas de la tabla mas compactas 
+  }*/
 
 /*ACCESIBILIDAD DEL MOVIMIENTO
-@media (prefer-reduce-motion: reduce) {
-Va siempre al final de todo. desactiva las animaciones desde el so del dispositivo ne uso
-}*/
+  @media (prefer-reduce-motion: reduce) {
+  Va siempre al final de todo. Desactivas las animaciones desde el so del disposito en uso. 
+  }*/
 
-/*estos encabezados NO son decorativos
-Quien abra esta hoja de estilos o usted mismo en 6 meses sepa o tenga una idea de lo que se hizo y la estrategia que se uso*/
+  /*Estos encabezados NO son decorativos.
+  Quien abra esta hoja de estilos o usted mismo dentro de 6 meses sepat o tenga una idea de lo que se hizo y de la estrategia que se usó*/
 
+/*Media querie para panttalla grande*/
+  @media (min-width: 768px) {
+    .cabecera {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu {
+      flex-direction: row;
+      gap: var(--esp-sm);
+      width: auto;
+    }
+    .menu-enlace {
+      display: inline-block;
+      padding: var(--esp-xs) var(--esp-sm);
+      border-bottom: none;
+      border-radius: var(--radio);
+    }
+  }
+
+@media (min-width: 768px) { /*Aquí si corresponde el display none porque no deb existir en pantallas grandes*/
+  .menu-boton {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/*Usar orientación
+Aplicar reglas según si el dispositivo esta en vertical u horizontal*/
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .portada {
+    min-height: 100vh;
+    padding: var(--esp-md);
+  }
+  .portada-titulo { font-size: 2.4rem;}
+  .portada-bajada { font-size: 1.5rem;}
+} 
+/*Ajustes de pantalla pequeña de video*/
+@media (max-width: 767px) {
+  .video-envoltorio {
+    border-radius: 0;
+    /* En un teléfono el video ocupa casi todo el ancho: las esquinas
+       redondeadas dejan franjas del fondo que se ven como un error
+       de encuadre.                                                   */
+  }
+}
+
+/*Pequeños cambios para base tableta*/
+@media (min-width: 768px) {
+  #testimonio p {
+    font-size: 1.7rem;
+    max-width: 65ch;
+    /*El limite en la linea aparece despues de tableta*/
+  }
+  .cita {padding: var(--esp-lg);}
+  .cita-texto {font-size: 2.0rem;}
+}
+
+/*Pequeños cambios para base escritorio*/
+@media (min-width: 1024px) {
+  #testimonio p {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    /*El limite en la linea aparece despues de escritorio*/
+  }
+  .cita-texto {font-size: 2.2rem;}
+}
+
+/*Mostly Fluid a .mosaico en galeria.html*/
+/*Ajustes para teléfono*/
+@media (max-width: 600px) {
+  .mosaico {
+    grid-template-columns: 1fr;
+    /*una sola columna de 360px, dos columnas de 180px las  fotos dejan de apreciarse*/
+    grid-auto-rows: 24rem;
+  }
+  .pieza-ancha,
+  .pieza-alta,
+  .pieza-grande {
+    grid-column: auto;
+    grid-row: auto;
+    /*Adaptar mosaico con piezas de distinto tamaño*/
+  }
+}
+
+/*Mostly Fluid a .mosaico en galeria.html*/
+/*Tope para pantalla grande*/
+@media (min-width: 1400px){
+  .mosaico {
+    max-width: 130rem;
+    margin-left: auto;
+    margin-right: auto;
+    /*Este patron no solo se encoge, también se detiene.*/
+  }
+}
+
+/*Patron Column Drop en zonas de columnas-tarjetas de index.html*/
+@media (min-width: 620px) and (max-width: 900px) {
+  .tarjeta {
+    flex: 1 1 calc(50% - var(--esp-md));
+    /*fuerza a dos por linea
+    calc(). permite mezclar unidades 50% del contenedor menos el hueco */
+  }
+  .tarjeta:last-child {
+    flex-basis: 100%;
+    /*la tercera tarjeta ocupa el ancho completo. Es una decision estética porque se ve mejor una tarjeta ancha que agosta y sola*/
+  }
+}
+
+
+
+
+/*LAS CONSULTAS DISPONIBLES
+@media (min-width: 768px) ancho mínimo
+@media (max-width: 767px) ancho maximo
+@media (min-heigth: 600px) alto mínimo
+@media (orientation: portrait) vertical
+@media (orientation: landscape) horizontal
+@media print  impresion de la página
+@media (prefers-reduced-motion) preferencia de movimeinto
+@media (prefers-color-scheme: dark) tema oscuro
+*/
+
+@media print {
+  /*QUITAR LO QUE NO SIRVE EN EL PAPEL*/
+  .cabecera,
+  .menu-boton,
+  .pie,
+  .boton,
+  .volver-arriba,
+  .fila-etiquetas {
+    display: none;
+  }
+
+  /*Ahorrar tinta*/
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+  }
+.seccion,
+.seccion-alterna {
+  background: none;
+  padding: 0;
+  max-width: none;
+}
+
+.tarjeta,
+.ficha,
+figure,
+.tabla {
+  page-break-inside: avoid;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+
+/*mostrar los enlaces*/
+main a[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-size: 9pt;
+  color: #555;
+}
+}
+
+@media print {
+  .video-envoltorio {
+    display: none;
+  }
+  /* Un video en papel no sirve: no se puede reproducir. Si se quiere
+     dejar constancia de que existe, se puede sustituir por su imagen
+     de portada en lugar de ocultarlo.                                */
+}

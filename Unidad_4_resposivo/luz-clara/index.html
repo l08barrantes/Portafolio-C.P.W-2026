@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Liam Barrantes Calvo">
+  <meta name="author" content="Escriba aquí su nombre completo">
   <meta name="description" content="Estudio Luz Clara: fotografía de retrato, producto y eventos en San José.">
   <meta name="keywords" content="fotografía, estudio, retrato, producto, eventos, Costa Rica">
 
@@ -34,6 +34,15 @@
     </a>
 
     <nav class="navegacion" aria-label="Navegación principal">
+      <!--MENU HAMBURGUEZA-->
+      <input type="checkbox" id="abrir-menu" class="menu-control">
+      <label for="abrir-menu" class="menu-boton">
+        <span class="menu-barra"></span>
+        <span class="menu-barra"></span>
+        <span class="menu-barra"></span>
+        <span class="menu-texto">Menú</span>
+      </label>
+      <!--CIERRE MENU HAMBURGUEZA-->
       <ul class="menu">
         <li><a href="index.html" class="menu-enlace activo">Inicio</a></li>
         <li><a href="galeria.html" class="menu-enlace">Galería</a></li>
@@ -174,6 +183,36 @@
 
       </div>
     </section>
+<!--VIDEO LUZ CLARA-->
+
+    <section id="presentacion-video" class="seccion">
+  <h2 class="seccion-titulo">Conozca el estudio</h2>
+  <p class="seccion-entrada">
+    Un recorrido breve por el local y por cómo trabajamos.
+  </p>
+      <!--Preload=metadata: No descarga el video hasta que sea requerido-->
+  <div class="video-envoltorio">
+    <video controls
+           preload="metadata" 
+           poster="recursos/video-portada.webp"
+           width="1280" height="720">
+
+      <source src="recursos/estudio-fotografico.mp4" type="video/mp4">
+      <source src="recursos/estudio-fotografico.webm" type="video/webm">
+
+      <track src="recursos/subtitulos.vtt"
+             kind="subtitles"
+             srclang="es"
+             label="Español"
+             default>
+
+      Su navegador no admite la reproducción de video.
+      <a href="recursos/estudio-fotografico.webm">Descargue el archivo</a>
+      para verlo en su equipo.
+    </video>
+  </div>
+</section>
+<!--Fin de video-->
 
     <!-- TESTIMONIO · aquí se practica la cita y el pseudo-elemento -->
     <section id="testimonio" class="seccion">
