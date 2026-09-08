@@ -867,7 +867,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 28rem;/*faltó*/
+  width: 28rem;
   height: 100vh;
   background-color: var(--color-blanco);
   box-shadow: var(--sombra-3);
@@ -908,7 +908,7 @@ img {
   visibility: visible;
   cursor: pointer;
 }
-
+/*
 .panel-control:checked ~ .panel-lateral::before {
   content: '';
   position: fixed;
@@ -917,7 +917,24 @@ img {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.45);
-  z-index: -1; /*oscurece el resto de la página mientras el panel esta abierto*/
+  z-index: -1; /*oscurece el resto de la página mientras el panel esta abierto
+}
+*/
+/*LA CAPA OSCURA*/
+.panel-fondo {
+  position: fixed;
+  inset: 0; /*indica que top, bottom, right y left en 0. cubre pantalla completa*/
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.panel-control:checked ~ .panel-fondo {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
 }
 
 /*El boton  yel cierre*/
@@ -2057,100 +2074,6 @@ Son las 5 formas en  que un diseño puede reorganizarse al cambiar el ancho.
 }
 
 
-/*  18.9 · ANIMACIÓN DE ENTRADA DEL MOSAICO  */
-
-.mosaico .pieza {
-  animation: aparecer 0.5s ease-out backwards;
-  /* Reutiliza la animación  aparecer  ya definida en el archivo
-     original (sección de movimiento). No hace falta declararla otra
-     vez: @keyframes se define una sola vez y se invoca desde donde se
-     necesite.
-
-     backwards hace que la pieza tome el estado inicial (invisible)
-     ANTES de que empiece su retardo. Sin eso, durante la espera se
-     vería un instante antes de desaparecer y volver a aparecer.       */
-}
-
-.mosaico .pieza:nth-child(1) { animation-delay: 0.00s; }
-.mosaico .pieza:nth-child(2) { animation-delay: 0.06s; }
-.mosaico .pieza:nth-child(3) { animation-delay: 0.12s; }
-.mosaico .pieza:nth-child(4) { animation-delay: 0.18s; }
-.mosaico .pieza:nth-child(5) { animation-delay: 0.24s; }
-.mosaico .pieza:nth-child(6) { animation-delay: 0.30s; }
-.mosaico .pieza:nth-child(7) { animation-delay: 0.36s; }
-.mosaico .pieza:nth-child(8) { animation-delay: 0.42s; }
-.mosaico .pieza:nth-child(9) { animation-delay: 0.48s; }
-.mosaico .pieza:nth-child(10){ animation-delay: 0.54s; }
-/* OJO: EL RETARDO ESCALONADO.
-   Las piezas aparecen una tras otra en vez de todas a la vez. El efecto
-   en cascada se percibe más cuidado y cuesta diez líneas.
-
-   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
-   (2) la segunda, y así.
-
-   OJO: El retardo total es de poco más de medio segundo. Conviene que sea
-     corto: mientras dura, las piezas están invisibles, y una entrada
-     larga hace que la página parezca vacía al abrirla.                */
-
-
-/* FIN DEL BLOQUE DE LA GALERÍA
-
-   OJO: RECORDATORIO: pegar ANTES del bloque
-     @media (prefers-reduced-motion: reduce)
-
-   Esa regla desactiva estas animaciones para quien lo haya solicitado
-   en su sistema operativo. Si este bloque quedara después, sus
-   transiciones se reactivarían y anularían la protección. */
-
-
-/* 17 · ACCESIBILIDAD DEL MOVIMIENTO           tema de la S19 */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-/* OJO: ESTA REGLA NO ES OPCIONAL.
-
-   Hay personas para quienes el movimiento en pantalla provoca mareo,
-   náusea o migraña. El sistema operativo permite pedir "reducir
-   movimiento" en sus preferencias de accesibilidad, y esta regla
-   detecta esa preferencia y desactiva todo lo animado.
-
-   OJO: NO SE USA  animation: none.
-     Eso dejaría los elementos en su estado inicial, y las tarjetas de
-     este sitio empiezan en  opacity: 0: quedarían INVISIBLES.
-     Poner una duración casi nula (0.01ms) hace que la animación se
-     complete de inmediato: el elemento llega a su estado final sin
-     que se perciba ningún movimiento.
-
-   CÓMO PROBARLO
-     Windows: Configuración -> Accesibilidad -> Efectos visuales ->
-              desactivar "Efectos de animación"
-     macOS:   Accesibilidad -> Pantalla -> Reducir movimiento
-   Recargar y comprobar que nada se anima, pero todo sigue visible.
-
-   OJO: Este es el primer @media del curso. Las consultas de medio se
-     estudian a fondo en la Unidad 4; este caso corresponde aquí
-     porque trata sobre el movimiento.                                 */
-
-
-/* FIN DE LA HOJA
-
-   ANTES DE ENTREGAR:
-     1. Validar en jigsaw.w3.org/css-validator
-        OJO: UNA sola validación de CSS: hay una única hoja para las tres
-          páginas. El HTML sí se valida página por página.
-     2. Comprobar el sitio en dos navegadores distintos
-     3. Verificar el contraste en webaim.org/resources/contrastchecker
-     4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
-        está el foco */
-
   /*Modalidad movil first*/
 @media (min-width: 768px) {
   .cabecera {
@@ -2402,6 +2325,33 @@ Aplicar reglas según si el dispositivo esta en vertical u horizontal*/
   }
 }
 
+/*OFF Canvas solo para pantallas pequeñas*/
+@media (min-width: 1024px) {
+  .panel-boton,
+  .panel-cerrar {
+    display: none;
+  }
+  .panel-fondo {
+    display: none;
+  }
+  .panel-lateral {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    padding-left: 5rem;
+    z-index: auto;
+  }
+  #mosaico {
+    display: grid;
+    grid-template-columns: 24rem 1fr;
+    gap: var(--esp-lg);
+    align-items: center;
+  }
+}
+
+
+
 /*LAS CONSULTAS DISPONIBLES
 @media (min-width: 768px) ancho mínimo
 @media (max-width: 767px) ancho maximo
@@ -2464,3 +2414,98 @@ main a[href^="http"]::after {
      dejar constancia de que existe, se puede sustituir por su imagen
      de portada en lugar de ocultarlo.                                */
 }
+
+
+/*  18.9 · ANIMACIÓN DE ENTRADA DEL MOSAICO  */
+
+.mosaico .pieza {
+  animation: aparecer 0.5s ease-out backwards;
+  /* Reutiliza la animación  aparecer  ya definida en el archivo
+     original (sección de movimiento). No hace falta declararla otra
+     vez: @keyframes se define una sola vez y se invoca desde donde se
+     necesite.
+
+     backwards hace que la pieza tome el estado inicial (invisible)
+     ANTES de que empiece su retardo. Sin eso, durante la espera se
+     vería un instante antes de desaparecer y volver a aparecer.       */
+}
+
+.mosaico .pieza:nth-child(1) { animation-delay: 0.00s; }
+.mosaico .pieza:nth-child(2) { animation-delay: 0.06s; }
+.mosaico .pieza:nth-child(3) { animation-delay: 0.12s; }
+.mosaico .pieza:nth-child(4) { animation-delay: 0.18s; }
+.mosaico .pieza:nth-child(5) { animation-delay: 0.24s; }
+.mosaico .pieza:nth-child(6) { animation-delay: 0.30s; }
+.mosaico .pieza:nth-child(7) { animation-delay: 0.36s; }
+.mosaico .pieza:nth-child(8) { animation-delay: 0.42s; }
+.mosaico .pieza:nth-child(9) { animation-delay: 0.48s; }
+.mosaico .pieza:nth-child(10){ animation-delay: 0.54s; }
+/* OJO: EL RETARDO ESCALONADO.
+   Las piezas aparecen una tras otra en vez de todas a la vez. El efecto
+   en cascada se percibe más cuidado y cuesta diez líneas.
+
+   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
+   (2) la segunda, y así.
+
+   OJO: El retardo total es de poco más de medio segundo. Conviene que sea
+     corto: mientras dura, las piezas están invisibles, y una entrada
+     larga hace que la página parezca vacía al abrirla.                */
+
+
+/* FIN DEL BLOQUE DE LA GALERÍA
+
+   OJO: RECORDATORIO: pegar ANTES del bloque
+     @media (prefers-reduced-motion: reduce)
+
+   Esa regla desactiva estas animaciones para quien lo haya solicitado
+   en su sistema operativo. Si este bloque quedara después, sus
+   transiciones se reactivarían y anularían la protección. */
+
+
+/* 17 · ACCESIBILIDAD DEL MOVIMIENTO           tema de la S19 */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* OJO: ESTA REGLA NO ES OPCIONAL.
+
+   Hay personas para quienes el movimiento en pantalla provoca mareo,
+   náusea o migraña. El sistema operativo permite pedir "reducir
+   movimiento" en sus preferencias de accesibilidad, y esta regla
+   detecta esa preferencia y desactiva todo lo animado.
+
+   OJO: NO SE USA  animation: none.
+     Eso dejaría los elementos en su estado inicial, y las tarjetas de
+     este sitio empiezan en  opacity: 0: quedarían INVISIBLES.
+     Poner una duración casi nula (0.01ms) hace que la animación se
+     complete de inmediato: el elemento llega a su estado final sin
+     que se perciba ningún movimiento.
+
+   CÓMO PROBARLO
+     Windows: Configuración -> Accesibilidad -> Efectos visuales ->
+              desactivar "Efectos de animación"
+     macOS:   Accesibilidad -> Pantalla -> Reducir movimiento
+   Recargar y comprobar que nada se anima, pero todo sigue visible.
+
+   OJO: Este es el primer @media del curso. Las consultas de medio se
+     estudian a fondo en la Unidad 4; este caso corresponde aquí
+     porque trata sobre el movimiento.                                 */
+
+
+/* FIN DE LA HOJA
+
+   ANTES DE ENTREGAR:
+     1. Validar en jigsaw.w3.org/css-validator
+        OJO: UNA sola validación de CSS: hay una única hoja para las tres
+          páginas. El HTML sí se valida página por página.
+     2. Comprobar el sitio en dos navegadores distintos
+     3. Verificar el contraste en webaim.org/resources/contrastchecker
+     4. Recorrer el sitio con la tecla Tab: debe verse siempre dónde
+        está el foco */
