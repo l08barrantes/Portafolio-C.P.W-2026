@@ -59,13 +59,14 @@ Portafolio-C.P.W-2026/
 
 | Sesión | Tema                           | Qué aprendí                                                                       |                    Trabajo                     |                             Captura                              |
 | :----: | :----------------------------- | :-------------------------------------------------------------------------------- | :--------------------------------------------: | :--------------------------------------------------------------: |
-|  S02   | Git colaborativo, la web y XML |                                                                                   |             [ver](unidad-02-html/)             |                         [ver](recursos/)                         |
-|  S03   | Estructura del documento HTML5 |                                                                                   |             [ver](unidad-02-html/)             |                         [ver](recursos/)                         |
-|  S04   | Texto, enlaces y anclas        | Aprendí sobre texto semántico, tipos de enlaces, anclas y W3C                     | [ver](unidad-02-html/sitio-demo/articulo.html) |           [ver](recursos/S.4.Enlaces-tipo-anclas1.png)           |
+|  S02   | Git colaborativo, la web y XML |                                                                                   |  [ver](unidad-02-html/)                        |  [ver](recursos/)                         |
+|  S03   | Estructura del documento HTML5 |                                                                                   |  [ver](unidad-02-html/)                        |  [ver](recursos/)                         |
+|  S04   | Texto, enlaces y anclas        | Aprendí sobre texto semántico, tipos de enlaces, anclas y W3C                     | [ver](unidad-02-html/sitio-demo/articulo.html) |  [ver](recursos/S.4.Enlaces-tipo-anclas1.png)           |
 |  S05   | Listas y tablas                | aprendí listas y tablas completas                                                 | [ver](unidad-02-html/sitio-demo/horarios.html) | [ver](unidad-02-html/sitio-demo/recursos/S.05-Listas-Tablas.png) |
 |  S06   | Formularios y semántica        | Trabajamos con etiquetas semánticas, formlarios y validación local de formalarios | [ver](unidad-02-html/sitio-demo/registro.html) | [ver](recursos/S.06-Formularios-Semántica.png) |
-|  S07   | Multimedia                     |  Etiquetas, controles de audio y video, formatos y  portadas y subtítulños |    [ver](unidad-02-html/sitio-demo/galeria.html)|      [ver](recursos/S.07-Multimedia.png)                         |
-|  S08   | SVG y repaso                   |SVG-vectorial desde HTML                                                           |   [ver](unidad-02-html/sitio-demo/insignia.html)  | [ver](recursos/S.8_SVG-vectorial_html.png)                         |
+|  S07   | Multimedia                     |  Etiquetas, controles de audio y video, formatos y  portadas y subtítulños        | [ver](unidad-02-html/sitio-demo/galeria.html)  
+| [ver](recursos/S.07-Multimedia.png)                         |
+|  S08   | SVG y repaso                   |SVG-vectorial desde HTML                                                           | [ver](unidad-02-html/sitio-demo/insignia.html) | [ver](recursos/S.8_SVG-vectorial_html.png)                         |
 
 
 
@@ -82,13 +83,13 @@ Proyecto propio construido de forma autónoma.
 | `galeria.html` | Imágenes, audio, video con subtítulos y gráficas SVG | S07 · S08 | [ver](unidad-02-html/sitio-personal/galeria.html) | [ver](recursos/sp-validacion-galeria.png) |
 
 **Decisiones que tomé**
-
-| Decisión | Qué elegí | Por qué |
-|:---------|:----------|:--------|
-| Tema del sitio | | |
-| Atributo de la lista ordenada | | |
-| Formatos de imagen usados | | |
-| Formas del gráfico SVG | | |
+  
+| Decisión                       |Qué elegí  | Por qué |
+|:-------------------------------|:----------|:--------|
+| Tema del sitio                 |           |         |
+| Atributo de la lista ordenada  |           |         |
+| Formatos de imagen usados      |           |         |
+| Formas del gráfico SVG         |           |         |
 
 **Cómo se ve**
 
