@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Liam Barrantes Calvo">
+  <meta name="author" content="Escriba aquí su nombre completo">
   <meta name="description" content="Galería del Estudio Luz Clara: retratos, producto y eventos fotografiados entre 2024 y 2026.">
   <meta name="keywords" content="galería, portafolio, fotografía, retrato, producto, eventos">
 
@@ -36,6 +36,17 @@
     </a>
 
     <nav class="navegacion" aria-label="Navegación principal">
+
+      <!--MENU HAMBURGUEZA-->
+      <input type="checkbox" id="abrir-menu" class="menu-control">
+      <label for="abrir-menu" class="menu-boton">
+        <span class="menu-barra"></span>
+        <span class="menu-barra"></span>
+        <span class="menu-barra"></span>
+        <span class="menu-texto">Menú</span>
+      </label>
+      <!--CIERRE MENU HAMBURGUEZA-->
+      
       <ul class="menu">
         <li><a href="index.html" class="menu-enlace">Inicio</a></li>
         <li><a href="galeria.html" class="menu-enlace activo">Galería</a></li>
@@ -99,6 +110,25 @@
       </ul>
     </section>
 
+  <!--Patron Off canvas-->
+  <!--La idea del patrón, es generar un contenido secundario que en pantalla ancha se ve siempre, y en pantalkla pequeña vive fuera de la vista y entra al pedilrlo-->
+
+  <input type="checkbox" id="abrir-filtros" class="panel-control">
+
+  <label for="abrir-filtros" class="panel-boton">Filtrar por categoría</label>
+  <label for="abrir-filtros" class="panel-fondo"></label> <!--Falta-->
+
+  <aside class="panel-lateral" id="filtros">
+    <h2 class="panel-titulo">Categorías</h2>
+    <ul class="panel-lista">
+      <li><a href="#mosaico" class="panel-enlace">Todo el trabajo</a></li>
+      <li><a href="#retrato" class="panel-enlace">Retrato</a></li>
+      <li><a href="#producto" class="panel-enlace">Producto</a></li>
+      <li><a href="#eventos" class="panel-enlace">Eventos</a></li>
+    </ul>
+    <label for="abrir-filtros" class="panel-cerrar">Cerrar</label>
+  </aside>
+
     <!-- MOSAICO PRINCIPAL · CSS GRID con piezas de distinto tamaño
          Es la pieza central de esta página -->
     <section id="mosaico" class="seccion seccion-alterna">
@@ -148,8 +178,13 @@
 
         <!--  recursos/g-05.jpg · 1200 × 1200 px · ocupa 2×2 -->
         <figure class="pieza pieza-grande">
-          <img src="recursos/g-05.jpg" alt="Vista general de un salón durante una celebración al atardecer"
-               width="1200" height="1200" loading="lazy">
+            <picture>
+              <source media="(min-width :1024)" srcset="recursos/g-05-grande.jpg">
+              <source media="(min-width :768)" srcset="recursos/g-5-mediana.png">
+              <source media="(min-width :468)" srcset="recursos/g-5-pequena.png">
+            <img src="recursos/g-5-pequena.png" alt="Vista general de un salón durante una celebración al atardecer"
+                width="1200" height="1200" loading="lazy">
+            </picture>
           <figcaption class="pieza-info">
             <span class="pieza-titulo">Atardecer en Santa Ana</span>
             <span class="pieza-categoria">Eventos</span>
@@ -295,7 +330,7 @@
           </figcaption>
         </figure>
         <figure class="pieza">
-          <img src="recursos/g-05.jpg" alt="Salón durante una celebración"
+          <img src="recursos/g-5-pequena.png" alt="Salón durante una celebración"
                width="1200" height="1200" loading="lazy">
           <figcaption class="pieza-info">
             <span class="pieza-titulo">Atardecer en Santa Ana</span>
