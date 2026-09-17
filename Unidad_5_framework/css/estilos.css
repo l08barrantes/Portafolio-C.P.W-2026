@@ -1,0 +1,140 @@
+/* CENTRO DE YOGA RAÍZ · HOJA DE ESTILOS
+   Escrita a mano en las Unidades 3 y 4. Punto de partida de la Unidad 5:
+   aquí no hay ningún framework enlazado todavía. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --tinta:   #263A31;
+  --suave:   #6B7A73;
+  --marca:   #3F6B52;
+  --acento:  #B98B4E;
+  --fondo:   #FAFAF7;
+  --fondo-a: #EFEFE7;
+  --linea:   #DCE0D8;
+  --blanco:  #FFFFFF;
+  --esp-sm: 1.6rem; --esp-md: 2.4rem; --esp-lg: 4rem; --esp-xl: 7rem;
+  --radio: 0.6rem;
+  --sombra: 0 0.4rem 1.2rem rgba(0,0,0,.08);
+  --trans: 0.25s ease;
+}
+
+html { font-size: 62.5%; }
+body {
+  font-size: 1.6rem; font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6;
+  color: var(--tinta); background: var(--fondo);
+}
+h1, h2, h3 { font-family: Georgia, serif; line-height: 1.2; color: var(--marca); }
+h1 { font-size: 3.2rem; } h2 { font-size: 2.4rem; } h3 { font-size: 1.8rem; }
+p { margin-bottom: var(--esp-sm); }
+a { color: var(--acento); text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+@media (min-width: 768px) { h1 { font-size: 4rem; } h2 { font-size: 2.8rem; } }
+@media (min-width: 1024px) { h1 { font-size: 4.8rem; } h2 { font-size: 3.2rem; } }
+
+.seccion { max-width: 114rem; margin: 0 auto; padding: var(--esp-lg) var(--esp-sm); }
+.seccion-alterna { background: var(--fondo-a); max-width: none; }
+.seccion-alterna > * { max-width: 114rem; margin-left: auto; margin-right: auto; }
+.seccion-titulo { text-align: center; margin-bottom: var(--esp-sm); }
+.seccion-entrada { max-width: 60ch; margin: 0 auto var(--esp-lg); text-align: center; color: var(--suave); }
+.pagina-encabezado { max-width: 114rem; margin: 0 auto; padding: var(--esp-lg) var(--esp-sm); text-align: center; }
+.pagina-titulo { margin-bottom: 0.5rem; }
+.pagina-bajada { color: var(--suave); }
+
+.cabecera {
+  display: flex; flex-direction: column; align-items: stretch;
+  padding: var(--esp-sm); background: var(--blanco); border-bottom: .1rem solid var(--linea);
+  position: sticky; top: 0; z-index: 100;
+}
+@media (min-width: 768px) {
+  .cabecera { flex-direction: row; justify-content: space-between; align-items: center; padding: var(--esp-sm) var(--esp-md); }
+}
+.marca { display: flex; align-items: center; gap: 0.8rem; color: var(--marca); justify-content: center; padding: 0.8rem 0; }
+@media (min-width: 768px) { .marca { justify-content: flex-start; padding: 0; } }
+.marca-texto { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; }
+.menu { display: flex; flex-direction: column; list-style: none; }
+@media (min-width: 768px) { .menu { flex-direction: row; gap: 0.8rem; } }
+.menu-enlace {
+  display: block; padding: var(--esp-sm); text-align: center; color: var(--tinta); font-weight: 600;
+  border-bottom: .1rem solid var(--linea); transition: background-color var(--trans);
+}
+@media (min-width: 768px) {
+  .menu-enlace { display: inline-block; padding: 0.8rem 1.6rem; border-bottom: none; border-radius: var(--radio); text-align: left; }
+}
+.menu-enlace:hover { background: var(--fondo-a); }
+.menu-enlace:focus { outline: .2rem solid var(--acento); outline-offset: .2rem; }
+.menu-enlace.activo { color: var(--acento); }
+
+.portada {
+  background: linear-gradient(135deg, var(--marca), #24402F);
+  color: var(--blanco); padding: var(--esp-xl) var(--esp-sm); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+}
+.portada-titulo { color: var(--blanco); margin-bottom: 0; }
+.portada-bajada { max-width: 55ch; opacity: .92; margin-bottom: var(--esp-sm); }
+
+.fila-tarjetas { display: flex; gap: var(--esp-md); flex-wrap: wrap; }
+.tarjeta {
+  flex: 1 1 26rem; background: var(--blanco); padding: var(--esp-md);
+  border: .1rem solid var(--linea); border-radius: var(--radio); box-shadow: var(--sombra);
+  display: flex; flex-direction: column;
+}
+.tarjeta-texto { color: var(--suave); flex-grow: 1; }
+.tarjeta-precio { margin-bottom: 0; padding-top: .8rem; border-top: .1rem solid var(--linea); font-weight: 700; color: var(--marca); }
+
+.cita { max-width: 66rem; margin: 0 auto; padding: var(--esp-md); background: var(--blanco);
+  border-left: .5rem solid var(--acento); border-radius: 0 var(--radio) var(--radio) 0; box-shadow: var(--sombra); }
+.cita-texto { font-family: Georgia, serif; font-size: 1.9rem; font-style: italic; }
+.cita-autoria { color: var(--suave); font-size: 1.4rem; text-align: right; }
+
+.tabla { width: 100%; border-collapse: collapse; background: var(--blanco); border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); margin-bottom: var(--esp-md); }
+.tabla-titulo { padding: var(--esp-sm); text-align: left; font-size: 1.4rem; color: var(--suave); }
+.tabla th, .tabla td { padding: 1.2rem; border-bottom: .1rem solid var(--linea); text-align: left; }
+.tabla thead th { background: var(--marca); color: var(--blanco); font-size: 1.4rem; text-transform: uppercase; }
+.tabla tbody tr:nth-child(even) { background: var(--fondo); }
+.tabla tbody tr:hover { background: var(--fondo-a); }
+.tabla tfoot td { background: var(--fondo-a); font-style: italic; font-size: 1.4rem; }
+
+.lista-instructores { padding-left: var(--esp-md); }
+.lista-instructores li { margin-bottom: .8rem; }
+.lista-instructores ul { padding-left: var(--esp-md); margin-top: .5rem; }
+
+.formulario { max-width: 68rem; }
+.grupo { border: .1rem solid var(--linea); border-radius: var(--radio); padding: var(--esp-md); margin-bottom: var(--esp-md); background: var(--blanco); }
+.grupo-titulo { font-family: Georgia, serif; font-weight: 700; color: var(--marca); padding: 0 .8rem; }
+.grupo-opciones { border: none; padding: var(--esp-sm) 0 0; margin-bottom: 0; }
+.campo { margin-bottom: var(--esp-sm); }
+.campo-etiqueta { display: block; margin-bottom: .4rem; font-weight: 600; font-size: 1.4rem; }
+.campo-entrada { width: 100%; padding: 1rem 1.4rem; border: .1rem solid var(--linea); border-radius: var(--radio); font-size: 1.6rem; font-family: inherit; background: var(--fondo); }
+.campo-entrada:focus { outline: none; border-color: var(--acento); box-shadow: 0 0 0 .3rem rgba(185,139,78,.18); }
+.opcion { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
+.opcion-marca { width: 1.8rem; height: 1.8rem; accent-color: var(--acento); }
+.fila-botones { display: flex; gap: var(--esp-sm); justify-content: flex-end; margin-bottom: 0; }
+
+.boton { display: inline-block; padding: 1.2rem 2.4rem; border: none; border-radius: var(--radio);
+  font-family: inherit; font-size: 1.6rem; font-weight: 600; cursor: pointer; transition: background-color var(--trans); }
+.boton-principal { background: var(--acento); color: var(--blanco); }
+.boton-principal:hover { background: #9A7440; }
+.boton-secundario { background: var(--fondo-a); color: var(--tinta); }
+
+.pie { background: var(--marca); color: var(--blanco); padding: var(--esp-xl) var(--esp-sm) var(--esp-md); margin-top: var(--esp-xl); }
+.pie-columnas { max-width: 114rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); gap: var(--esp-md); }
+.pie-titulo { color: var(--blanco); font-size: 1.8rem; margin-bottom: .8rem; }
+.pie-texto, .pie-datos { font-size: 1.4rem; font-style: normal; opacity: .88; line-height: 1.8; }
+.pie-enlace { color: var(--blanco); border-bottom: .1rem solid rgba(255,255,255,.4); }
+.pie-creditos { max-width: 114rem; margin: var(--esp-lg) auto 0; padding-top: var(--esp-sm);
+  border-top: .1rem solid rgba(255,255,255,.2); text-align: center; font-size: 1.3rem; opacity: .7; margin-bottom: 0; }
+
+
+.navegacion { display: flex; flex-direction: column; }
+@media (min-width: 768px) { .navegacion { flex-direction: row; } }
+.marca-icono { color: var(--marca); }
+.portada-caja { max-width: 70rem; }
+.tarjeta-titulo { margin-bottom: .8rem; }
+.pie-bloque { min-width: 0; }
+.opcion-etiqueta { font-size: 1.5rem; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

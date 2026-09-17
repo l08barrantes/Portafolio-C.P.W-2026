@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Escriba aquí su nombre completo">
+  <meta name="description" content="Centro de Yoga Raíz: clases de yoga y meditación en Barrio González Lahmann.">
+  <meta name="keywords" content="yoga, meditación, bienestar, San José, Costa Rica">
+
+  <title>Inicio | Centro de Yoga Raíz</title>
+
+  <link rel="icon" href="recursos/favicon.png" type="image/png">
+
+<!--CDN - BOOTSTRAP
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">  
+<link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body>
+
+  <header id="cabecera" class="cabecera">
+    <a href="index.html" class="marca">
+      <svg class="marca-icono" width="36" height="36" viewBox="0 0 36 36"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Logo del Centro de Yoga Raíz: una hoja">
+        <path d="M18 4 C8 8 6 20 12 30 C14 22 22 18 28 10 C22 10 18 8 18 4 Z" fill="currentColor"/>
+      </svg>
+      <span class="marca-texto">Yoga Raíz</span>
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html" class="menu-enlace activo">Inicio</a></li>
+        <li><a href="clases.html" class="menu-enlace">Clases</a></li>
+        <li><a href="contacto.html" class="menu-enlace">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <section id="portada" class="portada">
+      <div class="portada-caja">
+        <h1 class="portada-titulo">Un espacio para respirar</h1>
+        <p class="portada-bajada">
+          Clases de <strong>yoga</strong>, <strong>meditación</strong> y
+          <strong>respiración consciente</strong> en el corazón de San José.
+        </p>
+        <a href="clases.html" class="boton boton-principal">Ver las clases</a>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion">
+      <h2 class="seccion-titulo">Lo que ofrecemos</h2>
+
+      <!--Uso de Frameword - Bootstrap-->
+  <div class="container">
+    <div class="row g-4">
+
+        <div class="col-12 col-md-4">
+            <p class="seccion-entrada">
+              Grupos reducidos, atención personalizada y un espacio pensado para
+              el silencio.
+            </p>
+
+            <div class="fila-tarjetas">
+                <article class="tarjeta">
+                  <h3 class="tarjeta-titulo">Hatha yoga</h3>
+                  <p class="tarjeta-texto">
+                    Posturas de base y trabajo de respiración, a un ritmo pausado.
+                    Apto para principiantes.
+                  </p>
+                  <p class="tarjeta-precio">Desde ₡8 000 la clase</p>
+                </article>
+             </div>
+        </div> <!--Cierre class Hatha-->
+
+        <div class="col-12 col-md-4">
+          <article class="tarjeta">
+            <h3 class="tarjeta-titulo">Vinyasa flow</h3>
+            <p class="tarjeta-texto">
+              Secuencias dinámicas encadenadas con la respiración. Requiere
+              experiencia previa.
+            </p>
+            <p class="tarjeta-precio">Desde ₡9 000 la clase</p>
+          </article>
+        </div> <!--Cierre Vinyasa-->
+
+        <div class="col-12 col-md-4">
+          <article class="tarjeta">
+            <h3 class="tarjeta-titulo">Meditación guiada</h3>
+            <p class="tarjeta-texto">
+              Sesiones de treinta minutos, sentados, con acompañamiento de
+              un facilitador.
+            </p>
+            <p class="tarjeta-precio">Desde ₡5 000 la sesión</p>
+          </article>
+        </div> <!--Cierre meditacion-->
+    </div> <!--Cierre  row-->
+</div> <!--Cierre container-->
+    </section>
+
+    <section id="testimonio" class="seccion seccion-alterna">
+      <blockquote class="cita">
+        <p class="cita-texto">
+          Llegué con la espalda hecha nudos y salí de la primera clase
+          respirando distinto.
+        </p>
+        <footer class="cita-autoria">Marcela Ureña · Alumna desde 2024</footer>
+      </blockquote>
+    </section>
+
+  </main>
+
+  <footer id="pie" class="pie">
+    <div class="pie-columnas">
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Yoga Raíz</h2>
+        <p class="pie-texto">Un espacio de práctica desde 2019.</p>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Contacto</h2>
+        <address class="pie-datos">
+          Barrio González Lahmann, San José<br>
+          <a href="mailto:hola@ejemplo.com" class="pie-enlace">hola@ejemplo.com</a>
+        </address>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Horario</h2>
+        <p class="pie-texto">Lunes a sábado<br>6:00 a. m. – 8:00 p. m.</p>
+      </div>
+    </div>
+    <p class="pie-creditos"><small>&copy; 2026 · Centro de Yoga Raíz</small></p>
+  </footer>
+
+  <!--SCRIPT - BOOTSTRAP
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>-->
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
