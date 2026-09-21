@@ -23,5 +23,6 @@ Proceso Operaciones_Tipos_Datos
 	Escribir "Ingrese su nombre"
 	Leer nombre
 	Escribir "Su nombre: ", nombre
+	Leer lista_de_variables
 FinProceso
 
