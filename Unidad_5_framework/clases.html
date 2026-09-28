@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Escriba aquí su nombre completo">
+  <meta name="description" content="Horario de clases del Centro de Yoga Raíz.">
+  <meta name="keywords" content="horario, clases, yoga, meditación">
+
+  <title>Clases | Centro de Yoga Raíz</title>
+
+  <link rel="icon" href="recursos/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">  
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <header id="cabecera" class="cabecera">
+    <a href="index.html" class="marca">
+      <svg class="marca-icono" width="36" height="36" viewBox="0 0 36 36"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Logo del Centro de Yoga Raíz: una hoja">
+        <path d="M18 4 C8 8 6 20 12 30 C14 22 22 18 28 10 C22 10 18 8 18 4 Z" fill="currentColor"/>
+      </svg>
+      <span class="marca-texto">Yoga Raíz</span>
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html" class="menu-enlace">Inicio</a></li>
+        <li><a href="clases.html" class="menu-enlace activo">Clases</a></li>
+        <li><a href="contacto.html" class="menu-enlace">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <section id="intro" class="pagina-encabezado">
+      <h1 class="pagina-titulo">Horario de clases</h1>
+      <p class="pagina-bajada">Todas las clases duran una hora, salvo la meditación.</p>
+    </section>
+
+    <section id="horario" class="seccion">
+      <h2 class="seccion-titulo">Semana regular</h2>
+
+      <table class="tabla">
+        <caption class="tabla-titulo">Horario vigente a partir de agosto de 2026.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Día</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Nivel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">Hatha yoga</td>
+            <th scope="row">Lunes y miércoles</th>
+            <td>6:00 a. m.</td>
+            <td>Principiante</td>
+          </tr>
+          <tr>
+            <th scope="row">Martes y jueves</th>
+            <td>6:00 p. m.</td>
+            <td>Principiante</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Vinyasa flow</td>
+            <th scope="row">Lunes y miércoles</th>
+            <td>7:30 p. m.</td>
+            <td>Intermedio</td>
+          </tr>
+          <tr>
+            <th scope="row">Sábados</th>
+            <td>8:00 a. m.</td>
+            <td>Intermedio</td>
+          </tr>
+          <tr>
+            <td>Meditación guiada</td>
+            <th scope="row">Viernes</th>
+            <td>6:30 p. m.</td>
+            <td>Todo público</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Los grupos son de máximo doce personas. Reserve con anticipación.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section id="instructores" class="seccion seccion-alterna">
+      <h2 class="seccion-titulo">Quiénes enseñan</h2>
+      <ul class="lista-instructores">
+        <li>Hatha y meditación
+          <ul>
+            <li>Certificación de 200 horas</li>
+            <li>Ocho años de práctica</li>
+          </ul>
+        </li>
+        <li>Vinyasa flow
+          <ul>
+            <li>Formación en India</li>
+            <li>Especialización en respiración</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer id="pie" class="pie">
+    <div class="pie-columnas">
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Yoga Raíz</h2>
+        <p class="pie-texto">Un espacio de práctica desde 2019.</p>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Contacto</h2>
+        <address class="pie-datos">
+          Barrio González Lahmann, San José<br>
+          <a href="mailto:hola@ejemplo.com" class="pie-enlace">hola@ejemplo.com</a>
+        </address>
+      </div>
+      <div class="pie-bloque">
+        <h2 class="pie-titulo">Horario</h2>
+        <p class="pie-texto">Lunes a sábado<br>6:00 a. m. – 8:00 p. m.</p>
+      </div>
+    </div>
+    <p class="pie-creditos"><small>&copy; 2026 · Centro de Yoga Raíz</small></p>
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

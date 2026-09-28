@@ -1,0 +1,59 @@
+WEBVTT
+
+NOTE
+Archivo de subtítulos en formato WebVTT.
+Estudio Luz Clara · CSTI12002 · Unidad 4
+
+CÓMO FUNCIONA ESTE ARCHIVO
+
+  La primera línea debe decir exactamente WEBVTT, sin nada más.
+  Después va una línea en blanco, y luego los bloques de subtítulo.
+
+  Cada bloque tiene dos o tres partes:
+
+     1  un identificador opcional, que puede ser un número
+     2  la marca de tiempo, con el formato
+           hh:mm:ss.mmm --> hh:mm:ss.mmm
+     3  el texto que se muestra, en una o dos líneas
+
+  Entre bloque y bloque va SIEMPRE una línea en blanco.
+
+ERRORES QUE IMPIDEN QUE FUNCIONE
+
+  Escribir WEBVTT con minúsculas o con espacios delante.
+  Usar coma en vez de punto en los milisegundos: 00:00:03,500 no sirve.
+  Olvidar la línea en blanco entre bloques.
+  Guardar el archivo con extensión .txt en lugar de .vtt.
+  Guardarlo en una codificación distinta de UTF-8: las tildes se rompen.
+
+CÓMO COMPROBARLO
+
+  Abrir el video en el navegador y activar los subtítulos desde el
+  control del reproductor. Si no aparece la opción, el archivo no se
+  está cargando: revisar la ruta del track en el HTML.
+
+
+1
+00:00:00.000 --> 00:00:03.500
+Estudio Luz Clara
+Fotografía con luz natural desde 2014
+
+2
+00:00:03.500 --> 00:00:07.000
+Trabajamos con luz de ventana
+en un local de Barrio Escalante
+
+3
+00:00:07.000 --> 00:00:11.000
+Retrato, producto y eventos,
+con asesoría antes de cada sesión
+
+4
+00:00:11.000 --> 00:00:15.000
+Cada sesión incluye edición profesional
+y entrega en alta resolución
+
+5
+00:00:15.000 --> 00:00:18.000
+Escríbanos y conversemos
+sobre lo que necesita
