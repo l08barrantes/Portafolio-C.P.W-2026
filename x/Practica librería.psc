@@ -1,4 +1,4 @@
-Algoritmo Práctica_Libreria
+Proceso Práctica_Libreria
 	Definir titulo Como Caracter;
 	Definir precio, subtotal, totalLibros, descuento, impuesto, envio, totalPagar Como Real;
 	Definir cantidad, unidades Como Entero;
@@ -67,4 +67,4 @@ Algoritmo Práctica_Libreria
 	Escribir "Impuesto (13%): ", impuesto;
 	Escribir "Envío: ", envio;
 	Escribir "TOTAL A PAGAR: ", totalPagar;
-FinAlgoritmo
+FinProceso
