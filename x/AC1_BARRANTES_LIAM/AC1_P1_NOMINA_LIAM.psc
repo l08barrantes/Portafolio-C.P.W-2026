@@ -1,37 +1,42 @@
 Proceso AC1_P1_Nomina_LiamBarrantesC
-	Definir nombre como cadena;
-	Definir salario como entero;
-	Definir bruto, ASS, CCSS, impuesto, total Como Real;
+	Definir nombreEmpleado Como Caracter;
+	Definir salarioBruto, descuentoCCSS, descuentoASS, impuesto, salarioNeto Como Real;
 	
-	Escribir "Nombre del funcionario:";
-	Leer nombre;
+	nombreEmpleado <- "";
+	salarioBruto <- 0;
+	descuentoCCSS <- 0;
+	descuentoASS <- 0;
+	impuesto <- 0;
+	salarioNeto <- 0;
 	
-	Escribir "Salario bruto";
-	Leer bruto;
-	mientras bruto <= 0 hacer 
-		escribir "El salario bruto no puede ser negativo";
-		Escribir "Salario Bruto";
-		Leer bruto
+	Escribir "Nombre del empleado:";
+	Leer nombreEmpleado;
+	
+	Escribir "Salario bruto:";
+	Leer salarioBruto;
+	// Validación
+	Mientras salarioBruto <= 0 Hacer
+		Escribir "Dato inválido. El salario bruto debe ser mayor que 0.";
+		Escribir "Salario bruto:";
+		Leer salarioBruto;
 	FinMientras
 	
-	
-	Si bruto > 800 
-		Impuesto <- bruto * 0.10;
+	// Impuesto 
+	Si salarioBruto > 800 Entonces
+		impuesto <- salarioBruto * 0.10;
 	SiNo
-		Impuesto <- 0;
+		impuesto <- 0;
 	FinSi
 	
-	ASS <- (bruto - ASS) * 0.025;
-	CCSS <- (bruto - CCSS) * 0.095;
+	// Descuentos y salario neto
+	descuentoCCSS <- salarioBruto * 0.095;
+	descuentoASS <- salarioBruto * 0.025;
+	salarioNeto <- salarioBruto - descuentoCCSS - descuentoASS - impuesto;
 	
-	total <- bruto - CCSS - ASS- Impuesto;
-	
-	Escribir "Funcionario: ", nombre;
-	Escribir "Salario bruto: ", bruto;
-	Escribir "Descuento ASS(2.5%): ", ASS;
-	Escribir "Descuento CCSS (9.5%): ", CCSS;
-	Escribir "Descuento Impuesto (10%):", Impuesto;
-	Escribir "Salario neto:", total;
-	
-	
+	Escribir "Empleado: ", nombreEmpleado;
+	Escribir "Salario bruto: ", redon(salarioBruto * 100) / 100;
+	Escribir "Descuento CCSS (9.5%): ", redon(descuentoCCSS * 100) / 100;
+	Escribir "Descuento ASS (2.5%): ", redon(descuentoASS * 100) / 100;
+	Escribir "Descuento impuesto (10%): ", redon(impuesto * 100) / 100;
+	Escribir "Salario neto: ", redon(salarioNeto * 100) / 100;
 FinProceso

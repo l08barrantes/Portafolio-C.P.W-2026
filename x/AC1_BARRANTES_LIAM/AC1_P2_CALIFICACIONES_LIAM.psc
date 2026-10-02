@@ -1,36 +1,59 @@
 Proceso AC1_P2_Calificaciones_LiamBarrantesC
-	Definir NOTA_MINIMA Como Real
-	Definir nombre, letra Como Caracter
-	Definir parcial1, parcial2, parcial3, promedio Como Real
-	Definir aprobado Como Logico
+	Definir nombreEstudiante, condicion Como Caracter;
+	Definir calificacion1, calificacion2, calificacion3, promedio Como Real;
 	
-	NOTAMINIMA <- 60
+	nombreEstudiante <- "";
+	condicion <- "";
+	calificacion1 <- 0;
+	calificacion2 <- 0;
+	calificacion3 <- 0;
+	promedio <- 0;
 	
-	Escribir "Nombre del estudiante:"
-	Leer nombre
+	Escribir "Nombre del estudiante:";
+	Leer nombreEstudiante;
 	
-	Escribir "Calificación 1:"
-	Leer parcial1
+	// Validación
+	Repetir
+		Escribir "Calificación 1 (0 a 100):";
+		Leer calificacion1;
+		Si calificacion1 < 0 O calificacion1 > 100 Entonces
+			Escribir "Dato inválido. Debe estar entre 0 y 100.";
+		FinSi
+	Hasta Que calificacion1 >= 0 Y calificacion1 <= 100
 	
-	Escribir "Calificación 2:"
-	Leer parcial2
+	Repetir
+		Escribir "Calificación 2 (0 a 100):";
+		Leer calificacion2;
+		Si calificacion2 < 0 O calificacion2 > 100 Entonces
+			Escribir "Dato inválido. Debe estar entre 0 y 100.";
+		FinSi
+	Hasta Que calificacion2 >= 0 Y calificacion2 <= 100
 	
-	Escribir "Calificación 3:"
-	Leer parcial3
+	Repetir
+		Escribir "Calificación 3 (0 a 100):";
+		Leer calificacion3;
+		Si calificacion3 < 0 O calificacion3 > 100 Entonces
+			Escribir "Dato inválido. Debe estar entre 0 y 100.";
+		FinSi
+	Hasta Que calificacion3 >= 0 Y calificacion3 <= 100
 	
+	promedio <- (calificacion1 + calificacion2 + calificacion3) / 3;
 	
-	promedio <- (parcial1 + parcial2 + parcial3) / 3
-	
-	aprobado <- promedio >= NOTAMINIMA
-	
-	Escribir "Estudiante: ", nombre
-	Escribir "Calificación 1: ", parcial1
-	Escribir "Calificación 2: ", parcial2
-	Escribir "Calificación 3: ", parcial3
-	Escribir "Promedio  : ", Redon(promedio * 100) / 100
-	Si aprobado Entonces
-		Escribir "Resultado : APROBADO"
+	// Condición 
+	Si promedio >= 70 Entonces
+		condicion <- "APROBADO";
 	SiNo
-		Escribir "Resultado : REPROBADO"
+		Si promedio >= 60 Entonces
+			condicion <- "EN RIESGO";
+		SiNo
+			condicion <- "NO APROBADO";
+		FinSi
 	FinSi
+	
+	Escribir "Estudiante: ", nombreEstudiante;
+	Escribir "Calificación 1: ", calificacion1;
+	Escribir "Calificación 2: ", calificacion2;
+	Escribir "Calificación 3: ", calificacion3;
+	Escribir "Promedio: ", redon(promedio * 100) / 100;
+	Escribir "Condición: ", condicion;
 FinProceso

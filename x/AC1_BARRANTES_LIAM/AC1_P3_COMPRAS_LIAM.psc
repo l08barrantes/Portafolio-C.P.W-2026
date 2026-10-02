@@ -1,25 +1,32 @@
 Proceso AC1_P3_Compras_LiamBarrantesC
 	Definir cliente, producto, respuesta Como Caracter;
 	Definir precio, cantidad, subtotalProducto, subtotal Como Real;
-	Definir porcentaje, descuento, totalDescuento, impuesto, totalPagar Como Real;
-	Definir contador Como Entero;
+	Definir porcentajeDescuento, montoDescuento, totalConDescuento, impuesto, totalPagar Como Real;
+	Definir contadorProductos Como Entero;
 	
+	cliente <- "";
+	producto <- "";
+	respuesta <- "S";
+	precio <- 0;
+	cantidad <- 0;
+	subtotalProducto <- 0;
 	subtotal <- 0;
-	contador <- 0;
-	porcentaje <- 0;
-	descuento <- 0;
-	totalDescuento <- 0;
+	porcentajeDescuento <- 0;
+	montoDescuento <- 0;
+	totalConDescuento <- 0;
 	impuesto <- 0;
 	totalPagar <- 0;
-	respuesta <- "S";
+	contadorProductos <- 0;
 	
 	Escribir "Nombre del cliente:";
 	Leer cliente;
 	
+	// Ciclo
 	Repetir
 		Escribir "Nombre del producto:";
 		Leer producto;
 		
+		// Validación
 		precio <- 0;
 		Mientras precio <= 0 Hacer
 			Escribir "Precio unitario:";
@@ -38,12 +45,13 @@ Proceso AC1_P3_Compras_LiamBarrantesC
 			FinSi
 		FinMientras
 		
+		// Acumulador del subtotal y contador de productos
 		subtotalProducto <- precio * cantidad;
 		subtotal <- subtotal + subtotalProducto;
-		contador <- contador + 1;
+		contadorProductos <- contadorProductos + 1;
 		Escribir producto, ": ", precio, " x ", cantidad, " = ", subtotalProducto;
 		
-		
+		// Validación
 		Repetir
 			Escribir "¿Desea agregar otro producto? (S/N)";
 			Leer respuesta;
@@ -54,35 +62,32 @@ Proceso AC1_P3_Compras_LiamBarrantesC
 		Hasta Que respuesta = "S" O respuesta = "N"
 	Hasta Que respuesta = "N"
 	
+	// Descuento
 	Si subtotal < 100 Entonces
-		porcentaje <- 0;
+		porcentajeDescuento <- 0;
 	SiNo
 		Si subtotal < 500 Entonces
-			porcentaje <- 5;
+			porcentajeDescuento <- 5;
 		SiNo
 			Si subtotal <= 1000 Entonces
-				porcentaje <- 10;
+				porcentajeDescuento <- 10;
 			SiNo
-				porcentaje <- 15;
+				porcentajeDescuento <- 15;
 			FinSi
 		FinSi
 	FinSi
-	descuento <- subtotal * porcentaje / 100;
-	totalDescuento <- subtotal - descuento;
-	impuesto <- totalDescuento * 0.13;
-	totalPagar <- totalDescuento + impuesto;
 	
-	descuento <- redon(descuento * 100) / 100;
-	totalDescuento <- redon(totalDescuento * 100) / 100;
-	impuesto <- redon(impuesto * 100) / 100;
-	totalPagar <- redon(totalPagar * 100) / 100;
+	// Total
+	montoDescuento <- subtotal * porcentajeDescuento / 100;
+	totalConDescuento <- subtotal - montoDescuento;
+	impuesto <- totalConDescuento * 0.13;
+	totalPagar <- totalConDescuento + impuesto;
 	
-	Escribir "Cliente: ", cliente;
-	Escribir "Productos registrados: ", contador;
-	Escribir "Subtotal: ", subtotal;
-	Escribir "Descuento (", porcentaje, "%): -", descuento;
-	Escribir "Total con descuento: ", totalDescuento;
-	Escribir "Impuesto (13%): ", impuesto;
-	Escribir "Total a pagar: ", totalPagar;
-	
+	Escribir "CLIENTE: ", cliente;
+	Escribir "Productos registrados: ", contadorProductos;
+	Escribir "Subtotal: ", redon(subtotal * 100) / 100;
+	Escribir "Descuento (", porcentajeDescuento, "%): -", redon(montoDescuento * 100) / 100;
+	Escribir "Total con descuento: ", redon(totalConDescuento * 100) / 100;
+	Escribir "Impuesto (13%): ", redon(impuesto * 100) / 100;
+	Escribir "TOTAL A PAGAR: ", redon(totalPagar * 100) / 100;
 FinProceso
