@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma de Zarcero | Café de Altura Gourmet</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030609',
+                            card: '#0B0C0E',
+                            border: '#2A241A',
+                            gold: '#D4AF37',
+                            goldLight: '#E5C158',
+                            goldDark: '#997A15',
+                            cream: '#F5F5F0',
+                            coffee: '#6F4E37',
+                            coffeeDark: '#3A2312'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030609;
+            color: #F5F5F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Gold metallic gradient text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0B3 0%, #D4AF37 50%, #997A15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(212, 175, 55, 0.7);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Steam animation for brewing section */
+        @keyframes steam {
+            0% { transform: translateY(0) scaleX(1); opacity: 0; }
+            30% { opacity: 0.6; }
+            70% { opacity: 0.3; }
+            100% { transform: translateY(-70px) scaleX(1.8); opacity: 0; }
+        }
+
+        .steam-particle {
+            animation: steam 3.5s infinite ease-out;
+        }
+
+        /* Drip animation */
+        @keyframes drip {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            70% { transform: translateY(80px) scale(0.8); opacity: 0.9; }
+            100% { transform: translateY(100px) scale(0.2); opacity: 0; }
+        }
+
+        .drip-effect {
+            animation: drip 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        /* Grid background HUD style */
+        .hud-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="hud-grid antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-brand-gold/60 flex items-center justify-center bg-brand-card group-hover:border-brand-gold transition-colors">
+                    <i data-lucide="mountain" class="w-5 h-5 text-brand-gold"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg font-bold tracking-widest text-brand-cream group-hover:text-brand-gold transition-colors">ALMA DE ZARCERO</span>
+                    <span class="text-[9px] tracking-[0.25em] text-brand-gold/80 -mt-1 uppercase">Café de Altura</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-brand-cream/70">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors">Inicio</a>
+                <a href="#especificaciones" class="hover:text-brand-gold transition-colors">Especificaciones</a>
+                <a href="#experiencia" class="hover:text-brand-gold transition-colors">Experiencia</a>
+                <a href="#historia" class="hover:text-brand-gold transition-colors">Historia</a>
+                <a href="#ordenar" class="hover:text-brand-gold transition-colors">Pedir Ahora</a>
+            </nav>
+
+            <!-- Direct Order Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://wa.me/50672602494?text=Hola!%20Deseo%20realizar%20un%20pedido%20de%20Café%20Alma%20de%20Zarcero." 
+                   target="_blank" 
+                   class="px-5 py-2.5 rounded-full border border-brand-gold bg-brand-gold/10 hover:bg-brand-gold hover:text-black transition-all duration-300 font-semibold text-xs tracking-wider flex items-center gap-2 text-brand-gold">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>WHATSAPP</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-brand-gold hover:text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-card/95 border-b border-brand-border/80 px-6 py-6 space-y-4 text-center">
+            <a href="#inicio" class="mobile-link block text-sm font-semibold tracking-wider text-brand-cream hover:text-brand-gold py-1">INICIO</a>
+            <a href="#especificaciones" class="mobile-link block text-sm font-semibold tracking-wider text-brand-cream hover:text-brand-gold py-1">ESPECIFICACIONES</a>
+            <a href="#experiencia" class="mobile-link block text-sm font-semibold tracking-wider text-brand-cream hover:text-brand-gold py-1">EXPERIENCIA</a>
+            <a href="#historia" class="mobile-link block text-sm font-semibold tracking-wider text-brand-cream hover:text-brand-gold py-1">HISTORIA</a>
+            <a href="#ordenar" class="mobile-link block text-sm font-semibold tracking-wider text-brand-gold py-1">PEDIR AHORA</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
+        <!-- Subtle Glow Backgrounds -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brand-coffee/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Hero Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-gold/40 bg-brand-gold/5 text-brand-gold text-xs font-semibold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                    RESERVA MILENIO • 100% ARÁBICA
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-cream leading-tight">
+                    ALMA DE <br/>
+                    <span class="gold-gradient-text">ZARCERO</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-brand-cream/80 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                    Café artesanal de altitud extrema. Cosechado a mano en las microcuencas místicas de Zarcero, procesado con el exclusivo método <span class="text-brand-gold font-medium">Yellow Honey</span> y secado libremente al sol.
+                </p>
+
+                <!-- Key Quick Metrics / HUD Style Overlay -->
+                <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0 py-4">
+                    <div class="p-3 rounded-lg border border-brand-border bg-brand-card/80 backdrop-blur">
+                        <div class="text-brand-gold text-xs font-bold uppercase tracking-wider">ALTITUD</div>
+                        <div class="text-sm sm:text-base font-semibold text-brand-cream mt-0.5">1550-1700m</div>
+                    </div>
+                    <div class="p-3 rounded-lg border border-brand-border bg-brand-card/80 backdrop-blur">
+                        <div class="text-brand-gold text-xs font-bold uppercase tracking-wider">PROCESO</div>
+                        <div class="text-sm sm:text-base font-semibold text-brand-cream mt-0.5">Yellow Honey</div>
+                    </div>
+                    <div class="p-3 rounded-lg border border-brand-border bg-brand-card/80 backdrop-blur">
+                        <div class="text-brand-gold text-xs font-bold uppercase tracking-wider">TUESTE</div>
+                        <div class="text-sm sm:text-base font-semibold text-brand-cream mt-0.5">Medio Puro</div>
+                    </div>
+                </div>
+
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#ordenar" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-gold text-black font-bold text-sm tracking-wider uppercase hover:bg-brand-goldLight transition-all duration-300 shadow-lg shadow-brand-gold/10 text-center">
+                        Ordenar Mi Café (500g)
+                    </a>
+                    <a href="#experiencia" class="w-full sm:w-auto px-8 py-4 rounded-full border border-brand-border hover:border-brand-gold text-brand-cream hover:text-brand-gold font-semibold text-sm tracking-wider uppercase transition-all duration-300 text-center">
+                        Simulador de Catación
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Packaging Render Simulation -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md aspect-[3/5] rounded-2xl bg-gradient-to-b from-brand-card via-black to-brand-card p-6 border border-brand-gold/40 shadow-2xl flex flex-col justify-between overflow-hidden group">
+                    
+                    <!-- Decorative Golden Frame Corner Hooks -->
+                    <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-brand-gold"></div>
+                    <div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-brand-gold"></div>
+                    <div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-brand-gold"></div>
+                    <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-brand-gold"></div>
+
+                    <!-- Top Mountain Illustration -->
+                    <div class="text-center pt-4">
+                        <i data-lucide="mountain" class="w-16 h-16 text-brand-gold mx-auto mb-2 opacity-90 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="h-0.5 w-16 bg-brand-gold/40 mx-auto"></div>
+                    </div>
+
+                    <!-- Center Label Typography -->
+                    <div class="text-center my-auto space-y-2">
+                        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold tracking-widest text-brand-cream">ALMA DE</h2>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-extrabold tracking-wider text-brand-gold">ZARCERO</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-brand-cream/70 pt-2 border-t border-brand-gold/30 inline-block px-4">
+                            Café de Altura
+                        </p>
+                        <p class="text-xs font-serif italic text-brand-goldLight pt-1">Reserva Milenio • 100% Arábica</p>
+                    </div>
+
+                    <!-- Bottom Technical Specs Badge -->
+                    <div class="border-t border-brand-gold/30 pt-4 space-y-3 text-center">
+                        <div class="grid grid-cols-3 text-[10px] uppercase text-brand-cream/80 font-mono tracking-wider">
+                            <div>1550-1700 msnm</div>
+                            <div>Yellow Honey</div>
+                            <div>Secado Sol</div>
+                        </div>
+                        <div class="flex items-center justify-between px-2 pt-2 text-xs border-t border-brand-border/60">
+                            <span class="text-brand-gold font-bold">ZARCERO, COSTA RICA</span>
+                            <span class="text-brand-cream font-mono">500 g / 17.6 oz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODUCT SPECS GRID / HUD CARDS SECTION -->
+    <section id="especificaciones" class="py-20 bg-brand-card/60 border-y border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-brand-gold uppercase">Trazabilidad y Calidad</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-cream">FICHA TÉCNICA DEL GRANO</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <!-- HUD Grid of Technical Specs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Spec 1 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mountain-snow" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 01</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Altitud Extrema</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">1550 - 1700 <span class="text-sm font-sans font-normal text-brand-cream/70">msnm</span></p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Cultivado en las partes más altas de Zarcero, donde el frío nocturno desacelera la maduración, concentrando azúcares naturales.
+                    </p>
+                </div>
+
+                <!-- Spec 2 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="droplets" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 02</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Proceso Yellow Honey</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">Dulzura Natural</p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Mantiene una capa exacta de mucílago durante el despulpado para aportarle notas de miel de abeja y un cuerpo sedoso incomparable.
+                    </p>
+                </div>
+
+                <!-- Spec 3 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="sun" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 03</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Secado al Sol</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">100% Artesanal</p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Reposado pacientemente en camas africanas al sol directo de montaña, movido a mano por nuestros agricultores locales.
+                    </p>
+                </div>
+
+                <!-- Spec 4 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 04</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Perfil de Tueste</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">Tueste Medio</p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Punto perfecto para resaltar su acidez cítrica brillante sin enmascarar los matices de chocolate y frutos secos.
+                    </p>
+                </div>
+
+                <!-- Spec 5 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 05</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Pureza Garantizada</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">Sin Preservantes</p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Producto totalmente natural y fresco. Empacado con válvula desgasificadora de alta tecnología para preservar el aroma real.
+                    </p>
+                </div>
+
+                <!-- Spec 6 -->
+                <div class="p-6 rounded-xl bg-brand-dark/80 gold-border-glow relative group">
+                    <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Parámetro 06</span>
+                    <h3 class="text-xl font-bold text-brand-cream mt-1">Origen Distintivo</h3>
+                    <p class="text-2xl font-serif text-brand-gold font-bold mt-2">Zarcero, Costa Rica</p>
+                    <p class="text-sm text-brand-cream/70 mt-2 leading-relaxed">
+                        Tierra fértil de volcán y niebla constante, famosa mundialmente por su microclima idóneo para el café gourmet.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE BREW / CHORREADOR SIMULATOR -->
+    <section id="experiencia" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Interactive Chorreador Animation -->
+                <div class="lg:col-span-6 bg-brand-card/90 rounded-2xl p-8 border border-brand-gold/30 shadow-2xl relative">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-widest">Simulación de Infusión</span>
+                        <h3 class="text-2xl font-serif font-bold text-brand-cream">El Ritual del Chorreado</h3>
+                    </div>
+
+                    <!-- Visual Chorreador Demo Box -->
+                    <div class="relative w-full h-80 bg-black/60 rounded-xl border border-brand-border flex flex-col items-center justify-center overflow-hidden">
+                        
+                        <!-- Steam Particles Container -->
+                        <div id="steamContainer" class="absolute top-12 flex space-x-3 pointer-events-none opacity-0 transition-opacity duration-500">
+                            <div class="w-2 h-12 bg-white/30 rounded-full blur-sm steam-particle"></div>
+                            <div class="w-3 h-16 bg-white/40 rounded-full blur-sm steam-particle" style="animation-delay: 0.5s"></div>
+                            <div class="w-2 h-10 bg-white/20 rounded-full blur-sm steam-particle" style="animation-delay: 1s"></div>
+                        </div>
+
+                        <!-- Traditional Cloth Filter Bag Graphic -->
+                        <div class="relative z-10 flex flex-col items-center">
+                            <!-- Ring Header -->
+                            <div class="w-28 h-3 bg-brand-gold/80 rounded-full shadow-md"></div>
+                            <!-- Cloth Bag -->
+                            <div class="w-20 h-24 bg-gradient-to-b from-brand-coffee to-brand-coffeeDark rounded-b-full border-x border-b border-brand-gold/40 flex items-center justify-center shadow-inner">
+                                <span class="text-[9px] font-mono text-brand-goldLight opacity-80">Yellow Honey</span>
+                            </div>
+                        </div>
+
+                        <!-- Coffee Drip Droplet -->
+                        <div id="dripElement" class="w-3 h-3 bg-brand-gold rounded-full absolute top-[180px] opacity-0"></div>
+
+                        <!-- Coffee Mug -->
+                        <div class="relative z-10 mt-8">
+                            <div class="w-24 h-16 bg-brand-card border-2 border-brand-gold/60 rounded-b-2xl flex items-center justify-center">
+                                <span class="font-serif text-[10px] text-brand-gold tracking-widest">ZARCERO</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Brew Trigger Button -->
+                    <div class="mt-6 text-center">
+                        <button id="brewBtn" onclick="toggleBrewing()" class="px-8 py-3 rounded-full bg-brand-gold text-black font-bold text-xs uppercase tracking-widest hover:bg-brand-goldLight transition-all duration-300 shadow-md">
+                            Iniciar Chorreado Tradicional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Taste Profile Chart -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-gold uppercase">Experiencia Sensorial</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-cream">NOTAS DE CATACIÓN DE ALTURA</h2>
+                    <p class="text-brand-cream/70 text-sm leading-relaxed">
+                        Gracias a la combinación de altitud de 1700m y el proceso Yellow Honey, Alma de Zarcero entrega una taza excepcionalmente dulce y limpia.
+                    </p>
+
+                    <!-- Interactive Taste Sliders / Indicators -->
+                    <div class="space-y-5 pt-4">
+                        
+                        <!-- Meter 1 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-brand-cream mb-1">
+                                <span>DULZURA (Miel de abeja)</span>
+                                <span class="text-brand-gold font-mono">9.5 / 10</span>
+                            </div>
+                            <div class="w-full h-3 bg-brand-dark rounded-full border border-brand-border overflow-hidden">
+                                <div class="h-full bg-brand-gold rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Meter 2 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-brand-cream mb-1">
+                                <span>CUERPO (Satinado y sedoso)</span>
+                                <span class="text-brand-gold font-mono">8.8 / 10</span>
+                            </div>
+                            <div class="w-full h-3 bg-brand-dark rounded-full border border-brand-border overflow-hidden">
+                                <div class="h-full bg-brand-gold rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Meter 3 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-brand-cream mb-1">
+                                <span>ACIDEZ (Cítrica brillante)</span>
+                                <span class="text-brand-gold font-mono">8.2 / 10</span>
+                            </div>
+                            <div class="w-full h-3 bg-brand-dark rounded-full border border-brand-border overflow-hidden">
+                                <div class="h-full bg-brand-gold rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Meter 4 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-brand-cream mb-1">
+                                <span>AROMA (Flores de cafeto y cacao)</span>
+                                <span class="text-brand-gold font-mono">9.8 / 10</span>
+                            </div>
+                            <div class="w-full h-3 bg-brand-dark rounded-full border border-brand-border overflow-hidden">
+                                <div class="h-full bg-brand-gold rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HERITAGE & STORY SECTION -->
+    <section id="historia" class="py-20 bg-brand-card/40 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <i data-lucide="quote" class="w-12 h-12 text-brand-gold/40 mx-auto mb-4"></i>
+            
+            <h2 class="font-serif text-2xl sm:text-4xl italic text-brand-gold max-w-4xl mx-auto font-normal leading-snug">
+                "Buena tierra, buen café, buenas historias."
+            </h2>
+            
+            <p class="text-brand-cream/70 max-w-2xl mx-auto text-sm sm:text-base mt-6 leading-relaxed">
+                Detrás de cada bolsa de **Alma de Zarcero** hay familias costarricenses dedicadas por generaciones a trabajar la tierra con paciencia y respeto. Apoyamos el comercio justo y directo con nuestros pequeños artesanos locales.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mt-12">
+                <div class="p-4 rounded-xl border border-brand-border/60 bg-brand-dark/50">
+                    <h4 class="font-serif font-bold text-brand-gold text-lg">100% Local</h4>
+                    <p class="text-xs text-brand-cream/60 mt-1">Origen directo de micro-lotes en Zarcero.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-brand-border/60 bg-brand-dark/50">
+                    <h4 class="font-serif font-bold text-brand-gold text-lg">Comercio Justo</h4>
+                    <p class="text-xs text-brand-cream/60 mt-1">Pago digno a nuestras familias caficultoras.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-brand-border/60 bg-brand-dark/50">
+                    <h4 class="font-serif font-bold text-brand-gold text-lg">Cero Químicos</h4>
+                    <p class="text-xs text-brand-cream/60 mt-1">Sin preservantes ni saborizantes añadidos.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ORDER / CALCULATOR SECTION -->
+    <section id="ordenar" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-brand-card rounded-2xl p-8 sm:p-12 border border-brand-gold/40 shadow-2xl relative">
+                
+                <div class="text-center mb-8 space-y-2">
+                    <span class="text-xs font-mono text-brand-gold uppercase tracking-widest">Pedido Directo al Productor</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-cream">HAZ TU PEDIDO POR WHATSAPP</h2>
+                    <p class="text-sm text-brand-cream/70">Selecciona tus preferencias y genera tu mensaje instantáneo.</p>
+                </div>
+
+                <!-- Interactive Order Form Calculator -->
+                <div class="space-y-6">
+                    
+                    <!-- Selection 1: Quantity -->
+                    <div>
+                        <label class="block text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Cantidad (Bolsas de 500g / 17.6 oz)</label>
+                        <div class="flex items-center space-x-4">
+                            <button onclick="updateQty(-1)" class="w-12 h-12 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-brand-cream text-xl font-bold transition-colors">-</button>
+                            <span id="qtyDisplay" class="font-mono text-2xl font-bold text-brand-cream w-12 text-center">1</span>
+                            <button onclick="updateQty(1)" class="w-12 h-12 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-brand-cream text-xl font-bold transition-colors">+</button>
+                            <span class="text-xs text-brand-cream/60">Presentación oficial de 500 gramos</span>
+                        </div>
+                    </div>
+
+                    <!-- Selection 2: Grind Preference -->
+                    <div>
+                        <label class="block text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Preferencia de Presentación</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button type="button" id="btnGrano" onclick="selectGrind('Café en Grano')" class="p-4 rounded-xl border border-brand-gold bg-brand-gold/10 text-brand-cream font-semibold text-sm flex items-center justify-between transition-all">
+                                <span>Café en Grano</span>
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-gold"></i>
+                            </button>
+                            <button type="button" id="btnMolido" onclick="selectGrind('Café Molido')" class="p-4 rounded-xl border border-brand-border bg-brand-dark/60 text-brand-cream/70 font-semibold text-sm flex items-center justify-between transition-all hover:border-brand-gold/40">
+                                <span>Café Molido</span>
+                                <i data-lucide="circle" class="w-5 h-5 opacity-40"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Details Banner -->
+                    <div class="p-4 rounded-xl border border-brand-border bg-brand-dark/80 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-green-500/10 text-green-400 flex items-center justify-center">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-brand-cream/60 uppercase">Atención al Cliente</div>
+                                <div class="font-mono text-sm font-bold text-brand-cream">+506 7260 2494</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/30">Envío en Costa Rica</span>
+                    </div>
+
+                    <!-- Order Action Button -->
+                    <button onclick="sendWhatsAppOrder()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldLight text-black font-bold text-sm tracking-wider uppercase shadow-xl hover:opacity-95 transition-opacity flex items-center justify-center space-x-2">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        <span>Confirmar Pedido por WhatsApp</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-border py-12 text-xs text-brand-cream/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            
+            <div class="flex items-center space-x-3">
+                <i data-lucide="mountain" class="w-6 h-6 text-brand-gold"></i>
+                <span class="font-serif text-sm font-bold text-brand-cream tracking-widest">ALMA DE ZARCERO</span>
+            </div>
+
+            <div>
+                <p>© 2026 Alma de Zarcero. Todos los derechos reservados.</p>
+                <p class="text-[10px] text-brand-cream/40 mt-1">Zarcero, Costa Rica • Teléfono: +506 7260 2494</p>
+            </div>
+
+            <div class="flex space-x-4">
+                <a href="https://wa.me/50672602494" target="_blank" class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-gold hover:border-brand-gold transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // State variables for Order Calculator
+        let currentQty = 1;
+        let selectedGrind = 'Café en Grano';
+        let isBrewing = false;
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Quantity Selector
+        function updateQty(change) {
+            currentQty = Math.max(1, currentQty + change);
+            document.getElementById('qtyDisplay').innerText = currentQty;
+        }
+
+        // Grind Selector
+        function selectGrind(type) {
+            selectedGrind = type;
+            const btnGrano = document.getElementById('btnGrano');
+            const btnMolido = document.getElementById('btnMolido');
+
+            if (type === 'Café en Grano') {
+                btnGrano.className = "p-4 rounded-xl border border-brand-gold bg-brand-gold/10 text-brand-cream font-semibold text-sm flex items-center justify-between transition-all";
+                btnGrano.innerHTML = `<span>Café en Grano</span><i data-lucide="check-circle" class="w-5 h-5 text-brand-gold"></i>`;
+                
+                btnMolido.className = "p-4 rounded-xl border border-brand-border bg-brand-dark/60 text-brand-cream/70 font-semibold text-sm flex items-center justify-between transition-all hover:border-brand-gold/40";
+                btnMolido.innerHTML = `<span>Café Molido</span><i data-lucide="circle" class="w-5 h-5 opacity-40"></i>`;
+            } else {
+                btnMolido.className = "p-4 rounded-xl border border-brand-gold bg-brand-gold/10 text-brand-cream font-semibold text-sm flex items-center justify-between transition-all";
+                btnMolido.innerHTML = `<span>Café Molido</span><i data-lucide="check-circle" class="w-5 h-5 text-brand-gold"></i>`;
+
+                btnGrano.className = "p-4 rounded-xl border border-brand-border bg-brand-dark/60 text-brand-cream/70 font-semibold text-sm flex items-center justify-between transition-all hover:border-brand-gold/40";
+                btnGrano.innerHTML = `<span>Café en Grano</span><i data-lucide="circle" class="w-5 h-5 opacity-40"></i>`;
+            }
+            lucide.createIcons();
+        }
+
+        // Send Order to WhatsApp
+        function sendWhatsAppOrder() {
+            const phone = "50672602494";
+            const text = `Hola Alma de Zarcero! Deseo realizar el siguiente pedido:%0A- Cantidad: ${currentQty} bolsa(s) de 500g%0A- Presentación: ${selectedGrind}%0A- Producto: Reserva Milenio (Yellow Honey)%0A%0APor favor indicarme disponibilidad y datos de envío.`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
+        // Interactive Brewing Simulation
+        function toggleBrewing() {
+            const steamContainer = document.getElementById('steamContainer');
+            const dripElement = document.getElementById('dripElement');
+            const brewBtn = document.getElementById('brewBtn');
+
+            if (!isBrewing) {
+                isBrewing = true;
+                brewBtn.innerText = "Detener Infusión";
+                brewBtn.classList.replace('bg-brand-gold', 'bg-red-900');
+                brewBtn.classList.replace('text-black', 'text-white');
+
+                // Activate Steam and Dripping
+                steamContainer.style.opacity = '1';
+                dripElement.style.opacity = '1';
+                dripElement.classList.add('drip-effect');
+            } else {
+                isBrewing = false;
+                brewBtn.innerText = "Iniciar Chorreado Tradicional";
+                brewBtn.classList.replace('bg-red-900', 'bg-brand-gold');
+                brewBtn.classList.replace('text-white', 'text-black');
+
+                // Deactivate Steam and Dripping
+                steamContainer.style.opacity = '0';
+                dripElement.style.opacity = '0';
+                dripElement.classList.remove('drip-effect');
+            }
+        }
+    </script>
+</body>
+</html>
